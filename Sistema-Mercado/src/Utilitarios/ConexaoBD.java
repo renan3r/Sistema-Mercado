@@ -19,13 +19,13 @@ import javax.swing.JOptionPane;
  * @author Junim Roberti
  */
 public class ConexaoBD {
-    public Statement stm;
-    public ResultSet rs;
-    public Connection conn;
+    private Statement stm;
+    private ResultSet rs;
+    private Connection conn;
     public void conexao(){
         try{
             System.setProperty("jdbc.Drivers", "org.apache.derby.jdbc.ClientDriver");
-            conn = DriverManager.getConnection("jdbc:derby://localhost:1527/MercadoBD", "MercadoBD", "bdlps");
+            setConn(DriverManager.getConnection("jdbc:derby://localhost:1527/MercadoBD", "MercadoBD", "bdlps"));
            //JOptionPane.showMessageDialog(null, "Conectado!");
         }catch(SQLException ex){
             Logger.getLogger(ConexaoBD.class.getName()).log(Level.SEVERE, null, ex);
@@ -34,9 +34,51 @@ public class ConexaoBD {
     }
     public void desconecta(){
         try{
-            conn.close();
+            getConn().close();
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null, "Erro!" + ex.getMessage());
         }
+    }
+
+    /**
+     * @return the stm
+     */
+    public Statement getStm() {
+        return stm;
+    }
+
+    /**
+     * @param stm the stm to set
+     */
+    public void setStm(Statement stm) {
+        this.stm = stm;
+    }
+
+    /**
+     * @return the rs
+     */
+    public ResultSet getRs() {
+        return rs;
+    }
+
+    /**
+     * @param rs the rs to set
+     */
+    public void setRs(ResultSet rs) {
+        this.rs = rs;
+    }
+
+    /**
+     * @return the conn
+     */
+    public Connection getConn() {
+        return conn;
+    }
+
+    /**
+     * @param conn the conn to set
+     */
+    public void setConn(Connection conn) {
+        this.conn = conn;
     }
 }
