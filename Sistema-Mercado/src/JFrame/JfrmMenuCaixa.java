@@ -5,6 +5,8 @@
  */
 package JFrame;
 
+import Utilitarios.ConexaoBD;
+
 /**
  *
  * @author Leticia Ribeiro
@@ -14,8 +16,10 @@ public class JfrmMenuCaixa extends javax.swing.JFrame {
     /**
      * Creates new form JfrmMenuCaixa
      */
+     ConexaoBD conecta = new ConexaoBD();
     public JfrmMenuCaixa() {
         initComponents();
+        conecta.conexao();
     }
 
     /**

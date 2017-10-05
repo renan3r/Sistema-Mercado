@@ -5,6 +5,8 @@
  */
 package JFrame;
 
+import Utilitarios.ConexaoBD;
+
 /**
  *
  * @author Leticia Ribeiro
@@ -14,8 +16,10 @@ public class JfrmLogin extends javax.swing.JFrame {
     /**
      * Creates new form JfrmLogin
      */
+    ConexaoBD conecta = new ConexaoBD();
     public JfrmLogin() {
         initComponents();
+        conecta.conexao();
     }
 
     /**
