@@ -5,6 +5,8 @@
  */
 package sistema.mercado;
 
+import JFrame.JfrmLogin;
+
 /**
  *
  * @author Junim Roberti
@@ -16,6 +18,10 @@ public class SistemaMercado {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+            JfrmLogin login = new JfrmLogin();
+            login.setLocationRelativeTo(null);
+            login.setDefaultCloseOperation(login.EXIT_ON_CLOSE);
+            login.setVisible(true);
     }
     
 }

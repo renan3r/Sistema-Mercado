@@ -36,8 +36,8 @@ public class JfrmLogin extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jtxtUsuario = new javax.swing.JTextField();
-        jtxtSenha = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jtxtSenha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,12 +55,6 @@ public class JfrmLogin extends javax.swing.JFrame {
         jtxtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtxtUsuarioActionPerformed(evt);
-            }
-        });
-
-        jtxtSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxtSenhaActionPerformed(evt);
             }
         });
 
@@ -83,13 +77,13 @@ public class JfrmLogin extends javax.swing.JFrame {
                         .addGap(174, 174, 174)
                         .addComponent(jLabel4))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(149, 149, 149)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(135, 135, 135)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jtxtSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
-                            .addComponent(jtxtUsuario)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(149, 149, 149)
-                        .addComponent(jButton1)))
+                            .addComponent(jtxtUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+                            .addComponent(jtxtSenha))))
                 .addContainerGap(156, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -109,9 +103,9 @@ public class JfrmLogin extends javax.swing.JFrame {
                 .addComponent(jtxtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
-                .addGap(7, 7, 7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jtxtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(26, 26, 26)
                 .addComponent(jButton1)
                 .addContainerGap(48, Short.MAX_VALUE))
         );
@@ -122,10 +116,6 @@ public class JfrmLogin extends javax.swing.JFrame {
     private void jtxtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxtUsuarioActionPerformed
-
-    private void jtxtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtxtSenhaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,7 +158,7 @@ public class JfrmLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jtxtSenha;
+    private javax.swing.JPasswordField jtxtSenha;
     private javax.swing.JTextField jtxtUsuario;
     // End of variables declaration//GEN-END:variables
 }
