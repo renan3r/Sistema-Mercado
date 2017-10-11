@@ -46,7 +46,7 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/JFrame/manager_icon.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/manager_icon.png"))); // NOI18N
 
         jmnAddFuncionario.setText(" Funcionarios");
 
@@ -105,14 +105,14 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(286, Short.MAX_VALUE)
+                .addContainerGap(190, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(158, Short.MAX_VALUE)
+                .addContainerGap(62, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(25, 25, 25))
         );

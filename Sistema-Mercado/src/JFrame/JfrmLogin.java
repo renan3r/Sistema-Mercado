@@ -41,7 +41,7 @@ public class JfrmLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/JFrame/Padlock_36857.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Padlock_36857.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("Login");
@@ -71,8 +71,8 @@ public class JfrmLogin extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(174, 174, 174)
                         .addComponent(jLabel4))
