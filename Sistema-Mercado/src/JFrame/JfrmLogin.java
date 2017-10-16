@@ -6,6 +6,8 @@
 package JFrame;
 
 import Utilitarios.ConexaoBD;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -41,7 +43,7 @@ public class JfrmLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/JFrame/Padlock_36857.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Padlock_36857.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("Login");
@@ -59,6 +61,11 @@ public class JfrmLogin extends javax.swing.JFrame {
         });
 
         jButton1.setText("Confirmar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -71,8 +78,8 @@ public class JfrmLogin extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(174, 174, 174)
                         .addComponent(jLabel4))
@@ -116,6 +123,34 @@ public class JfrmLogin extends javax.swing.JFrame {
     private void jtxtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxtUsuarioActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        try {
+            conecta.executaSQL("SELECT * FROM MERCADOBD.\"Funcionario\" where \"Login\"='" +jtxtUsuario.getText()+"'" );
+            conecta.getRs().first();
+            //so entra no if se encontra o usuario ai compara a senha
+            if(conecta.getRs().getString("senha").equals(jtxtSenha.getText())){
+               if(conecta.getRs().getString("tipo").equals("1")){
+                   JfrmMenuGerente tela =  new JfrmMenuGerente();
+                   tela.setVisible(true);
+                   dispose();
+               }
+               if(conecta.getRs().getString("tipo").equals("2")){
+                  JfrmMenuCaixa tela =  new JfrmMenuCaixa();
+                   tela.setVisible(true);
+                   dispose();
+               }
+            }else{
+                   JOptionPane.showMessageDialog(rootPane, "Senha ou usuario invalidos");
+            }
+              
+            
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(rootPane, "Senha ou usuario invalidos"+ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

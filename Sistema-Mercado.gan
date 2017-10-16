@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Sistema-Mercado" company="RLJSISTEMAS" webLink="http://" view-date="2017-10-12" view-index="0" gantt-divider-location="387" resource-divider-location="300" version="2.8.5" locale="pt_BR">
+<?xml version="1.0" encoding="UTF-8"?><project name="Sistema-Mercado" company="RLJSISTEMAS" webLink="http://" view-date="2017-09-14" view-index="0" gantt-divider-location="387" resource-divider-location="300" version="2.8.5" locale="pt_BR">
     <description/>
     <view zooming-state="default:3" id="gantt-chart">
         <field id="tpd3" name="Nome" width="256" order="0"/>
@@ -69,16 +69,16 @@
         <task id="5" name="Diagrama Sequencia Analise" color="#8cb6ce" meeting="false" start="2017-08-23" duration="4" complete="100" expand="true"/>
         <task id="6" name="Documento Requisitos" color="#8cb6ce" meeting="false" start="2017-08-28" duration="2" complete="100" expand="true"/>
         <task id="17" name="Gerencia de Configuração" color="#8cb6ce" meeting="false" start="2017-09-27" duration="1" complete="100" expand="true"/>
-        <task id="18" name="Diagrama de Classe de Projeto" color="#8cb6ce" meeting="false" start="2017-10-02" duration="13" complete="0" expand="true"/>
-        <task id="19" name="Diagrama de Sequencia de Projeto" color="#8cb6ce" meeting="false" start="2017-10-02" duration="13" complete="0" expand="true"/>
+        <task id="18" name="Diagrama de Classe de Projeto" color="#8cb6ce" meeting="false" start="2017-10-02" duration="13" complete="100" expand="true"/>
+        <task id="19" name="Diagrama de Sequencia de Projeto" color="#8cb6ce" meeting="false" start="2017-10-02" duration="13" complete="100" expand="true"/>
         <task id="20" name="Atualização dos diagramas anteriores" color="#8cb6ce" meeting="false" start="2017-10-02" duration="13" complete="0" expand="true"/>
-        <task id="21" name="Esquema de Banco de Dados" color="#8cb6ce" meeting="false" start="2017-10-02" duration="13" complete="0" expand="true">
+        <task id="21" name="Esquema de Banco de Dados" color="#8cb6ce" meeting="false" start="2017-10-02" duration="13" complete="100" expand="true">
             <depend id="24" type="2" difference="0" hardness="Strong"/>
         </task>
         <task id="22" name="Interfaces do Sistema com validação de campos" color="#8cb6ce" meeting="false" start="2017-10-02" duration="13" complete="0" expand="true"/>
-        <task id="23" name="Conexão com o banco de dados" color="#8cb6ce" meeting="false" start="2017-10-02" duration="13" complete="0" expand="true"/>
-        <task id="24" name="Banco de Dados implementado" color="#8cb6ce" meeting="false" start="2017-10-20" duration="13" complete="0" expand="true"/>
-        <task id="25" name="Controle de acesso e perfil de acesso" color="#8cb6ce" meeting="false" start="2017-10-20" duration="13" complete="0" expand="true"/>
+        <task id="23" name="Conexão com o banco de dados" color="#8cb6ce" meeting="false" start="2017-10-02" duration="13" complete="100" expand="true"/>
+        <task id="24" name="Banco de Dados implementado" color="#8cb6ce" meeting="false" start="2017-10-20" duration="13" complete="100" expand="true"/>
+        <task id="25" name="Controle de acesso e perfil de acesso" color="#8cb6ce" meeting="false" start="2017-10-20" duration="13" complete="100" expand="true"/>
         <task id="27" name="Sistema completo" color="#8cb6ce" meeting="false" start="2017-10-23" duration="17" complete="0" expand="true"/>
         <task id="29" name="Teste de unidade do sistema" color="#8cb6ce" meeting="false" start="2017-10-23" duration="17" complete="0" expand="true"/>
     </tasks>
