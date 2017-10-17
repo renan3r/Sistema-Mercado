@@ -32,6 +32,16 @@ public class ConexaoBD {
             JOptionPane.showMessageDialog(null, "Erro!" + ex.getMessage());
         }
     }
+    
+    public void executaSQL(String sql){
+        try {
+            stm = conn.createStatement(rs.TYPE_SCROLL_INSENSITIVE,rs.CONCUR_READ_ONLY);
+            rs = stm.executeQuery(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(ConexaoBD.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Erro no executaSQL!" + ex.getMessage());
+        }
+    }
     public void desconecta(){
         try{
             getConn().close();

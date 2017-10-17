@@ -46,7 +46,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFeMC3Ffp0fWXo="
 							},
-							"name": "CadastrarFornecedor",
+							"name": "AdicionarEstoque",
 							"visible": true,
 							"defaultDiagram": false,
 							"ownedViews": [
@@ -488,7 +488,7 @@
 													"height": 13,
 													"autoResize": false,
 													"underline": false,
-													"text": "Janela Cadastra Fornecedor",
+													"text": "Janela Adicionar Estoque",
 													"horizontalAlignment": 2,
 													"verticalAlignment": 5,
 													"wordWrap": false
@@ -860,7 +860,7 @@
 													"height": 13,
 													"autoResize": false,
 													"underline": false,
-													"text": "Fornecedor",
+													"text": "Estoque",
 													"horizontalAlignment": 2,
 													"verticalAlignment": 5,
 													"wordWrap": false
@@ -1681,7 +1681,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFeMC3Ffp0fWXo="
 							},
-							"name": "Janela Cadastra Fornecedor",
+							"name": "Janela Adicionar Estoque",
 							"visibility": "public",
 							"represent": {
 								"$ref": "AAAAAAFfKkZaa3qBmmQ="
@@ -1694,7 +1694,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFeMC3Ffp0fWXo="
 							},
-							"name": "Fornecedor",
+							"name": "Estoque",
 							"visibility": "public",
 							"represent": {
 								"$ref": "AAAAAAFfKkbPYXq39kA="

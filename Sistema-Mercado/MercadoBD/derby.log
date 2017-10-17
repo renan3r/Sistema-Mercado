@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Fri Oct 06 16:05:04 BRT 2017 : Apache Derby Servidor de Rede - 10.13.1.1 - (Unversioned directory) iniciado e pronto para aceitar conexões na porta 1527 em {3}
 Fri Oct 06 16:05:04 BRT 2017 Thread[DRDAConnThread_2,5,main] Cleanup action starting
 java.sql.SQLException: Banco de dados 'MercadoBD' não encontrado.
@@ -112,3 +113,9 @@ Fri Oct 06 16:05:08 BRT 2017 Thread[DRDAConnThread_2,5,main] (DATABASE = Mercado
 ----------------------------------------------------------------
 Fri Oct 06 16:05:25 BRT 2017: Shutting down Derby engine
 ----------------------------------------------------------------
+=======
+Fri Oct 06 16:11:02 BRT 2017 : Apache Derby Servidor de Rede - 10.13.1.1 - (Unversioned directory) iniciado e pronto para aceitar conexões na porta 1527 em {3}
+----------------------------------------------------------------
+Fri Oct 06 16:11:33 BRT 2017: Shutting down Derby engine
+----------------------------------------------------------------
+>>>>>>> 0f30fbaee22bbf5aca7e525189963eb7302c9c18
