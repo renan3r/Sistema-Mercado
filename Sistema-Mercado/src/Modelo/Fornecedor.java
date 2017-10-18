@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sistema.mercado;
+package Modelo;
 
 /**
  *
@@ -17,13 +17,6 @@ public class Fornecedor {
     private String telefone;
     private String produto;
     private int codigoForncedor;
-    
-    public void cadastrarFornecedor(){
-        
-    }
-    public void removerFornecedor(){
-        
-    }
     /**
      * @return the nomeFornecedor
      */

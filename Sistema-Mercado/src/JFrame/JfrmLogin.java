@@ -21,6 +21,7 @@ public class JfrmLogin extends javax.swing.JFrame {
     ConexaoBD conecta = new ConexaoBD();
     public JfrmLogin() {
         initComponents();
+        getRootPane().setDefaultButton(jButton1);
         conecta.conexao();
     }
 
@@ -126,7 +127,6 @@ public class JfrmLogin extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
         try {
             conecta.executaSQL("SELECT * FROM MERCADOBD.\"Funcionario\" where \"Login\"='" +jtxtUsuario.getText()+"'" );
             conecta.getRs().first();
