@@ -46,7 +46,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFeMC3Ffp0fWXo="
 							},
-							"name": "CadastrarFornecedor",
+							"name": "GerarNotaFiscal",
 							"visible": true,
 							"defaultDiagram": false,
 							"ownedViews": [
@@ -280,9 +280,9 @@
 											"showShadow": true,
 											"containerChangeable": false,
 											"containerExtending": false,
-											"left": 161,
+											"left": 137,
 											"top": 128,
-											"width": 114.9052734375,
+											"width": 162.6142578125,
 											"height": 13,
 											"autoResize": false,
 											"alpha": 1.5707963267948966,
@@ -292,7 +292,7 @@
 											},
 											"edgePosition": 1,
 											"underline": false,
-											"text": "1 : Preenche Dados",
+											"text": "1 : Preenche Codigo Pedido",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -386,7 +386,7 @@
 											"left": 348,
 											"top": 144,
 											"width": 14,
-											"height": 57,
+											"height": 145,
 											"autoResize": false
 										}
 									],
@@ -488,7 +488,7 @@
 													"height": 13,
 													"autoResize": false,
 													"underline": false,
-													"text": "Janela Cadastra Fornecedor",
+													"text": "Janela Gerar Nota Fiscal",
 													"horizontalAlignment": 2,
 													"verticalAlignment": 5,
 													"wordWrap": false
@@ -652,9 +652,9 @@
 											"showShadow": true,
 											"containerChangeable": false,
 											"containerExtending": false,
-											"left": 429,
+											"left": 401,
 											"top": 128,
-											"width": 95.38623046875,
+											"width": 151.0361328125,
 											"height": 13,
 											"autoResize": false,
 											"alpha": 1.5707963267948966,
@@ -664,7 +664,7 @@
 											},
 											"edgePosition": 1,
 											"underline": false,
-											"text": "2 : Insere Dados",
+											"text": "2 : Informa Codigo Pedido",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -758,7 +758,7 @@
 											"left": 592,
 											"top": 144,
 											"width": 14,
-											"height": 57,
+											"height": 137,
 											"autoResize": false
 										}
 									],
@@ -860,7 +860,7 @@
 													"height": 13,
 													"autoResize": false,
 													"underline": false,
-													"text": "Fornecedor",
+													"text": "Pedido",
 													"horizontalAlignment": 2,
 													"verticalAlignment": 5,
 													"wordWrap": false
@@ -998,6 +998,346 @@
 								},
 								{
 									"_type": "UMLSeqMessageView",
+									"_id": "AAAAAAFfKtbtx0iX8uo=",
+									"_parent": {
+										"$ref": "AAAAAAFeMC3Ffp0gwcQ="
+									},
+									"model": {
+										"$ref": "AAAAAAFfKtbtx0iWzGM="
+									},
+									"subViews": [
+										{
+											"_type": "EdgeLabelView",
+											"_id": "AAAAAAFfKtbtx0iYKaY=",
+											"_parent": {
+												"$ref": "AAAAAAFfKtbtx0iX8uo="
+											},
+											"model": {
+												"$ref": "AAAAAAFfKtbtx0iWzGM="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 656,
+											"top": 152,
+											"width": 91.05712890625,
+											"height": 13,
+											"autoResize": false,
+											"alpha": 1.6313273374278743,
+											"distance": 66.12110101926616,
+											"hostEdge": {
+												"$ref": "AAAAAAFfKtbtx0iX8uo="
+											},
+											"edgePosition": 1,
+											"underline": false,
+											"text": "3 : Busca Peido",
+											"horizontalAlignment": 2,
+											"verticalAlignment": 5,
+											"wordWrap": false
+										},
+										{
+											"_type": "EdgeLabelView",
+											"_id": "AAAAAAFfKtbtx0iZFaE=",
+											"_parent": {
+												"$ref": "AAAAAAFfKtbtx0iX8uo="
+											},
+											"model": {
+												"$ref": "AAAAAAFfKtbtx0iWzGM="
+											},
+											"visible": false,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 659,
+											"top": 155,
+											"width": 0,
+											"height": 13,
+											"autoResize": false,
+											"alpha": 1.5707963267948966,
+											"distance": 25,
+											"hostEdge": {
+												"$ref": "AAAAAAFfKtbtx0iX8uo="
+											},
+											"edgePosition": 1,
+											"underline": false,
+											"horizontalAlignment": 2,
+											"verticalAlignment": 5,
+											"wordWrap": false
+										},
+										{
+											"_type": "EdgeLabelView",
+											"_id": "AAAAAAFfKtbt10ia5J4=",
+											"_parent": {
+												"$ref": "AAAAAAFfKtbtx0iX8uo="
+											},
+											"model": {
+												"$ref": "AAAAAAFfKtbtx0iWzGM="
+											},
+											"visible": false,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 625,
+											"top": 156,
+											"width": 0,
+											"height": 13,
+											"autoResize": false,
+											"alpha": -1.5707963267948966,
+											"distance": 10,
+											"hostEdge": {
+												"$ref": "AAAAAAFfKtbtx0iX8uo="
+											},
+											"edgePosition": 1,
+											"underline": false,
+											"horizontalAlignment": 2,
+											"verticalAlignment": 5,
+											"wordWrap": false
+										},
+										{
+											"_type": "UMLActivationView",
+											"_id": "AAAAAAFfKtbt10ibd+U=",
+											"_parent": {
+												"$ref": "AAAAAAFfKtbtx0iX8uo="
+											},
+											"model": {
+												"$ref": "AAAAAAFfKtbtx0iWzGM="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 599,
+											"top": 172,
+											"width": 14,
+											"height": 29,
+											"autoResize": false
+										}
+									],
+									"visible": true,
+									"enabled": true,
+									"lineColor": "#000000",
+									"fillColor": "#ffffff",
+									"fontColor": "#000000",
+									"font": "Arial;13;0",
+									"showShadow": true,
+									"containerChangeable": false,
+									"containerExtending": false,
+									"head": {
+										"$ref": "AAAAAAFfKkbPYXq/mEM="
+									},
+									"tail": {
+										"$ref": "AAAAAAFfKkbPYXq/mEM="
+									},
+									"lineStyle": 0,
+									"points": "605:152;635:152;635:172;612:172",
+									"nameLabel": {
+										"$ref": "AAAAAAFfKtbtx0iYKaY="
+									},
+									"stereotypeLabel": {
+										"$ref": "AAAAAAFfKtbtx0iZFaE="
+									},
+									"propertyLabel": {
+										"$ref": "AAAAAAFfKtbt10ia5J4="
+									},
+									"activation": {
+										"$ref": "AAAAAAFfKtbt10ibd+U="
+									},
+									"showProperty": true,
+									"showType": true
+								},
+								{
+									"_type": "UMLSeqMessageView",
+									"_id": "AAAAAAFfKtePkEixICY=",
+									"_parent": {
+										"$ref": "AAAAAAFeMC3Ffp0gwcQ="
+									},
+									"model": {
+										"$ref": "AAAAAAFfKtePkEiw/M4="
+									},
+									"subViews": [
+										{
+											"_type": "EdgeLabelView",
+											"_id": "AAAAAAFfKtePkEiy/uM=",
+											"_parent": {
+												"$ref": "AAAAAAFfKtePkEixICY="
+											},
+											"model": {
+												"$ref": "AAAAAAFfKtePkEiw/M4="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 648,
+											"top": 211,
+											"width": 115.59716796875,
+											"height": 13,
+											"autoResize": false,
+											"alpha": 1.5850800673418937,
+											"distance": 70.00714249274856,
+											"hostEdge": {
+												"$ref": "AAAAAAFfKtePkEixICY="
+											},
+											"edgePosition": 1,
+											"underline": false,
+											"text": "4 : Gera Nota Fiscal",
+											"horizontalAlignment": 2,
+											"verticalAlignment": 5,
+											"wordWrap": false
+										},
+										{
+											"_type": "EdgeLabelView",
+											"_id": "AAAAAAFfKtePkEizkfk=",
+											"_parent": {
+												"$ref": "AAAAAAFfKtePkEixICY="
+											},
+											"model": {
+												"$ref": "AAAAAAFfKtePkEiw/M4="
+											},
+											"visible": false,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 659,
+											"top": 211,
+											"width": 0,
+											"height": 13,
+											"autoResize": false,
+											"alpha": 1.5707963267948966,
+											"distance": 25,
+											"hostEdge": {
+												"$ref": "AAAAAAFfKtePkEixICY="
+											},
+											"edgePosition": 1,
+											"underline": false,
+											"horizontalAlignment": 2,
+											"verticalAlignment": 5,
+											"wordWrap": false
+										},
+										{
+											"_type": "EdgeLabelView",
+											"_id": "AAAAAAFfKtePkEi0pWo=",
+											"_parent": {
+												"$ref": "AAAAAAFfKtePkEixICY="
+											},
+											"model": {
+												"$ref": "AAAAAAFfKtePkEiw/M4="
+											},
+											"visible": false,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 625,
+											"top": 212,
+											"width": 0,
+											"height": 13,
+											"autoResize": false,
+											"alpha": -1.5707963267948966,
+											"distance": 10,
+											"hostEdge": {
+												"$ref": "AAAAAAFfKtePkEixICY="
+											},
+											"edgePosition": 1,
+											"underline": false,
+											"horizontalAlignment": 2,
+											"verticalAlignment": 5,
+											"wordWrap": false
+										},
+										{
+											"_type": "UMLActivationView",
+											"_id": "AAAAAAFfKtePkEi1O90=",
+											"_parent": {
+												"$ref": "AAAAAAFfKtePkEixICY="
+											},
+											"model": {
+												"$ref": "AAAAAAFfKtePkEiw/M4="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 599,
+											"top": 228,
+											"width": 14,
+											"height": 29,
+											"autoResize": false
+										}
+									],
+									"visible": true,
+									"enabled": true,
+									"lineColor": "#000000",
+									"fillColor": "#ffffff",
+									"fontColor": "#000000",
+									"font": "Arial;13;0",
+									"showShadow": true,
+									"containerChangeable": false,
+									"containerExtending": false,
+									"head": {
+										"$ref": "AAAAAAFfKkbPYXq/mEM="
+									},
+									"tail": {
+										"$ref": "AAAAAAFfKkbPYXq/mEM="
+									},
+									"lineStyle": 0,
+									"points": "605:208;635:208;635:228;612:228",
+									"nameLabel": {
+										"$ref": "AAAAAAFfKtePkEiy/uM="
+									},
+									"stereotypeLabel": {
+										"$ref": "AAAAAAFfKtePkEizkfk="
+									},
+									"propertyLabel": {
+										"$ref": "AAAAAAFfKtePkEi0pWo="
+									},
+									"activation": {
+										"$ref": "AAAAAAFfKtePkEi1O90="
+									},
+									"showProperty": true,
+									"showType": true
+								},
+								{
+									"_type": "UMLSeqMessageView",
 									"_id": "AAAAAAFfKkkubHsMRzw=",
 									"_parent": {
 										"$ref": "AAAAAAFeMC3Ffp0gwcQ="
@@ -1024,19 +1364,19 @@
 											"showShadow": true,
 											"containerChangeable": false,
 											"containerExtending": false,
-											"left": 154,
-											"top": 199,
+											"left": 152,
+											"top": 276,
 											"width": 127.892578125,
 											"height": 13,
 											"autoResize": false,
-											"alpha": 1.5707963267948966,
-											"distance": 10,
+											"alpha": 1.2793404497484746,
+											"distance": 10.44030650891055,
 											"hostEdge": {
 												"$ref": "AAAAAAFfKkkubHsMRzw="
 											},
 											"edgePosition": 1,
 											"underline": false,
-											"text": "4 : Exibe Confirmação",
+											"text": "6 : Exibe Nota Fiscal",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -1060,7 +1400,7 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 217,
-											"top": 214,
+											"top": 291,
 											"width": 0,
 											"height": 13,
 											"autoResize": false,
@@ -1094,7 +1434,7 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 218,
-											"top": 179,
+											"top": 256,
 											"width": 0,
 											"height": 13,
 											"autoResize": false,
@@ -1128,7 +1468,7 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 88,
-											"top": 195,
+											"top": 272,
 											"width": 14,
 											"height": 25,
 											"autoResize": false
@@ -1150,7 +1490,7 @@
 										"$ref": "AAAAAAFfKkZaa3qJaQQ="
 									},
 									"lineStyle": 0,
-									"points": "348:195;88:195",
+									"points": "348:272;88:272",
 									"nameLabel": {
 										"$ref": "AAAAAAFfKkkubHsNsoo="
 									},
@@ -1195,7 +1535,7 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 405,
-											"top": 188,
+											"top": 260,
 											"width": 141.62255859375,
 											"height": 13,
 											"autoResize": false,
@@ -1206,7 +1546,7 @@
 											},
 											"edgePosition": 1,
 											"underline": false,
-											"text": "3 : Retorna Confirmação",
+											"text": "5 : Retorna Nota Fiscal",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -1230,7 +1570,7 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 475,
-											"top": 203,
+											"top": 275,
 											"width": 0,
 											"height": 13,
 											"autoResize": false,
@@ -1264,7 +1604,7 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 476,
-											"top": 168,
+											"top": 240,
 											"width": 0,
 											"height": 13,
 											"autoResize": false,
@@ -1298,7 +1638,7 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 348,
-											"top": 184,
+											"top": 256,
 											"width": 14,
 											"height": 25,
 											"autoResize": false
@@ -1320,7 +1660,7 @@
 										"$ref": "AAAAAAFfKkbPYXq/mEM="
 									},
 									"lineStyle": 0,
-									"points": "592:184;361:184",
+									"points": "592:256;361:256",
 									"nameLabel": {
 										"$ref": "AAAAAAFfKkjQBHr3EjA="
 									},
@@ -1351,7 +1691,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFeMC3Ffp0fWXo="
 							},
-							"name": "Preenche Dados",
+							"name": "Preenche Codigo Pedido",
 							"source": {
 								"$ref": "AAAAAAFeMDRhRZ0uPSg="
 							},
@@ -1368,9 +1708,43 @@
 							"_parent": {
 								"$ref": "AAAAAAFeMC3Ffp0fWXo="
 							},
-							"name": "Insere Dados",
+							"name": "Informa Codigo Pedido",
 							"source": {
 								"$ref": "AAAAAAFfKkZaa3qCZQ8="
+							},
+							"target": {
+								"$ref": "AAAAAAFfKkbPYXq4QgU="
+							},
+							"visibility": "public",
+							"messageSort": "synchCall",
+							"isConcurrentIteration": false
+						},
+						{
+							"_type": "UMLMessage",
+							"_id": "AAAAAAFfKtbtx0iWzGM=",
+							"_parent": {
+								"$ref": "AAAAAAFeMC3Ffp0fWXo="
+							},
+							"name": "Busca Peido",
+							"source": {
+								"$ref": "AAAAAAFfKkbPYXq4QgU="
+							},
+							"target": {
+								"$ref": "AAAAAAFfKkbPYXq4QgU="
+							},
+							"visibility": "public",
+							"messageSort": "synchCall",
+							"isConcurrentIteration": false
+						},
+						{
+							"_type": "UMLMessage",
+							"_id": "AAAAAAFfKtePkEiw/M4=",
+							"_parent": {
+								"$ref": "AAAAAAFeMC3Ffp0fWXo="
+							},
+							"name": "Gera Nota Fiscal",
+							"source": {
+								"$ref": "AAAAAAFfKkbPYXq4QgU="
 							},
 							"target": {
 								"$ref": "AAAAAAFfKkbPYXq4QgU="
@@ -1385,7 +1759,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFeMC3Ffp0fWXo="
 							},
-							"name": "Retorna Confirmação",
+							"name": "Retorna Nota Fiscal",
 							"source": {
 								"$ref": "AAAAAAFfKkbPYXq4QgU="
 							},
@@ -1402,7 +1776,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFeMC3Ffp0fWXo="
 							},
-							"name": "Exibe Confirmação",
+							"name": "Exibe Nota Fiscal",
 							"source": {
 								"$ref": "AAAAAAFfKkZaa3qCZQ8="
 							},
@@ -1681,7 +2055,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFeMC3Ffp0fWXo="
 							},
-							"name": "Janela Cadastra Fornecedor",
+							"name": "Janela Gerar Nota Fiscal",
 							"visibility": "public",
 							"represent": {
 								"$ref": "AAAAAAFfKkZaa3qBmmQ="
@@ -1694,7 +2068,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFeMC3Ffp0fWXo="
 							},
-							"name": "Fornecedor",
+							"name": "Pedido",
 							"visibility": "public",
 							"represent": {
 								"$ref": "AAAAAAFfKkbPYXq39kA="

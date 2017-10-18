@@ -29,6 +29,9 @@ public class JfrmGerarRelatorio extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jbtnGerarRelatorio = new javax.swing.JButton();
+        jtxtDia = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jbtnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -36,6 +39,16 @@ public class JfrmGerarRelatorio extends javax.swing.JFrame {
         jLabel1.setText("Gerar Relátorio");
 
         jbtnGerarRelatorio.setText("Gerar Relátorio");
+
+        jtxtDia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxtDiaActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Dia desejado");
+
+        jbtnCancelar.setText("Cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -47,22 +60,39 @@ public class JfrmGerarRelatorio extends javax.swing.JFrame {
                         .addGap(113, 113, 113)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(133, 133, 133)
-                        .addComponent(jbtnGerarRelatorio)))
-                .addContainerGap(125, Short.MAX_VALUE))
+                        .addGap(83, 83, 83)
+                        .addComponent(jbtnGerarRelatorio)
+                        .addGap(38, 38, 38)
+                        .addComponent(jbtnCancelar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(jLabel2)
+                        .addGap(53, 53, 53)
+                        .addComponent(jtxtDia, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jLabel1)
-                .addGap(86, 86, 86)
-                .addComponent(jbtnGerarRelatorio)
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtxtDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(68, 68, 68)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbtnGerarRelatorio)
+                    .addComponent(jbtnCancelar))
+                .addGap(59, 59, 59))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jtxtDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtDiaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxtDiaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -101,6 +131,9 @@ public class JfrmGerarRelatorio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton jbtnCancelar;
     private javax.swing.JButton jbtnGerarRelatorio;
+    private javax.swing.JTextField jtxtDia;
     // End of variables declaration//GEN-END:variables
 }
