@@ -227,7 +227,7 @@ public class JfrmMenuCaixa extends javax.swing.JFrame {
 
     private void jmnRealizarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmnRealizarVendaActionPerformed
         // TODO add your handling code here:
-         JfrmRealizarVenda tela =  new JfrmRealizarVenda();
+         JfrmFazerPedido tela =  new JfrmFazerPedido();
                    tela.setVisible(true);
     }//GEN-LAST:event_jmnRealizarVendaActionPerformed
 
