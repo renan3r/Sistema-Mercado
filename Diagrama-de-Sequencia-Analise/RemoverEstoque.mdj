@@ -46,7 +46,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFeLvQP9CIqltc="
 							},
-							"name": "RemoverProduto",
+							"name": "RemoverEstoque",
 							"visible": true,
 							"defaultDiagram": false,
 							"ownedViews": [
@@ -77,11 +77,11 @@
 											"containerExtending": false,
 											"left": 70.97900390625,
 											"top": 5,
-											"width": 99.26806640625,
+											"width": 101.43896484375,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "RemoverProduto",
+											"text": "RemoverEstoque",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -402,7 +402,7 @@
 													"height": 13,
 													"autoResize": false,
 													"underline": false,
-													"text": "Janela Remover Produto",
+													"text": "Janela Remover Estoque",
 													"horizontalAlignment": 2,
 													"verticalAlignment": 5,
 													"wordWrap": false
@@ -918,7 +918,7 @@
 											},
 											"edgePosition": 1,
 											"underline": false,
-											"text": "3 : Busca Produto",
+											"text": "3 : Busca Estoque",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -1114,7 +1114,7 @@
 													"height": 13,
 													"autoResize": false,
 													"underline": false,
-													"text": "Produto",
+													"text": "Estoque",
 													"horizontalAlignment": 2,
 													"verticalAlignment": 5,
 													"wordWrap": false
@@ -1460,7 +1460,7 @@
 											},
 											"edgePosition": 1,
 											"underline": false,
-											"text": "4 : Exibe Produto Inserido",
+											"text": "4 : Exibe Estoque Inserido",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -1800,7 +1800,7 @@
 											},
 											"edgePosition": 1,
 											"underline": false,
-											"text": "8 : Exclui Produto",
+											"text": "8 : Exclui Estoque",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -2489,7 +2489,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFeLvQP9CIqltc="
 							},
-							"name": "Busca Produto",
+							"name": "Busca Estoque",
 							"source": {
 								"$ref": "AAAAAAFfKlQY4OauSs4="
 							},
@@ -2506,7 +2506,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFeLvQP9CIqltc="
 							},
-							"name": "Exibe Produto Inserido",
+							"name": "Exibe Estoque Inserido",
 							"source": {
 								"$ref": "AAAAAAFfKlPmz+aOuEk="
 							},
@@ -2574,7 +2574,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFeLvQP9CIqltc="
 							},
-							"name": "Exclui Produto",
+							"name": "Exclui Estoque",
 							"source": {
 								"$ref": "AAAAAAFfKlQY4OauSs4="
 							},
@@ -2935,7 +2935,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFeLvQP9CIqltc="
 							},
-							"name": "Janela Remover Produto",
+							"name": "Janela Remover Estoque",
 							"visibility": "public",
 							"represent": {
 								"$ref": "AAAAAAFfKlPmz+aNfPY="
@@ -2948,7 +2948,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFeLvQP9CIqltc="
 							},
-							"name": "Produto",
+							"name": "Estoque",
 							"visibility": "public",
 							"represent": {
 								"$ref": "AAAAAAFfKlQY4OatA+I="
