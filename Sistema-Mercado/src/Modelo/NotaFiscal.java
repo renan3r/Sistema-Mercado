@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sistema.mercado;
+package Modelo;
 
 /**
  *
@@ -12,11 +12,6 @@ package sistema.mercado;
 public class NotaFiscal {
     private int codigoFiscal;
     private String fornecedor;
-    
-    public void cadastrarNotaFiscal(){
-        
-    }
-
     /**
      * @return the codigoFiscal
      */

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sistema.mercado;
+package Modelo;
 
 /**
  *
@@ -14,17 +14,6 @@ public class Funcionario {
     private String login;
     private String senha;
     private int tipo;
-    
-    public void cadastrarFuncionario(){
-        
-    }
-    public void removerFuncionario(){
-        
-    }
-    public void gerarRelatorio(){
-        
-    }
-
     /**
      * @return the nomeFuncionario
      */
