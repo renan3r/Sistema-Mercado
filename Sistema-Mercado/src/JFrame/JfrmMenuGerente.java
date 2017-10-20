@@ -34,15 +34,15 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jmnMenu = new javax.swing.JMenuBar();
         jmnAddFuncionario = new javax.swing.JMenu();
-        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
-        jmnExcluiFuncionario = new javax.swing.JCheckBoxMenuItem();
-        jmnBuscarFuncionario = new javax.swing.JCheckBoxMenuItem();
-        jmnAlterarFuncionario = new javax.swing.JCheckBoxMenuItem();
+        jMenuCadastrarFuncionario = new javax.swing.JMenuItem();
+        jMenuExcluirFuncionario = new javax.swing.JMenuItem();
+        jMenuBuscarFuncionario = new javax.swing.JMenuItem();
+        jMenuAlterarFuncionario = new javax.swing.JMenuItem();
         jmnGerarRelatorio = new javax.swing.JMenu();
-        jCheckBoxMenuItem6 = new javax.swing.JCheckBoxMenuItem();
-        jmnConsultarRelatorio = new javax.swing.JCheckBoxMenuItem();
+        jMenuGerarRelatorio = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
         jmnSais = new javax.swing.JMenu();
-        jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
+        jMenuSair = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,76 +50,39 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
 
         jmnAddFuncionario.setText(" Funcionarios");
 
-        jCheckBoxMenuItem1.setSelected(true);
-        jCheckBoxMenuItem1.setText("Adicionar Funcionario");
-        jCheckBoxMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxMenuItem1ActionPerformed(evt);
-            }
-        });
-        jmnAddFuncionario.add(jCheckBoxMenuItem1);
+        jMenuCadastrarFuncionario.setText("Cadastrar Funcionário");
+        jmnAddFuncionario.add(jMenuCadastrarFuncionario);
 
-        jmnExcluiFuncionario.setSelected(true);
-        jmnExcluiFuncionario.setText("Excluir Funcionario");
-        jmnExcluiFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmnExcluiFuncionarioActionPerformed(evt);
-            }
-        });
-        jmnAddFuncionario.add(jmnExcluiFuncionario);
+        jMenuExcluirFuncionario.setText("Excluir Funcionário");
+        jmnAddFuncionario.add(jMenuExcluirFuncionario);
 
-        jmnBuscarFuncionario.setSelected(true);
-        jmnBuscarFuncionario.setText("Buscar Funcionario");
-        jmnBuscarFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmnBuscarFuncionarioActionPerformed(evt);
-            }
-        });
-        jmnAddFuncionario.add(jmnBuscarFuncionario);
+        jMenuBuscarFuncionario.setText("Buscar Funcionário");
+        jmnAddFuncionario.add(jMenuBuscarFuncionario);
 
-        jmnAlterarFuncionario.setSelected(true);
-        jmnAlterarFuncionario.setText("Alterar Funcionario");
-        jmnAlterarFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmnAlterarFuncionarioActionPerformed(evt);
-            }
-        });
-        jmnAddFuncionario.add(jmnAlterarFuncionario);
+        jMenuAlterarFuncionario.setText("Alterar Funcionário");
+        jmnAddFuncionario.add(jMenuAlterarFuncionario);
 
         jmnMenu.add(jmnAddFuncionario);
 
-        jmnGerarRelatorio.setText("Relatorios");
+        jmnGerarRelatorio.setText("Relatórios");
 
-        jCheckBoxMenuItem6.setSelected(true);
-        jCheckBoxMenuItem6.setText("Gerar Relatorios");
-        jCheckBoxMenuItem6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxMenuItem6ActionPerformed(evt);
-            }
-        });
-        jmnGerarRelatorio.add(jCheckBoxMenuItem6);
+        jMenuGerarRelatorio.setText("Gerar Relatório");
+        jmnGerarRelatorio.add(jMenuGerarRelatorio);
 
-        jmnConsultarRelatorio.setSelected(true);
-        jmnConsultarRelatorio.setText("Consultar Relatoios");
-        jmnConsultarRelatorio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmnConsultarRelatorioActionPerformed(evt);
-            }
-        });
-        jmnGerarRelatorio.add(jmnConsultarRelatorio);
+        jMenuItem6.setText("Consultar Relatório");
+        jmnGerarRelatorio.add(jMenuItem6);
 
         jmnMenu.add(jmnGerarRelatorio);
 
         jmnSais.setText("Mais");
 
-        jCheckBoxMenuItem2.setSelected(true);
-        jCheckBoxMenuItem2.setText("Sair");
-        jCheckBoxMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        jMenuSair.setText("Sair");
+        jMenuSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxMenuItem2ActionPerformed(evt);
+                jMenuSairActionPerformed(evt);
             }
         });
-        jmnSais.add(jCheckBoxMenuItem2);
+        jmnSais.add(jMenuSair);
 
         jmnMenu.add(jmnSais);
 
@@ -145,46 +108,10 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBoxMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem1ActionPerformed
-        // TODO add your handling code here:
-        JfrmAdicionarFuncionario tela =  new JfrmAdicionarFuncionario();
-                   tela.setVisible(true);
-    }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
-
-    private void jmnExcluiFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmnExcluiFuncionarioActionPerformed
-        // TODO add your handling code here:
-        JfrmExcluirFuncionario tela =  new JfrmExcluirFuncionario();
-                   tela.setVisible(true);
-    }//GEN-LAST:event_jmnExcluiFuncionarioActionPerformed
-
-    private void jCheckBoxMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem2ActionPerformed
+    private void jMenuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSairActionPerformed
         // TODO add your handling code here:
         dispose();
-    }//GEN-LAST:event_jCheckBoxMenuItem2ActionPerformed
-
-    private void jmnBuscarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmnBuscarFuncionarioActionPerformed
-        // TODO add your handling code here:
-        JfrmBuscarFuncionario tela =  new JfrmBuscarFuncionario();
-                   tela.setVisible(true);
-    }//GEN-LAST:event_jmnBuscarFuncionarioActionPerformed
-
-    private void jmnAlterarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmnAlterarFuncionarioActionPerformed
-        // TODO add your handling code here:
-        JfrmAlterarFuncionario tela =  new JfrmAlterarFuncionario();
-                   tela.setVisible(true);
-    }//GEN-LAST:event_jmnAlterarFuncionarioActionPerformed
-
-    private void jCheckBoxMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem6ActionPerformed
-        // TODO add your handling code here:
-        JfrmGerarRelatorio tela =  new JfrmGerarRelatorio();
-                   tela.setVisible(true);
-    }//GEN-LAST:event_jCheckBoxMenuItem6ActionPerformed
-
-    private void jmnConsultarRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmnConsultarRelatorioActionPerformed
-        // TODO add your handling code here:
-        JfrmConsultarRelatorio tela =  new JfrmConsultarRelatorio();
-                   tela.setVisible(true);
-    }//GEN-LAST:event_jmnConsultarRelatorioActionPerformed
+    }//GEN-LAST:event_jMenuSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -222,15 +149,15 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem6;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenuItem jMenuAlterarFuncionario;
+    private javax.swing.JMenuItem jMenuBuscarFuncionario;
+    private javax.swing.JMenuItem jMenuCadastrarFuncionario;
+    private javax.swing.JMenuItem jMenuExcluirFuncionario;
+    private javax.swing.JMenuItem jMenuGerarRelatorio;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuSair;
     private javax.swing.JMenu jmnAddFuncionario;
-    private javax.swing.JCheckBoxMenuItem jmnAlterarFuncionario;
-    private javax.swing.JCheckBoxMenuItem jmnBuscarFuncionario;
-    private javax.swing.JCheckBoxMenuItem jmnConsultarRelatorio;
-    private javax.swing.JCheckBoxMenuItem jmnExcluiFuncionario;
     private javax.swing.JMenu jmnGerarRelatorio;
     private javax.swing.JMenuBar jmnMenu;
     private javax.swing.JMenu jmnSais;

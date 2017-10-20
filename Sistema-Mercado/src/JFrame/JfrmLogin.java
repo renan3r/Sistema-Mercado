@@ -55,6 +55,7 @@ public class JfrmLogin extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setText("Senha");
 
+        jtxtUsuario.setName(""); // NOI18N
         jtxtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtxtUsuarioActionPerformed(evt);
@@ -128,19 +129,23 @@ public class JfrmLogin extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try {
-            conecta.executaSQL("SELECT * FROM MERCADOBD.\"Funcionario\" where \"Login\"='" +jtxtUsuario.getText()+"'" );
+            conecta.executaSQL("SELECT * FROM MERCADOBD.Funcionario where Login='" +jtxtUsuario.getText()+"'" );
             conecta.getRs().first();
             //so entra no if se encontra o usuario ai compara a senha
             if(conecta.getRs().getString("senha").equals(jtxtSenha.getText())){
                if(conecta.getRs().getString("tipo").equals("1")){
-                   JfrmMenuGerente tela =  new JfrmMenuGerente();
+                   JfrmMenuGerente tela =  new JfrmMenuGerente();                   
+                   tela.setLocationRelativeTo(null);
+                   tela.setDefaultCloseOperation(tela.EXIT_ON_CLOSE); 
                    tela.setVisible(true);
                    dispose();
                }
                if(conecta.getRs().getString("tipo").equals("2")){
                   JfrmMenuCaixa tela =  new JfrmMenuCaixa();
-                   tela.setVisible(true);
-                   dispose();
+                  tela.setLocationRelativeTo(null);
+                  tela.setDefaultCloseOperation(tela.EXIT_ON_CLOSE);                  
+                  tela.setVisible(true);
+                  dispose();
                }
             }else{
                    JOptionPane.showMessageDialog(rootPane, "Senha ou usuario invalidos");

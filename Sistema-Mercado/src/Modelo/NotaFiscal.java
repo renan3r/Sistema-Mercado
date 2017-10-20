@@ -11,7 +11,8 @@ package Modelo;
  */
 public class NotaFiscal {
     private int codigoFiscal;
-    private String fornecedor;
+    private String dataCompra;
+    private String cnpj;
     /**
      * @return the codigoFiscal
      */
@@ -27,17 +28,31 @@ public class NotaFiscal {
     }
 
     /**
-     * @return the fornecedor
+     * @return the dataCompra
      */
-    public String getFornecedor() {
-        return fornecedor;
+    public String getDataCompra() {
+        return dataCompra;
     }
 
     /**
-     * @param fornecedor the fornecedor to set
+     * @param dataCompra the dataCompra to set
      */
-    public void setFornecedor(String fornecedor) {
-        this.fornecedor = fornecedor;
+    public void setDataCompra(String dataCompra) {
+        this.dataCompra = dataCompra;
+    }
+
+    /**
+     * @return the cnpj
+     */
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    /**
+     * @param cnpj the cnpj to set
+     */
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
     }
     
 }
