@@ -16,10 +16,8 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
     /**
      * Creates new form JfrmMenuGerente
      */
-     ConexaoBD conecta = new ConexaoBD();
     public JfrmMenuGerente() {
         initComponents();
-        conecta.conexao();
     }
 
     /**

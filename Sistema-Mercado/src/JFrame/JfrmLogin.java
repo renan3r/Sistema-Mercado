@@ -18,11 +18,9 @@ public class JfrmLogin extends javax.swing.JFrame {
     /**
      * Creates new form JfrmLogin
      */
-    ConexaoBD conecta = new ConexaoBD();
     public JfrmLogin() {
         initComponents();
         getRootPane().setDefaultButton(jButton1);
-        conecta.conexao();
     }
 
     /**
