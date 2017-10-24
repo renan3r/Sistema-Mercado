@@ -9,7 +9,7 @@ package DAO;
  *
  * @author Junim Roberti
  */
-public class PedidoDAO implements InterfaceDAO{
+public class VendaDAO implements InterfaceDAO{
 
     @Override
     public void adiciona(Object obj) {
@@ -17,7 +17,7 @@ public class PedidoDAO implements InterfaceDAO{
     }
 
     @Override
-    public void exclui(Object obj) {
+    public void excluir(Object obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

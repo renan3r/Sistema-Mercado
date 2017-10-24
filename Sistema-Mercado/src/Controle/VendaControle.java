@@ -9,7 +9,7 @@ package Controle;
  *
  * @author Junim Roberti
  */
-public class PedidoControle {
+public class VendaControle {
     
     
 }

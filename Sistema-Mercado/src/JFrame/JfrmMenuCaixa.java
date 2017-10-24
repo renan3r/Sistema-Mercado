@@ -5,8 +5,6 @@
  */
 package JFrame;
 
-import Utilitarios.ConexaoBD;
-
 /**
  *
  * @author Leticia Ribeiro
@@ -58,12 +56,27 @@ public class JfrmMenuCaixa extends javax.swing.JFrame {
         jmnAddFuncionario.setText("Vendas");
 
         jMenuRealizarVenda.setText("Realizar Venda");
+        jMenuRealizarVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuRealizarVendaActionPerformed(evt);
+            }
+        });
         jmnAddFuncionario.add(jMenuRealizarVenda);
 
         jMenuExcluirVenda.setText("Excluir Venda");
+        jMenuExcluirVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuExcluirVendaActionPerformed(evt);
+            }
+        });
         jmnAddFuncionario.add(jMenuExcluirVenda);
 
         jMenuBuscarVenda.setText("Buscar Venda");
+        jMenuBuscarVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuBuscarVendaActionPerformed(evt);
+            }
+        });
         jmnAddFuncionario.add(jMenuBuscarVenda);
 
         jmnMenu.add(jmnAddFuncionario);
@@ -71,15 +84,35 @@ public class JfrmMenuCaixa extends javax.swing.JFrame {
         jmnGerarRelatorio.setText("Produtos");
 
         jMenuCadastrarProduto.setText("Cadastrar Produto");
+        jMenuCadastrarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuCadastrarProdutoActionPerformed(evt);
+            }
+        });
         jmnGerarRelatorio.add(jMenuCadastrarProduto);
 
         jMenuRemoverProduto.setText("Remover Produto");
+        jMenuRemoverProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuRemoverProdutoActionPerformed(evt);
+            }
+        });
         jmnGerarRelatorio.add(jMenuRemoverProduto);
 
         jMenuBuscarProduto.setText("Buscar Produto");
+        jMenuBuscarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuBuscarProdutoActionPerformed(evt);
+            }
+        });
         jmnGerarRelatorio.add(jMenuBuscarProduto);
 
         jMenuAlterarProduto.setText("Alterar Produto");
+        jMenuAlterarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuAlterarProdutoActionPerformed(evt);
+            }
+        });
         jmnGerarRelatorio.add(jMenuAlterarProduto);
 
         jmnMenu.add(jmnGerarRelatorio);
@@ -87,9 +120,19 @@ public class JfrmMenuCaixa extends javax.swing.JFrame {
         jMenu1.setText("Fornecedor");
 
         jMenuCadastrarFornecedor.setText("Cadastrar Fornecedor");
+        jMenuCadastrarFornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuCadastrarFornecedorActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuCadastrarFornecedor);
 
         jMenuRemoverFornecedor.setText("Remover Fornecedor");
+        jMenuRemoverFornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuRemoverFornecedorActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuRemoverFornecedor);
 
         jMenuBuscarFornecedor.setText("Buscar Fornecedor");
@@ -113,9 +156,19 @@ public class JfrmMenuCaixa extends javax.swing.JFrame {
         jMenu2.setText("Nota Fiscal");
 
         jMenuAdicionarNotaFiscal.setText("Adicionar Nota Fiscal");
+        jMenuAdicionarNotaFiscal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuAdicionarNotaFiscalActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuAdicionarNotaFiscal);
 
         jMenuBuscarNotaFiscal.setText("Buscar Nota Fiscal");
+        jMenuBuscarNotaFiscal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuBuscarNotaFiscalActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuBuscarNotaFiscal);
 
         jmnMenu.add(jMenu2);
@@ -156,16 +209,99 @@ public class JfrmMenuCaixa extends javax.swing.JFrame {
 
     private void jMenuBuscarFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuBuscarFornecedorActionPerformed
         // TODO add your handling code here:
+        JfrmBuscarFornecedor buscarFornecedor = new JfrmBuscarFornecedor();
+        buscarFornecedor.setLocationRelativeTo(null);
+        buscarFornecedor.setVisible(true);
     }//GEN-LAST:event_jMenuBuscarFornecedorActionPerformed
 
     private void jMenuAlterarFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuAlterarFornecedorActionPerformed
         // TODO add your handling code here:
+        JfrmAlterarFornecedor alterarFornecedor = new JfrmAlterarFornecedor();
+        alterarFornecedor.setLocationRelativeTo(null);
+        alterarFornecedor.setVisible(true);
     }//GEN-LAST:event_jMenuAlterarFornecedorActionPerformed
 
     private void jMenuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSairActionPerformed
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_jMenuSairActionPerformed
+
+    private void jMenuRealizarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuRealizarVendaActionPerformed
+        // TODO add your handling code here:
+        JfrmRealizaVenda realizaVenda = new JfrmRealizaVenda();
+        realizaVenda.setLocationRelativeTo(null);
+        realizaVenda.setVisible(true);
+    }//GEN-LAST:event_jMenuRealizarVendaActionPerformed
+
+    private void jMenuExcluirVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuExcluirVendaActionPerformed
+        // TODO add your handling code here:
+        JfrmExcluirVenda excluirVenda = new JfrmExcluirVenda();
+        excluirVenda.setLocationRelativeTo(null);
+        excluirVenda.setVisible(true);
+    }//GEN-LAST:event_jMenuExcluirVendaActionPerformed
+
+    private void jMenuBuscarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuBuscarVendaActionPerformed
+        // TODO add your handling code here:
+        JfrmBuscarVenda buscarVenda = new JfrmBuscarVenda();
+        buscarVenda.setLocationRelativeTo(null);
+        buscarVenda.setVisible(true);
+    }//GEN-LAST:event_jMenuBuscarVendaActionPerformed
+
+    private void jMenuCadastrarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCadastrarProdutoActionPerformed
+        // TODO add your handling code here:
+        JfrmCadastrarProduto cadastrarProduto = new JfrmCadastrarProduto();
+        cadastrarProduto.setLocationRelativeTo(null);
+        cadastrarProduto.setVisible(true);
+    }//GEN-LAST:event_jMenuCadastrarProdutoActionPerformed
+
+    private void jMenuRemoverProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuRemoverProdutoActionPerformed
+        // TODO add your handling code here:
+        JfrmRemoverProduto removerProdutor = new JfrmRemoverProduto();
+        removerProdutor.setLocationRelativeTo(null);
+        removerProdutor.setVisible(true);
+    }//GEN-LAST:event_jMenuRemoverProdutoActionPerformed
+
+    private void jMenuBuscarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuBuscarProdutoActionPerformed
+        // TODO add your handling code here:
+        JfrmBuscarProduto buscarProduto = new JfrmBuscarProduto();
+        buscarProduto.setLocationRelativeTo(null);
+        buscarProduto.setVisible(true);
+    }//GEN-LAST:event_jMenuBuscarProdutoActionPerformed
+
+    private void jMenuAlterarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuAlterarProdutoActionPerformed
+        // TODO add your handling code here:
+        JfrmAlterarProduto alterarProduto = new JfrmAlterarProduto();
+        alterarProduto.setLocationRelativeTo(null);
+        alterarProduto.setVisible(true);
+    }//GEN-LAST:event_jMenuAlterarProdutoActionPerformed
+
+    private void jMenuCadastrarFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCadastrarFornecedorActionPerformed
+        // TODO add your handling code here:
+        JfrmCadastrarFornecedor cadastrarFornecedor = new JfrmCadastrarFornecedor();
+        cadastrarFornecedor.setLocationRelativeTo(null);
+        cadastrarFornecedor.setVisible(true);
+    }//GEN-LAST:event_jMenuCadastrarFornecedorActionPerformed
+
+    private void jMenuRemoverFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuRemoverFornecedorActionPerformed
+        // TODO add your handling code here:
+        JfrmRemoverFornecedor removerFornecedor = new JfrmRemoverFornecedor();
+        removerFornecedor.setLocationRelativeTo(null);
+        removerFornecedor.setVisible(true);
+    }//GEN-LAST:event_jMenuRemoverFornecedorActionPerformed
+
+    private void jMenuAdicionarNotaFiscalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuAdicionarNotaFiscalActionPerformed
+        // TODO add your handling code here:
+        JfrmCadastrarNotaFiscal adcionarNotaFiscal = new JfrmCadastrarNotaFiscal();
+        adcionarNotaFiscal.setLocationRelativeTo(null);
+        adcionarNotaFiscal.setVisible(true);
+    }//GEN-LAST:event_jMenuAdicionarNotaFiscalActionPerformed
+
+    private void jMenuBuscarNotaFiscalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuBuscarNotaFiscalActionPerformed
+        // TODO add your handling code here:
+        JfrmBuscarNotaFiscal buscarNotaFiscal = new JfrmBuscarNotaFiscal();
+        buscarNotaFiscal.setLocationRelativeTo(null);
+        buscarNotaFiscal.setVisible(true);
+    }//GEN-LAST:event_jMenuBuscarNotaFiscalActionPerformed
 
     /**
      * @param args the command line arguments

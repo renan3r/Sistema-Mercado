@@ -17,7 +17,7 @@ public class EnderecoDAO implements InterfaceDAO{
     }
 
     @Override
-    public void exclui(Object obj) {
+    public void excluir(Object obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

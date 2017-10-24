@@ -5,8 +5,6 @@
  */
 package JFrame;
 
-import Utilitarios.ConexaoBD;
-
 /**
  *
  * @author Leticia Ribeiro
@@ -38,7 +36,7 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
         jMenuAlterarFuncionario = new javax.swing.JMenuItem();
         jmnGerarRelatorio = new javax.swing.JMenu();
         jMenuGerarRelatorio = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuConsultarRelatorio = new javax.swing.JMenuItem();
         jmnSais = new javax.swing.JMenu();
         jMenuSair = new javax.swing.JMenuItem();
 
@@ -49,15 +47,35 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
         jmnAddFuncionario.setText(" Funcionarios");
 
         jMenuCadastrarFuncionario.setText("Cadastrar Funcionário");
+        jMenuCadastrarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuCadastrarFuncionarioActionPerformed(evt);
+            }
+        });
         jmnAddFuncionario.add(jMenuCadastrarFuncionario);
 
         jMenuExcluirFuncionario.setText("Excluir Funcionário");
+        jMenuExcluirFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuExcluirFuncionarioActionPerformed(evt);
+            }
+        });
         jmnAddFuncionario.add(jMenuExcluirFuncionario);
 
         jMenuBuscarFuncionario.setText("Buscar Funcionário");
+        jMenuBuscarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuBuscarFuncionarioActionPerformed(evt);
+            }
+        });
         jmnAddFuncionario.add(jMenuBuscarFuncionario);
 
         jMenuAlterarFuncionario.setText("Alterar Funcionário");
+        jMenuAlterarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuAlterarFuncionarioActionPerformed(evt);
+            }
+        });
         jmnAddFuncionario.add(jMenuAlterarFuncionario);
 
         jmnMenu.add(jmnAddFuncionario);
@@ -65,10 +83,20 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
         jmnGerarRelatorio.setText("Relatórios");
 
         jMenuGerarRelatorio.setText("Gerar Relatório");
+        jMenuGerarRelatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuGerarRelatorioActionPerformed(evt);
+            }
+        });
         jmnGerarRelatorio.add(jMenuGerarRelatorio);
 
-        jMenuItem6.setText("Consultar Relatório");
-        jmnGerarRelatorio.add(jMenuItem6);
+        jMenuConsultarRelatorio.setText("Consultar Relatório");
+        jMenuConsultarRelatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuConsultarRelatorioActionPerformed(evt);
+            }
+        });
+        jmnGerarRelatorio.add(jMenuConsultarRelatorio);
 
         jmnMenu.add(jmnGerarRelatorio);
 
@@ -111,6 +139,48 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jMenuSairActionPerformed
 
+    private void jMenuCadastrarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCadastrarFuncionarioActionPerformed
+        // TODO add your handling code here:
+        JfrmCadastrarFuncionario cadastrarFuncionario = new JfrmCadastrarFuncionario();
+        cadastrarFuncionario.setLocationRelativeTo(null);
+        cadastrarFuncionario.setVisible(true); 
+    }//GEN-LAST:event_jMenuCadastrarFuncionarioActionPerformed
+
+    private void jMenuExcluirFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuExcluirFuncionarioActionPerformed
+        // TODO add your handling code here:
+        JfrmExcluirFuncionario excluirFuncionario = new JfrmExcluirFuncionario();
+        excluirFuncionario.setLocationRelativeTo(null);
+        excluirFuncionario.setVisible(true);                            
+    }//GEN-LAST:event_jMenuExcluirFuncionarioActionPerformed
+
+    private void jMenuBuscarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuBuscarFuncionarioActionPerformed
+        // TODO add your handling code here:
+        JfrmBuscarFuncionario buscarFuncionario = new JfrmBuscarFuncionario();
+        buscarFuncionario.setLocationRelativeTo(null);
+        buscarFuncionario.setVisible(true);
+    }//GEN-LAST:event_jMenuBuscarFuncionarioActionPerformed
+
+    private void jMenuAlterarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuAlterarFuncionarioActionPerformed
+        // TODO add your handling code here:
+        JfrmAlterarFuncionario alterarFuncionario = new JfrmAlterarFuncionario();
+        alterarFuncionario.setLocationRelativeTo(null);
+        alterarFuncionario.setVisible(true);
+    }//GEN-LAST:event_jMenuAlterarFuncionarioActionPerformed
+
+    private void jMenuGerarRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuGerarRelatorioActionPerformed
+        // TODO add your handling code here:
+        JfrmGerarRelatorio gerarRelatorio = new JfrmGerarRelatorio();
+        gerarRelatorio.setLocationRelativeTo(null);
+        gerarRelatorio.setVisible(true);
+    }//GEN-LAST:event_jMenuGerarRelatorioActionPerformed
+
+    private void jMenuConsultarRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuConsultarRelatorioActionPerformed
+        // TODO add your handling code here:
+        JfrmConsultarRelatorio consultarRelatorio = new JfrmConsultarRelatorio();
+        consultarRelatorio.setLocationRelativeTo(null);
+        consultarRelatorio.setVisible(true);
+    }//GEN-LAST:event_jMenuConsultarRelatorioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -151,9 +221,9 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuAlterarFuncionario;
     private javax.swing.JMenuItem jMenuBuscarFuncionario;
     private javax.swing.JMenuItem jMenuCadastrarFuncionario;
+    private javax.swing.JMenuItem jMenuConsultarRelatorio;
     private javax.swing.JMenuItem jMenuExcluirFuncionario;
     private javax.swing.JMenuItem jMenuGerarRelatorio;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuSair;
     private javax.swing.JMenu jmnAddFuncionario;
     private javax.swing.JMenu jmnGerarRelatorio;
