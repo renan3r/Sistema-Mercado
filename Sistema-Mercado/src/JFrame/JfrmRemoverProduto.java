@@ -5,7 +5,7 @@
  */
 package JFrame;
 
-import Modelo.ApenasNumeros;
+import Utilitarios.ApenasNumeros;
 
 /**
  *
@@ -18,7 +18,7 @@ public class JfrmRemoverProduto extends javax.swing.JFrame {
      */
     public JfrmRemoverProduto() {
         initComponents();
-        jtxtCodigoProduto.setDocument(new ApenasNumeros());
+        
     }
 
     /**
@@ -30,33 +30,43 @@ public class JfrmRemoverProduto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jbtnCancelar = new javax.swing.JButton();
-        jtxtCodigoProduto = new javax.swing.JTextField();
+        jbtnSair = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jbtnSalvar = new javax.swing.JButton();
+        jbtnRemover = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jbtnCancelar.setText("Cancelar");
-        jbtnCancelar.addActionListener(new java.awt.event.ActionListener() {
+        jbtnSair.setText("Sair");
+        jbtnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnCancelarActionPerformed(evt);
+                jbtnSairActionPerformed(evt);
             }
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Remover Produto");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel2.setText("Codigo do Produto");
-
-        jbtnSalvar.setText("Salvar");
-        jbtnSalvar.addActionListener(new java.awt.event.ActionListener() {
+        jbtnRemover.setText("Remover");
+        jbtnRemover.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnSalvarActionPerformed(evt);
+                jbtnRemoverActionPerformed(evt);
             }
         });
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -64,48 +74,45 @@ public class JfrmRemoverProduto extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jbtnRemover)
+                            .addGap(18, 18, 18)
+                            .addComponent(jbtnSair))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(41, 41, 41)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(136, 136, 136)
-                        .addComponent(jbtnSalvar)
-                        .addGap(18, 18, 18)
-                        .addComponent(jbtnCancelar))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jtxtCodigoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
+                        .addGap(118, 118, 118)
                         .addComponent(jLabel1)))
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addGap(34, 34, 34)
                 .addComponent(jLabel1)
-                .addGap(48, 48, 48)
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jtxtCodigoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbtnSalvar)
-                    .addComponent(jbtnCancelar))
-                .addGap(77, 77, 77))
+                    .addComponent(jbtnSair)
+                    .addComponent(jbtnRemover))
+                .addGap(30, 30, 30))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbtnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSalvarActionPerformed
+    private void jbtnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRemoverActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jbtnSalvarActionPerformed
+    }//GEN-LAST:event_jbtnRemoverActionPerformed
 
-    private void jbtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCancelarActionPerformed
+    private void jbtnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSairActionPerformed
         // TODO add your handling code here:
         dispose();
-    }//GEN-LAST:event_jbtnCancelarActionPerformed
+    }//GEN-LAST:event_jbtnSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -144,9 +151,9 @@ public class JfrmRemoverProduto extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JButton jbtnCancelar;
-    private javax.swing.JButton jbtnSalvar;
-    private javax.swing.JTextField jtxtCodigoProduto;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JButton jbtnRemover;
+    private javax.swing.JButton jbtnSair;
     // End of variables declaration//GEN-END:variables
 }
