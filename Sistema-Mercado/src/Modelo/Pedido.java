@@ -3,36 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sistema.mercado;
+package Modelo;
 
 /**
  *
  * @author Junim Roberti
  */
-public class Venda {
+public class Pedido {
     private float somaVenda;
     private String formaPagamento;
     private String itensVenda;
     private String nomeVendedor;
     private int codigoVenda;
     private String data;
-    
-    public void gerarNotaFiscal(){
-        
-    }
-    public void vender(){
-        
-    }
-    public void cancelarVenda(){
-        
-    }
-    public void cancelarItemProduto(){
-        
-    }
-    public void buscarVenda(){
-        
-    }
-
     /**
      * @return the somaVenda
      */

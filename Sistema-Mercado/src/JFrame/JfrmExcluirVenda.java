@@ -49,6 +49,11 @@ public class JfrmExcluirVenda extends javax.swing.JFrame {
         });
 
         jbtnCancelar.setText("Cancelar");
+        jbtnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -94,6 +99,11 @@ public class JfrmExcluirVenda extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jbtnSalvar2ActionPerformed
 
+    private void jbtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCancelarActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jbtnCancelarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -133,8 +143,6 @@ public class JfrmExcluirVenda extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JButton jbtnCancelar;
-    private javax.swing.JButton jbtnSalvar;
-    private javax.swing.JButton jbtnSalvar1;
     private javax.swing.JButton jbtnSalvar2;
     private javax.swing.JTextField jtxtCodigoVenda;
     // End of variables declaration//GEN-END:variables
