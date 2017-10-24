@@ -18,7 +18,7 @@ public class JfrmBuscarVenda extends javax.swing.JFrame {
      */
     public JfrmBuscarVenda() {
         initComponents();
-        jtxtBuscado.setDocument(new ApenasNumeros());
+        
     }
 
     /**

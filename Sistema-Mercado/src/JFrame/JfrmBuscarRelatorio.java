@@ -18,7 +18,7 @@ public class JfrmBuscarRelatorio extends javax.swing.JFrame {
      */
     public JfrmBuscarRelatorio() {
         initComponents();
-        jtxtBuscado.setDocument(new ApenasNumeros());
+        
     }
 
     /**
