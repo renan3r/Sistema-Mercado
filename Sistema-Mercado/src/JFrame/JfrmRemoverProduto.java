@@ -5,6 +5,8 @@
  */
 package JFrame;
 
+import Modelo.ApenasNumeros;
+
 /**
  *
  * @author Leticia Ribeiro
@@ -16,6 +18,7 @@ public class JfrmRemoverProduto extends javax.swing.JFrame {
      */
     public JfrmRemoverProduto() {
         initComponents();
+        jtxtCodigoProduto.setDocument(new ApenasNumeros());
     }
 
     /**

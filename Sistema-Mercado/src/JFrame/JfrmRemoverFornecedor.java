@@ -5,6 +5,8 @@
  */
 package JFrame;
 
+import Modelo.ApenasNumeros;
+
 /**
  *
  * @author Leticia Ribeiro
@@ -16,6 +18,7 @@ public class JfrmRemoverFornecedor extends javax.swing.JFrame {
      */
     public JfrmRemoverFornecedor() {
         initComponents();
+        jtxtCodigo.setDocument(new ApenasNumeros());
     }
 
     /**
@@ -31,7 +34,7 @@ public class JfrmRemoverFornecedor extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jbtnSalvar = new javax.swing.JButton();
         jbtnCancelar = new javax.swing.JButton();
-        jtxtNome = new javax.swing.JTextField();
+        jtxtCodigo = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -39,7 +42,7 @@ public class JfrmRemoverFornecedor extends javax.swing.JFrame {
         jLabel1.setText("Remover Fornecedor");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel2.setText("Nome do Fornecedor");
+        jLabel2.setText("Codigo do Fornecedor");
 
         jbtnSalvar.setText("Salvar");
         jbtnSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -55,9 +58,9 @@ public class JfrmRemoverFornecedor extends javax.swing.JFrame {
             }
         });
 
-        jtxtNome.addActionListener(new java.awt.event.ActionListener() {
+        jtxtCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxtNomeActionPerformed(evt);
+                jtxtCodigoActionPerformed(evt);
             }
         });
 
@@ -72,13 +75,13 @@ public class JfrmRemoverFornecedor extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(jtxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jtxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(117, 117, 117)
                         .addComponent(jbtnSalvar)
                         .addGap(18, 18, 18)
                         .addComponent(jbtnCancelar)))
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,7 +91,7 @@ public class JfrmRemoverFornecedor extends javax.swing.JFrame {
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jtxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtnSalvar)
@@ -103,9 +106,9 @@ public class JfrmRemoverFornecedor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jbtnSalvarActionPerformed
 
-    private void jtxtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtNomeActionPerformed
+    private void jtxtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtCodigoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jtxtNomeActionPerformed
+    }//GEN-LAST:event_jtxtCodigoActionPerformed
 
     private void jbtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCancelarActionPerformed
         // TODO add your handling code here:
@@ -152,6 +155,6 @@ public class JfrmRemoverFornecedor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JButton jbtnCancelar;
     private javax.swing.JButton jbtnSalvar;
-    private javax.swing.JTextField jtxtNome;
+    private javax.swing.JTextField jtxtCodigo;
     // End of variables declaration//GEN-END:variables
 }

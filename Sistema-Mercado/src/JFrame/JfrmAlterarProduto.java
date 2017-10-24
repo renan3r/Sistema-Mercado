@@ -5,6 +5,8 @@
  */
 package JFrame;
 
+import Modelo.ApenasNumeros;
+
 /**
  *
  * @author Leticia Ribeiro
@@ -16,6 +18,7 @@ public class JfrmAlterarProduto extends javax.swing.JFrame {
      */
     public JfrmAlterarProduto() {
         initComponents();
+        jtxtBuscado.setDocument(new ApenasNumeros());
     }
 
     /**
@@ -29,11 +32,12 @@ public class JfrmAlterarProduto extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jtblProduto = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
+        jtxtBuscado = new javax.swing.JTextField();
         jbtnPesquisar = new javax.swing.JButton();
         jbtnSair3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jbtnAlterar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,9 +51,9 @@ public class JfrmAlterarProduto extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jtblProduto);
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jtxtBuscado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jtxtBuscadoActionPerformed(evt);
             }
         });
 
@@ -66,6 +70,8 @@ public class JfrmAlterarProduto extends javax.swing.JFrame {
         jLabel1.setText("Alterar Produto");
 
         jbtnAlterar.setText("Alterar");
+
+        jLabel2.setText("Codigo do Produto");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -84,29 +90,36 @@ public class JfrmAlterarProduto extends javax.swing.JFrame {
                                 .addComponent(jbtnSair3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(39, 39, 39))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jbtnPesquisar)
+                        .addGap(115, 115, 115)
+                        .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(115, 115, 115)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jtxtBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbtnPesquisar)
+                        .addGap(28, 28, 28))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxtBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbtnPesquisar))
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtnSair3)
                     .addComponent(jbtnAlterar))
@@ -116,9 +129,9 @@ public class JfrmAlterarProduto extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jtxtBuscadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtBuscadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jtxtBuscadoActionPerformed
 
     private void jbtnSair3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSair3ActionPerformed
         dispose();
@@ -161,11 +174,12 @@ public class JfrmAlterarProduto extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton jbtnAlterar;
     private javax.swing.JButton jbtnPesquisar;
     private javax.swing.JButton jbtnSair3;
     private javax.swing.JTable jtblProduto;
+    private javax.swing.JTextField jtxtBuscado;
     // End of variables declaration//GEN-END:variables
 }

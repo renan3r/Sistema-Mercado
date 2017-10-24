@@ -10,6 +10,7 @@ package Modelo;
  * @author Junim Roberti
  */
 public class Funcionario {
+    private int codigoFuncionaro;
     private String nomeFuncionario;
     private String login;
     private String senha;
@@ -68,6 +69,20 @@ public class Funcionario {
      */
     public void setTipo(int tipo) {
         this.tipo = tipo;
+    }
+
+    /**
+     * @return the codigoFuncionaro
+     */
+    public int getCodigoFuncionaro() {
+        return codigoFuncionaro;
+    }
+
+    /**
+     * @param codigoFuncionaro the codigoFuncionaro to set
+     */
+    public void setCodigoFuncionaro(int codigoFuncionaro) {
+        this.codigoFuncionaro = codigoFuncionaro;
     }
     
 }
