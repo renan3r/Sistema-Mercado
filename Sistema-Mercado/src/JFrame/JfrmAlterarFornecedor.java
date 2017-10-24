@@ -5,6 +5,8 @@
  */
 package JFrame;
 
+import Modelo.ApenasNumeros;
+
 /**
  *
  * @author Leticia Ribeiro
@@ -16,6 +18,7 @@ public class JfrmAlterarFornecedor extends javax.swing.JFrame {
      */
     public JfrmAlterarFornecedor() {
         initComponents();
+        jtxtBuscado.setDocument(new ApenasNumeros());
     }
 
     /**
@@ -29,11 +32,12 @@ public class JfrmAlterarFornecedor extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jtblFornecedor = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
+        jtxtBuscado = new javax.swing.JTextField();
         jbtnPesquisar = new javax.swing.JButton();
         jbtnSair3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jbtnAlterar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,9 +51,9 @@ public class JfrmAlterarFornecedor extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jtblFornecedor);
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jtxtBuscado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jtxtBuscadoActionPerformed(evt);
             }
         });
 
@@ -66,6 +70,8 @@ public class JfrmAlterarFornecedor extends javax.swing.JFrame {
         jLabel1.setText("Alterar Fornecedor");
 
         jbtnAlterar.setText("Alterar");
+
+        jLabel2.setText("Codigo do Fornecedor");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -90,9 +96,12 @@ public class JfrmAlterarFornecedor extends javax.swing.JFrame {
                                 .addComponent(jLabel1))
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(27, 27, 27)
-                                .addComponent(jbtnPesquisar)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jtxtBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(28, 28, 28)
+                                        .addComponent(jbtnPesquisar))
+                                    .addComponent(jLabel2))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -101,13 +110,15 @@ public class JfrmAlterarFornecedor extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxtBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbtnPesquisar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtnSair3)
                     .addComponent(jbtnAlterar))
@@ -117,9 +128,9 @@ public class JfrmAlterarFornecedor extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jtxtBuscadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtBuscadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jtxtBuscadoActionPerformed
 
     private void jbtnSair3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSair3ActionPerformed
         dispose();
@@ -162,11 +173,12 @@ public class JfrmAlterarFornecedor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton jbtnAlterar;
     private javax.swing.JButton jbtnPesquisar;
     private javax.swing.JButton jbtnSair3;
     private javax.swing.JTable jtblFornecedor;
+    private javax.swing.JTextField jtxtBuscado;
     // End of variables declaration//GEN-END:variables
 }

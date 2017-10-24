@@ -5,8 +5,6 @@
  */
 package JFrame;
 
-import Utilitarios.ConexaoBD;
-
 /**
  *
  * @author Leticia Ribeiro
@@ -16,10 +14,8 @@ public class JfrmMenuCaixa extends javax.swing.JFrame {
     /**
      * Creates new form JfrmMenuCaixa
      */
-     ConexaoBD conecta = new ConexaoBD();
     public JfrmMenuCaixa() {
         initComponents();
-        conecta.conexao();
     }
 
     /**
@@ -34,24 +30,29 @@ public class JfrmMenuCaixa extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jmnMenu = new javax.swing.JMenuBar();
         jmnAddFuncionario = new javax.swing.JMenu();
-        jmnRealizarVenda = new javax.swing.JCheckBoxMenuItem();
-        jmnExcluirVenda = new javax.swing.JCheckBoxMenuItem();
-        jmnBurcarVenda = new javax.swing.JCheckBoxMenuItem();
+        jMenuRealizarVenda = new javax.swing.JMenuItem();
+        jMenuRemoverVenda = new javax.swing.JMenuItem();
+        jMenuBuscarVenda = new javax.swing.JMenuItem();
+        jMenuAlterarVenda = new javax.swing.JRadioButtonMenuItem();
         jmnGerarRelatorio = new javax.swing.JMenu();
-        jmnCadastrarProduto = new javax.swing.JCheckBoxMenuItem();
-        jmnRemoverProduto = new javax.swing.JCheckBoxMenuItem();
-        jmnBuscarProduto = new javax.swing.JCheckBoxMenuItem();
-        jmnAlterarProduto = new javax.swing.JCheckBoxMenuItem();
+        jMenuCadastrarProduto = new javax.swing.JMenuItem();
+        jMenuRemoverProduto = new javax.swing.JMenuItem();
+        jMenuBuscarProduto = new javax.swing.JMenuItem();
+        jMenuAlterarProduto = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
-        jmnCadastrarFornecedor = new javax.swing.JCheckBoxMenuItem();
-        jmnRemoverFornecedor = new javax.swing.JCheckBoxMenuItem();
-        jmnBuscarFornecedor = new javax.swing.JCheckBoxMenuItem();
-        jmnAlterarFornecedor = new javax.swing.JCheckBoxMenuItem();
+        jMenuCadastrarFornecedor = new javax.swing.JMenuItem();
+        jMenuRemoverFornecedor = new javax.swing.JMenuItem();
+        jMenuBuscarFornecedor = new javax.swing.JMenuItem();
+        jMenuAlterarFornecedor = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jmnAddNotaFiscal = new javax.swing.JCheckBoxMenuItem();
-        jmnBuscarNotaFiscal = new javax.swing.JCheckBoxMenuItem();
+        jMenuAdicionarNotaFiscal = new javax.swing.JMenuItem();
+        jMenuBuscarNotaFiscal = new javax.swing.JMenuItem();
+        jMenuRemoverNotaFiscal = new javax.swing.JRadioButtonMenuItem();
+        jMenuAdicionarEstoque = new javax.swing.JMenu();
+        jRadioButtonMenuItem3 = new javax.swing.JRadioButtonMenuItem();
+        jMenuRemoverEstoque = new javax.swing.JRadioButtonMenuItem();
         jmnSais = new javax.swing.JMenu();
-        jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
+        jMenuSair = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,147 +60,158 @@ public class JfrmMenuCaixa extends javax.swing.JFrame {
 
         jmnAddFuncionario.setText("Vendas");
 
-        jmnRealizarVenda.setSelected(true);
-        jmnRealizarVenda.setText("Realizar Venda");
-        jmnRealizarVenda.addActionListener(new java.awt.event.ActionListener() {
+        jMenuRealizarVenda.setText("Realizar Venda");
+        jMenuRealizarVenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmnRealizarVendaActionPerformed(evt);
+                jMenuRealizarVendaActionPerformed(evt);
             }
         });
-        jmnAddFuncionario.add(jmnRealizarVenda);
+        jmnAddFuncionario.add(jMenuRealizarVenda);
 
-        jmnExcluirVenda.setSelected(true);
-        jmnExcluirVenda.setText("Excluir Venda");
-        jmnExcluirVenda.addActionListener(new java.awt.event.ActionListener() {
+        jMenuRemoverVenda.setText("Remover Venda");
+        jMenuRemoverVenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmnExcluirVendaActionPerformed(evt);
+                jMenuRemoverVendaActionPerformed(evt);
             }
         });
-        jmnAddFuncionario.add(jmnExcluirVenda);
+        jmnAddFuncionario.add(jMenuRemoverVenda);
 
-        jmnBurcarVenda.setSelected(true);
-        jmnBurcarVenda.setText("Buscar Venda");
-        jmnBurcarVenda.addActionListener(new java.awt.event.ActionListener() {
+        jMenuBuscarVenda.setText("Buscar Venda");
+        jMenuBuscarVenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmnBurcarVendaActionPerformed(evt);
+                jMenuBuscarVendaActionPerformed(evt);
             }
         });
-        jmnAddFuncionario.add(jmnBurcarVenda);
+        jmnAddFuncionario.add(jMenuBuscarVenda);
+
+        jMenuAlterarVenda.setSelected(true);
+        jMenuAlterarVenda.setText("Alterar Venda");
+        jmnAddFuncionario.add(jMenuAlterarVenda);
 
         jmnMenu.add(jmnAddFuncionario);
 
         jmnGerarRelatorio.setText("Produtos");
 
-        jmnCadastrarProduto.setSelected(true);
-        jmnCadastrarProduto.setText("Cadastrar Produto");
-        jmnCadastrarProduto.addActionListener(new java.awt.event.ActionListener() {
+        jMenuCadastrarProduto.setText("Cadastrar Produto");
+        jMenuCadastrarProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmnCadastrarProdutoActionPerformed(evt);
+                jMenuCadastrarProdutoActionPerformed(evt);
             }
         });
-        jmnGerarRelatorio.add(jmnCadastrarProduto);
+        jmnGerarRelatorio.add(jMenuCadastrarProduto);
 
-        jmnRemoverProduto.setSelected(true);
-        jmnRemoverProduto.setText("Remover Produto");
-        jmnRemoverProduto.addActionListener(new java.awt.event.ActionListener() {
+        jMenuRemoverProduto.setText("Remover Produto");
+        jMenuRemoverProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmnRemoverProdutoActionPerformed(evt);
+                jMenuRemoverProdutoActionPerformed(evt);
             }
         });
-        jmnGerarRelatorio.add(jmnRemoverProduto);
+        jmnGerarRelatorio.add(jMenuRemoverProduto);
 
-        jmnBuscarProduto.setSelected(true);
-        jmnBuscarProduto.setText("Buscar Produto");
-        jmnBuscarProduto.addActionListener(new java.awt.event.ActionListener() {
+        jMenuBuscarProduto.setText("Buscar Produto");
+        jMenuBuscarProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmnBuscarProdutoActionPerformed(evt);
+                jMenuBuscarProdutoActionPerformed(evt);
             }
         });
-        jmnGerarRelatorio.add(jmnBuscarProduto);
+        jmnGerarRelatorio.add(jMenuBuscarProduto);
 
-        jmnAlterarProduto.setSelected(true);
-        jmnAlterarProduto.setText("Alterar Produto");
-        jmnAlterarProduto.addActionListener(new java.awt.event.ActionListener() {
+        jMenuAlterarProduto.setText("Alterar Produto");
+        jMenuAlterarProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmnAlterarProdutoActionPerformed(evt);
+                jMenuAlterarProdutoActionPerformed(evt);
             }
         });
-        jmnGerarRelatorio.add(jmnAlterarProduto);
+        jmnGerarRelatorio.add(jMenuAlterarProduto);
 
         jmnMenu.add(jmnGerarRelatorio);
 
         jMenu1.setText("Fornecedor");
 
-        jmnCadastrarFornecedor.setSelected(true);
-        jmnCadastrarFornecedor.setText("Cadastrar Fornecedor");
-        jmnCadastrarFornecedor.addActionListener(new java.awt.event.ActionListener() {
+        jMenuCadastrarFornecedor.setText("Cadastrar Fornecedor");
+        jMenuCadastrarFornecedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmnCadastrarFornecedorActionPerformed(evt);
+                jMenuCadastrarFornecedorActionPerformed(evt);
             }
         });
-        jMenu1.add(jmnCadastrarFornecedor);
+        jMenu1.add(jMenuCadastrarFornecedor);
 
-        jmnRemoverFornecedor.setSelected(true);
-        jmnRemoverFornecedor.setText("Remover Fornecedor");
-        jmnRemoverFornecedor.addActionListener(new java.awt.event.ActionListener() {
+        jMenuRemoverFornecedor.setText("Remover Fornecedor");
+        jMenuRemoverFornecedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmnRemoverFornecedorActionPerformed(evt);
+                jMenuRemoverFornecedorActionPerformed(evt);
             }
         });
-        jMenu1.add(jmnRemoverFornecedor);
+        jMenu1.add(jMenuRemoverFornecedor);
 
-        jmnBuscarFornecedor.setSelected(true);
-        jmnBuscarFornecedor.setText("Buscar Fornecedor");
-        jmnBuscarFornecedor.addActionListener(new java.awt.event.ActionListener() {
+        jMenuBuscarFornecedor.setText("Buscar Fornecedor");
+        jMenuBuscarFornecedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmnBuscarFornecedorActionPerformed(evt);
+                jMenuBuscarFornecedorActionPerformed(evt);
             }
         });
-        jMenu1.add(jmnBuscarFornecedor);
+        jMenu1.add(jMenuBuscarFornecedor);
 
-        jmnAlterarFornecedor.setSelected(true);
-        jmnAlterarFornecedor.setText("Alterar Fornecedor");
-        jmnAlterarFornecedor.addActionListener(new java.awt.event.ActionListener() {
+        jMenuAlterarFornecedor.setText("Alterar Fornecedor");
+        jMenuAlterarFornecedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmnAlterarFornecedorActionPerformed(evt);
+                jMenuAlterarFornecedorActionPerformed(evt);
             }
         });
-        jMenu1.add(jmnAlterarFornecedor);
+        jMenu1.add(jMenuAlterarFornecedor);
 
         jmnMenu.add(jMenu1);
 
         jMenu2.setText("Nota Fiscal");
 
-        jmnAddNotaFiscal.setSelected(true);
-        jmnAddNotaFiscal.setText("Adicionar Nota Fiscal");
-        jmnAddNotaFiscal.addActionListener(new java.awt.event.ActionListener() {
+        jMenuAdicionarNotaFiscal.setText("Adicionar Nota Fiscal");
+        jMenuAdicionarNotaFiscal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmnAddNotaFiscalActionPerformed(evt);
+                jMenuAdicionarNotaFiscalActionPerformed(evt);
             }
         });
-        jMenu2.add(jmnAddNotaFiscal);
+        jMenu2.add(jMenuAdicionarNotaFiscal);
 
-        jmnBuscarNotaFiscal.setSelected(true);
-        jmnBuscarNotaFiscal.setText("Buscar Nota Fiscal");
-        jmnBuscarNotaFiscal.addActionListener(new java.awt.event.ActionListener() {
+        jMenuBuscarNotaFiscal.setText("Buscar Nota Fiscal");
+        jMenuBuscarNotaFiscal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmnBuscarNotaFiscalActionPerformed(evt);
+                jMenuBuscarNotaFiscalActionPerformed(evt);
             }
         });
-        jMenu2.add(jmnBuscarNotaFiscal);
+        jMenu2.add(jMenuBuscarNotaFiscal);
+
+        jMenuRemoverNotaFiscal.setSelected(true);
+        jMenuRemoverNotaFiscal.setText("Remover Nota Fiscal");
+        jMenu2.add(jMenuRemoverNotaFiscal);
 
         jmnMenu.add(jMenu2);
 
-        jmnSais.setText("Mais");
+        jMenuAdicionarEstoque.setText("Estoque");
 
-        jCheckBoxMenuItem2.setSelected(true);
-        jCheckBoxMenuItem2.setText("Sair");
-        jCheckBoxMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonMenuItem3.setSelected(true);
+        jRadioButtonMenuItem3.setText("Adicionar Estoque");
+        jRadioButtonMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxMenuItem2ActionPerformed(evt);
+                jRadioButtonMenuItem3ActionPerformed(evt);
             }
         });
-        jmnSais.add(jCheckBoxMenuItem2);
+        jMenuAdicionarEstoque.add(jRadioButtonMenuItem3);
+
+        jMenuRemoverEstoque.setSelected(true);
+        jMenuRemoverEstoque.setText("Remover Estoque");
+        jMenuAdicionarEstoque.add(jMenuRemoverEstoque);
+
+        jmnMenu.add(jMenuAdicionarEstoque);
+
+        jmnSais.setText("Mais");
+
+        jMenuSair.setText("Sair");
+        jMenuSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuSairActionPerformed(evt);
+            }
+        });
+        jmnSais.add(jMenuSair);
 
         jmnMenu.add(jmnSais);
 
@@ -210,14 +222,14 @@ public class JfrmMenuCaixa extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(188, Short.MAX_VALUE)
+                .addContainerGap(221, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(76, Short.MAX_VALUE)
+                .addContainerGap(78, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addContainerGap())
         );
@@ -226,89 +238,105 @@ public class JfrmMenuCaixa extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jmnRealizarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmnRealizarVendaActionPerformed
+    private void jMenuBuscarFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuBuscarFornecedorActionPerformed
         // TODO add your handling code here:
-         JfrmFazerPedido tela =  new JfrmFazerPedido();
-                   tela.setVisible(true);
-    }//GEN-LAST:event_jmnRealizarVendaActionPerformed
+        JfrmBuscarFornecedor buscarFornecedor = new JfrmBuscarFornecedor();
+        buscarFornecedor.setLocationRelativeTo(null);
+        buscarFornecedor.setVisible(true);
+    }//GEN-LAST:event_jMenuBuscarFornecedorActionPerformed
 
-    private void jmnExcluirVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmnExcluirVendaActionPerformed
+    private void jMenuAlterarFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuAlterarFornecedorActionPerformed
         // TODO add your handling code here:
-         JfrmExcluirVenda tela =  new JfrmExcluirVenda();
-                   tela.setVisible(true);
-    }//GEN-LAST:event_jmnExcluirVendaActionPerformed
+        JfrmAlterarFornecedor alterarFornecedor = new JfrmAlterarFornecedor();
+        alterarFornecedor.setLocationRelativeTo(null);
+        alterarFornecedor.setVisible(true);
+    }//GEN-LAST:event_jMenuAlterarFornecedorActionPerformed
 
-    private void jmnRemoverFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmnRemoverFornecedorActionPerformed
-        // TODO add your handling code here:
-        JfrmRemoverFornecedor tela =  new JfrmRemoverFornecedor();
-                   tela.setVisible(true);
-    }//GEN-LAST:event_jmnRemoverFornecedorActionPerformed
-
-    private void jCheckBoxMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem2ActionPerformed
+    private void jMenuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSairActionPerformed
         // TODO add your handling code here:
         dispose();
-    }//GEN-LAST:event_jCheckBoxMenuItem2ActionPerformed
+    }//GEN-LAST:event_jMenuSairActionPerformed
 
-    private void jmnBurcarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmnBurcarVendaActionPerformed
+    private void jMenuRealizarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuRealizarVendaActionPerformed
         // TODO add your handling code here:
-         JfrmBuscarVenda tela =  new JfrmBuscarVenda();
-                   tela.setVisible(true);
-    }//GEN-LAST:event_jmnBurcarVendaActionPerformed
+        JfrmRealizaVenda realizaVenda = new JfrmRealizaVenda();
+        realizaVenda.setLocationRelativeTo(null);
+        realizaVenda.setVisible(true);
+    }//GEN-LAST:event_jMenuRealizarVendaActionPerformed
 
-    private void jmnCadastrarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmnCadastrarProdutoActionPerformed
+    private void jMenuRemoverVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuRemoverVendaActionPerformed
         // TODO add your handling code here:
-         JfrmCadastrarProduto tela =  new JfrmCadastrarProduto();
-                   tela.setVisible(true);
-    }//GEN-LAST:event_jmnCadastrarProdutoActionPerformed
+        JfrmRemoverVenda excluirVenda = new JfrmRemoverVenda();
+        excluirVenda.setLocationRelativeTo(null);
+        excluirVenda.setVisible(true);
+    }//GEN-LAST:event_jMenuRemoverVendaActionPerformed
 
-    private void jmnRemoverProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmnRemoverProdutoActionPerformed
+    private void jMenuBuscarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuBuscarVendaActionPerformed
         // TODO add your handling code here:
-              JfrmRemoverProduto tela =  new JfrmRemoverProduto();
-                   tela.setVisible(true);
+        JfrmBuscarVenda buscarVenda = new JfrmBuscarVenda();
+        buscarVenda.setLocationRelativeTo(null);
+        buscarVenda.setVisible(true);
+    }//GEN-LAST:event_jMenuBuscarVendaActionPerformed
 
-    }//GEN-LAST:event_jmnRemoverProdutoActionPerformed
-
-    private void jmnBuscarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmnBuscarProdutoActionPerformed
+    private void jMenuCadastrarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCadastrarProdutoActionPerformed
         // TODO add your handling code here:
-        JfrmBuscarProduto tela =  new JfrmBuscarProduto();
-                   tela.setVisible(true);
-    }//GEN-LAST:event_jmnBuscarProdutoActionPerformed
+        JfrmCadastrarProduto cadastrarProduto = new JfrmCadastrarProduto();
+        cadastrarProduto.setLocationRelativeTo(null);
+        cadastrarProduto.setVisible(true);
+    }//GEN-LAST:event_jMenuCadastrarProdutoActionPerformed
 
-    private void jmnAlterarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmnAlterarProdutoActionPerformed
+    private void jMenuRemoverProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuRemoverProdutoActionPerformed
         // TODO add your handling code here:
-        JfrmAlterarProduto tela =  new JfrmAlterarProduto();
-                   tela.setVisible(true);
-    }//GEN-LAST:event_jmnAlterarProdutoActionPerformed
+        JfrmRemoverProduto removerProdutor = new JfrmRemoverProduto();
+        removerProdutor.setLocationRelativeTo(null);
+        removerProdutor.setVisible(true);
+    }//GEN-LAST:event_jMenuRemoverProdutoActionPerformed
 
-    private void jmnCadastrarFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmnCadastrarFornecedorActionPerformed
+    private void jMenuBuscarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuBuscarProdutoActionPerformed
         // TODO add your handling code here:
-        JfrmCadastrarFornecedor tela =  new JfrmCadastrarFornecedor();
-                   tela.setVisible(true);
-    }//GEN-LAST:event_jmnCadastrarFornecedorActionPerformed
+        JfrmBuscarProduto buscarProduto = new JfrmBuscarProduto();
+        buscarProduto.setLocationRelativeTo(null);
+        buscarProduto.setVisible(true);
+    }//GEN-LAST:event_jMenuBuscarProdutoActionPerformed
 
-    private void jmnBuscarFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmnBuscarFornecedorActionPerformed
+    private void jMenuAlterarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuAlterarProdutoActionPerformed
         // TODO add your handling code here:
-        JfrmBuscarFornecedor tela =  new JfrmBuscarFornecedor();
-                   tela.setVisible(true);
-    }//GEN-LAST:event_jmnBuscarFornecedorActionPerformed
+        JfrmAlterarProduto alterarProduto = new JfrmAlterarProduto();
+        alterarProduto.setLocationRelativeTo(null);
+        alterarProduto.setVisible(true);
+    }//GEN-LAST:event_jMenuAlterarProdutoActionPerformed
 
-    private void jmnAlterarFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmnAlterarFornecedorActionPerformed
+    private void jMenuCadastrarFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCadastrarFornecedorActionPerformed
         // TODO add your handling code here:
-        JfrmAlterarFornecedor tela =  new JfrmAlterarFornecedor();
-                   tela.setVisible(true);
-    }//GEN-LAST:event_jmnAlterarFornecedorActionPerformed
+        JfrmCadastrarFornecedor cadastrarFornecedor = new JfrmCadastrarFornecedor();
+        cadastrarFornecedor.setLocationRelativeTo(null);
+        cadastrarFornecedor.setVisible(true);
+    }//GEN-LAST:event_jMenuCadastrarFornecedorActionPerformed
 
-    private void jmnAddNotaFiscalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmnAddNotaFiscalActionPerformed
+    private void jMenuRemoverFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuRemoverFornecedorActionPerformed
         // TODO add your handling code here:
-        JfrmAdcionarNotaFiscal tela =  new JfrmAdcionarNotaFiscal();
-                   tela.setVisible(true);
-    }//GEN-LAST:event_jmnAddNotaFiscalActionPerformed
+        JfrmRemoverFornecedor removerFornecedor = new JfrmRemoverFornecedor();
+        removerFornecedor.setLocationRelativeTo(null);
+        removerFornecedor.setVisible(true);
+    }//GEN-LAST:event_jMenuRemoverFornecedorActionPerformed
 
-    private void jmnBuscarNotaFiscalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmnBuscarNotaFiscalActionPerformed
+    private void jMenuAdicionarNotaFiscalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuAdicionarNotaFiscalActionPerformed
         // TODO add your handling code here:
-        JfrmBuscarNotaFiscal tela =  new JfrmBuscarNotaFiscal();
-                   tela.setVisible(true);
-    }//GEN-LAST:event_jmnBuscarNotaFiscalActionPerformed
+        JfrmCadastrarNotaFiscal adcionarNotaFiscal = new JfrmCadastrarNotaFiscal();
+        adcionarNotaFiscal.setLocationRelativeTo(null);
+        adcionarNotaFiscal.setVisible(true);
+    }//GEN-LAST:event_jMenuAdicionarNotaFiscalActionPerformed
+
+    private void jMenuBuscarNotaFiscalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuBuscarNotaFiscalActionPerformed
+        // TODO add your handling code here:
+        JfrmBuscarNotaFiscal buscarNotaFiscal = new JfrmBuscarNotaFiscal();
+        buscarNotaFiscal.setLocationRelativeTo(null);
+        buscarNotaFiscal.setVisible(true);
+    }//GEN-LAST:event_jMenuBuscarNotaFiscalActionPerformed
+
+    private void jRadioButtonMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -346,26 +374,31 @@ public class JfrmMenuCaixa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenuAdicionarEstoque;
+    private javax.swing.JMenuItem jMenuAdicionarNotaFiscal;
+    private javax.swing.JMenuItem jMenuAlterarFornecedor;
+    private javax.swing.JMenuItem jMenuAlterarProduto;
+    private javax.swing.JRadioButtonMenuItem jMenuAlterarVenda;
+    private javax.swing.JMenuItem jMenuBuscarFornecedor;
+    private javax.swing.JMenuItem jMenuBuscarNotaFiscal;
+    private javax.swing.JMenuItem jMenuBuscarProduto;
+    private javax.swing.JMenuItem jMenuBuscarVenda;
+    private javax.swing.JMenuItem jMenuCadastrarFornecedor;
+    private javax.swing.JMenuItem jMenuCadastrarProduto;
+    private javax.swing.JMenuItem jMenuRealizarVenda;
+    private javax.swing.JRadioButtonMenuItem jMenuRemoverEstoque;
+    private javax.swing.JMenuItem jMenuRemoverFornecedor;
+    private javax.swing.JRadioButtonMenuItem jMenuRemoverNotaFiscal;
+    private javax.swing.JMenuItem jMenuRemoverProduto;
+    private javax.swing.JMenuItem jMenuRemoverVenda;
+    private javax.swing.JMenuItem jMenuSair;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem3;
     private javax.swing.JMenu jmnAddFuncionario;
-    private javax.swing.JCheckBoxMenuItem jmnAddNotaFiscal;
-    private javax.swing.JCheckBoxMenuItem jmnAlterarFornecedor;
-    private javax.swing.JCheckBoxMenuItem jmnAlterarProduto;
-    private javax.swing.JCheckBoxMenuItem jmnBurcarVenda;
-    private javax.swing.JCheckBoxMenuItem jmnBuscarFornecedor;
-    private javax.swing.JCheckBoxMenuItem jmnBuscarNotaFiscal;
-    private javax.swing.JCheckBoxMenuItem jmnBuscarProduto;
-    private javax.swing.JCheckBoxMenuItem jmnCadastrarFornecedor;
-    private javax.swing.JCheckBoxMenuItem jmnCadastrarProduto;
-    private javax.swing.JCheckBoxMenuItem jmnExcluirVenda;
     private javax.swing.JMenu jmnGerarRelatorio;
     private javax.swing.JMenuBar jmnMenu;
-    private javax.swing.JCheckBoxMenuItem jmnRealizarVenda;
-    private javax.swing.JCheckBoxMenuItem jmnRemoverFornecedor;
-    private javax.swing.JCheckBoxMenuItem jmnRemoverProduto;
     private javax.swing.JMenu jmnSais;
     // End of variables declaration//GEN-END:variables
 }

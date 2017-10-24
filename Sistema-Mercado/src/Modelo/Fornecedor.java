@@ -13,9 +13,7 @@ public class Fornecedor {
     private String nomeFornecedor;
     private String cpfFornecedor;
     private String cnpjFornecedor;
-    private String endereco;
     private String telefone;
-    private String produto;
     private int codigoForncedor;
     /**
      * @return the nomeFornecedor
@@ -58,21 +56,7 @@ public class Fornecedor {
     public void setCnpjFornecedor(String cnpjFornecedor) {
         this.cnpjFornecedor = cnpjFornecedor;
     }
-
-    /**
-     * @return the endereco
-     */
-    public String getEndereco() {
-        return endereco;
-    }
-
-    /**
-     * @param endereco the endereco to set
-     */
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
+    
     /**
      * @return the telefone
      */
@@ -85,20 +69,6 @@ public class Fornecedor {
      */
     public void setTelefone(String telefone) {
         this.telefone = telefone;
-    }
-
-    /**
-     * @return the produto
-     */
-    public String getProduto() {
-        return produto;
-    }
-
-    /**
-     * @param produto the produto to set
-     */
-    public void setProduto(String produto) {
-        this.produto = produto;
     }
 
     /**
