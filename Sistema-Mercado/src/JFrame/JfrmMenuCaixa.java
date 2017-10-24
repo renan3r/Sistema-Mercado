@@ -222,7 +222,8 @@ public class JfrmMenuCaixa extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pack();
+        setSize(new java.awt.Dimension(320, 243));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jmnRealizarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmnRealizarVendaActionPerformed

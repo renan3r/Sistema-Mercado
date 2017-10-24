@@ -142,7 +142,8 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
                 .addGap(25, 25, 25))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(320, 243));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCheckBoxMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem1ActionPerformed
