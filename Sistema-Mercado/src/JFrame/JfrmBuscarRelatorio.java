@@ -5,7 +5,7 @@
  */
 package JFrame;
 
-import Modelo.ApenasNumeros;
+import Utilitarios.ApenasNumeros;
 
 /**
  *
@@ -18,7 +18,7 @@ public class JfrmBuscarRelatorio extends javax.swing.JFrame {
      */
     public JfrmBuscarRelatorio() {
         initComponents();
-        jtxtBuscado.setDocument(new ApenasNumeros());
+        
     }
 
     /**

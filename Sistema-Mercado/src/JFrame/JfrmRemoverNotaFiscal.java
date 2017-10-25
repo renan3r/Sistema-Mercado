@@ -5,7 +5,7 @@
  */
 package JFrame;
 
-import Modelo.ApenasNumeros;
+import Utilitarios.ApenasNumeros;
 
 /**
  *
@@ -18,7 +18,7 @@ public class JfrmRemoverNotaFiscal extends javax.swing.JFrame {
      */
     public JfrmRemoverNotaFiscal() {
         initComponents();
-        jtxtCodigo.setDocument(new ApenasNumeros());
+        
     }
 
     /**
@@ -31,89 +31,88 @@ public class JfrmRemoverNotaFiscal extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jbtnSalvar = new javax.swing.JButton();
-        jbtnCancelar = new javax.swing.JButton();
-        jtxtCodigo = new javax.swing.JTextField();
+        jbtnRemover = new javax.swing.JButton();
+        Sair = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Remover Nota Fiscal");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel2.setText("Identificação da Nota");
-
-        jbtnSalvar.setText("Salvar");
-        jbtnSalvar.addActionListener(new java.awt.event.ActionListener() {
+        jbtnRemover.setText("Remover");
+        jbtnRemover.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnSalvarActionPerformed(evt);
+                jbtnRemoverActionPerformed(evt);
             }
         });
 
-        jbtnCancelar.setText("Cancelar");
-        jbtnCancelar.addActionListener(new java.awt.event.ActionListener() {
+        Sair.setText("Sair");
+        Sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnCancelarActionPerformed(evt);
+                SairActionPerformed(evt);
             }
         });
 
-        jtxtCodigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxtCodigoActionPerformed(evt);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
             }
-        });
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addGap(35, 35, 35)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(249, 249, 249)
+                        .addComponent(jbtnRemover)
                         .addGap(18, 18, 18)
-                        .addComponent(jtxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(117, 117, 117)
-                        .addComponent(jbtnSalvar)
-                        .addGap(18, 18, 18)
-                        .addComponent(jbtnCancelar)))
-                .addContainerGap(85, Short.MAX_VALUE))
+                        .addComponent(Sair)))
+                .addContainerGap(36, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(93, 93, 93))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
+                .addGap(38, 38, 38)
                 .addComponent(jLabel1)
-                .addGap(50, 50, 50)
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jtxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbtnSalvar)
-                    .addComponent(jbtnCancelar))
-                .addGap(77, 77, 77))
+                    .addComponent(jbtnRemover)
+                    .addComponent(Sair))
+                .addGap(33, 33, 33))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbtnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSalvarActionPerformed
+    private void jbtnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRemoverActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jbtnSalvarActionPerformed
+    }//GEN-LAST:event_jbtnRemoverActionPerformed
 
-    private void jbtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCancelarActionPerformed
+    private void SairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SairActionPerformed
         // TODO add your handling code here:
         dispose();
-    }//GEN-LAST:event_jbtnCancelarActionPerformed
-
-    private void jtxtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtCodigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtxtCodigoActionPerformed
+    }//GEN-LAST:event_SairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,10 +150,10 @@ public class JfrmRemoverNotaFiscal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Sair;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JButton jbtnCancelar;
-    private javax.swing.JButton jbtnSalvar;
-    private javax.swing.JTextField jtxtCodigo;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JButton jbtnRemover;
     // End of variables declaration//GEN-END:variables
 }

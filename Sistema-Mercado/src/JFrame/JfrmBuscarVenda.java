@@ -5,7 +5,7 @@
  */
 package JFrame;
 
-import Modelo.ApenasNumeros;
+import Utilitarios.ApenasNumeros;
 
 /**
  *
@@ -18,7 +18,7 @@ public class JfrmBuscarVenda extends javax.swing.JFrame {
      */
     public JfrmBuscarVenda() {
         initComponents();
-        jtxtBuscado.setDocument(new ApenasNumeros());
+        
     }
 
     /**
