@@ -5,6 +5,7 @@
  */
 package DAO;
 
+import Modelo.Funcionario;
 import Utilitarios.ConexaoBD;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -42,21 +43,29 @@ public class FuncionarioDAO implements InterfaceDAO{
     PreparedStatement ps2 = null;
     ResultSet rs = null;
     
-    public int login(String login, int senha){
+    public int login(Funcionario funcionario){
         int temp=0;
-         try {
-           ps2 = ConexaoBD.conectar().prepareStatement("SELECT * FROM MERCADOBD.Funcionario where Login='" +login+ "' AND senha='" + senha + "'" );
-           rs = ps2.executeQuery();
+       
+        try {
+            ps2 = ConexaoBD.conectar().prepareStatement("SELECT * FROM MERCADOBD.Funcionario where Login='" +funcionario.getLogin()+ "' AND senha='" +funcionario.getSenha() + "'" );
+        } catch (SQLException ex) {
+            Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+        try {
+            rs = ps2.executeQuery();
+        } catch (SQLException ex) {
+            Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
             while (rs.next()) {
                 String dados = rs.getString("tipo");
                 temp = Integer.parseInt(dados);
             }        
-              
-            
-        } catch (SQLException ex) { 
+        } catch (SQLException ex) {
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+        }       
+      
         return temp;
     }
    

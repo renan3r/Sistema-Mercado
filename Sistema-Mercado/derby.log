@@ -1,19 +1,35 @@
+<<<<<<< HEAD
 Wed Oct 25 00:12:49 BRST 2017 : Apache Derby Servidor de Rede - 10.13.1.1 - (Unversioned directory) iniciado e pronto para aceitar conexões na porta 1527 em {3}
 ----------------------------------------------------------------
 Wed Oct 25 00:12:49 BRST 2017:
  Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.13.1.1 - (Unversioned directory): instância a816c00e-015f-514d-ba0e-000022cc50ee
 no diretório de banco de dados D:\Documentos\2º periodo - 2017\LPS\WorkSpace\Sistema-Mercado\Sistema-Mercado\MercadoBD 
+=======
+Wed Oct 25 11:51:30 BRST 2017 : Apache Derby Servidor de Rede - 10.13.1.1 - (Unversioned directory) iniciado e pronto para aceitar conexões na porta 1527 em {3}
+----------------------------------------------------------------
+Wed Oct 25 11:51:47 BRST 2017:
+ Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.13.1.1 - (Unversioned directory): instância a816c00e-015f-53cd-63dc-000005c9c23b
+no diretório de banco de dados C:\Users\renan\OneDrive\Documentos\workspace\Sistema-Mercado\Sistema-Mercado\MercadoBD 
+>>>>>>> eb44f012815aff8f5d0ca9f2bc1922c30e1115b2
 
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_131-b11
-user.dir=D:\Documentos\2º periodo - 2017\LPS\WorkSpace\glassfish5\javadb
+java.runtime.version=1.8.0_101-b13
+user.dir=C:\Users\renan\OneDrive\Documentos\glassfish5\javadb
 os.name=Windows 10
 os.arch=amd64
 os.version=10.0
-derby.system.home=D:\Documentos\2º periodo - 2017\LPS\WorkSpace\Sistema-Mercado\Sistema-Mercado
+derby.system.home=C:\Users\renan\OneDrive\Documentos\workspace\Sistema-Mercado\Sistema-Mercado
 Carregador de classe do banco de dados iniciado - derby.database.classpath=''
 ----------------------------------------------------------------
+<<<<<<< HEAD
 Wed Oct 25 00:17:46 BRST 2017: Shutting down Derby engine
 ----------------------------------------------------------------
 Wed Oct 25 00:17:46 BRST 2017:
 Encerrando a instância a816c00e-015f-514d-ba0e-000022cc50ee
+=======
+Wed Oct 25 11:52:07 BRST 2017: Shutting down Derby engine
+----------------------------------------------------------------
+Wed Oct 25 11:52:07 BRST 2017:
+Encerrando a instância a816c00e-015f-53cd-63dc-000005c9c23b
+----------------------------------------------------------------
+>>>>>>> eb44f012815aff8f5d0ca9f2bc1922c30e1115b2
