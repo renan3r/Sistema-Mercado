@@ -14,7 +14,6 @@ public class Fornecedor {
     private String cpfFornecedor;
     private String cnpjFornecedor;
     private String telefone;
-    private int codigoForncedor;
     /**
      * @return the nomeFornecedor
      */
@@ -70,19 +69,4 @@ public class Fornecedor {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
-
-    /**
-     * @return the codigoForncedor
-     */
-    public int getCodigoForncedor() {
-        return codigoForncedor;
-    }
-
-    /**
-     * @param codigoForncedor the codigoForncedor to set
-     */
-    public void setCodigoForncedor(int codigoForncedor) {
-        this.codigoForncedor = codigoForncedor;
-    }
-    
 }

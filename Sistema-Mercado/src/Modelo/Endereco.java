@@ -10,7 +10,6 @@ package Modelo;
  * @author Junim Roberti
  */
 public class Endereco {
-    private int codigoEndereco;
     private String rua;
     private String numero;
     private String bairro;
@@ -71,19 +70,4 @@ public class Endereco {
     public void setCidade(String cidade) {
         this.cidade = cidade;
     }
-
-    /**
-     * @return the codigoEndereco
-     */
-    public int getCodigoEndereco() {
-        return codigoEndereco;
-    }
-
-    /**
-     * @param codigoEndereco the codigoEndereco to set
-     */
-    public void setCodigoEndereco(int codigoEndereco) {
-        this.codigoEndereco = codigoEndereco;
-    }
-    
 }
