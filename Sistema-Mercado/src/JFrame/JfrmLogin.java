@@ -136,15 +136,14 @@ public class JfrmLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
       Funcionario funcionario = new Funcionario();
       funcionario.setLogin(jtxtUsuario.getText().toLowerCase());// lembrar de na hora de cadastrar colocar lowercase tambem
-      funcionario.setSenha(jtxtSenha.getText().toLowerCase()); 
+      funcionario.setSenha(jtxtSenha.getText()); 
       FuncionarioControle funcionarioControle = new FuncionarioControle();
       if(funcionarioControle.login(funcionario)){
-          hide();
+        dispose();
       }else{
           jtxtSenha.setText("");
           jtxtUsuario.setText("");
       }
-      
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
