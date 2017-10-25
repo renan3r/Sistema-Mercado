@@ -6,6 +6,7 @@
 package JFrame;
 
 import Controle.FuncionarioControle;
+import Modelo.Funcionario;
 import Utilitarios.ConexaoBD;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -128,13 +129,12 @@ public class JfrmLogin extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-       String login;
-       int senha=0;
-       login = jtxtUsuario.getText();
-       senha = Integer.parseInt(jtxtSenha.getText());
-        FuncionarioControle funcionarioControle = new FuncionarioControle();
-        funcionarioControle.login(login, senha);
-        dispose();
+      Funcionario funcionario = new Funcionario();
+      funcionario.setLogin(jtxtUsuario.getText());
+      funcionario.setSenha(jtxtSenha.getText()); 
+      FuncionarioControle funcionarioControle = new FuncionarioControle();
+      funcionarioControle.login(funcionario);
+      dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

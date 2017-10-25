@@ -8,18 +8,20 @@ package Controle;
 import DAO.FuncionarioDAO;
 import JFrame.JfrmMenuCaixa;
 import JFrame.JfrmMenuGerente;
-
+import Modelo.Funcionario;
+import javax.swing.JOptionPane;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Junim Roberti
  */
 public class FuncionarioControle {
    
-    public void login (String login,int senha){
+    public void login (Funcionario funcionario){
         
         FuncionarioDAO funcionarioDAO = new FuncionarioDAO ();
         int temp =0;
-        temp = funcionarioDAO.login(login,senha);
+        temp = funcionarioDAO.login(funcionario);
          
                if(temp == 1){
                    JfrmMenuGerente tela =  new JfrmMenuGerente();                   
@@ -33,6 +35,9 @@ public class FuncionarioControle {
                   tela.setLocationRelativeTo(null);
                   tela.setDefaultCloseOperation(tela.EXIT_ON_CLOSE);                  
                   tela.setVisible(true);                 
+               }
+               if(temp !=1 && temp != 2){
+                   JOptionPane.showMessageDialog(null,"Login ou senha invalidos");
                }
               
     }
