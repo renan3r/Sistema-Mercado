@@ -51,6 +51,11 @@ public class JfrmGerarRelatorio extends javax.swing.JFrame {
         jLabel2.setText("Dia desejado");
 
         jbtnCancelar.setText("Cancelar");
+        jbtnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -95,6 +100,11 @@ public class JfrmGerarRelatorio extends javax.swing.JFrame {
     private void jtxtDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtDiaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxtDiaActionPerformed
+
+    private void jbtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCancelarActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jbtnCancelarActionPerformed
 
     /**
      * @param args the command line arguments

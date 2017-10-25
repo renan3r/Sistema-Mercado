@@ -37,7 +37,7 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
         jmnGerarRelatorio = new javax.swing.JMenu();
         jMenuGerarRelatorio = new javax.swing.JMenuItem();
         jMenuConsultarRelatorio = new javax.swing.JMenuItem();
-        jmnSais = new javax.swing.JMenu();
+        jmnSair = new javax.swing.JMenu();
         jMenuSair = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -100,7 +100,7 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
 
         jmnMenu.add(jmnGerarRelatorio);
 
-        jmnSais.setText("Mais");
+        jmnSair.setText("Mais");
 
         jMenuSair.setText("Sair");
         jMenuSair.addActionListener(new java.awt.event.ActionListener() {
@@ -108,9 +108,9 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
                 jMenuSairActionPerformed(evt);
             }
         });
-        jmnSais.add(jMenuSair);
+        jmnSair.add(jMenuSair);
 
-        jmnMenu.add(jmnSais);
+        jmnMenu.add(jmnSair);
 
         setJMenuBar(jmnMenu);
 
@@ -131,7 +131,7 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
                 .addGap(25, 25, 25))
         );
 
-        setSize(new java.awt.Dimension(320, 243));
+        pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -144,6 +144,7 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
         // TODO add your handling code here:
         JfrmCadastrarFuncionario cadastrarFuncionario = new JfrmCadastrarFuncionario();
         cadastrarFuncionario.setLocationRelativeTo(null);
+        cadastrarFuncionario.setDefaultCloseOperation(cadastrarFuncionario.DISPOSE_ON_CLOSE);
         cadastrarFuncionario.setVisible(true); 
     }//GEN-LAST:event_jMenuCadastrarFuncionarioActionPerformed
 
@@ -151,6 +152,7 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
         // TODO add your handling code here:
         JfrmRemoverFuncionario excluirFuncionario = new JfrmRemoverFuncionario();
         excluirFuncionario.setLocationRelativeTo(null);
+        excluirFuncionario.setDefaultCloseOperation(excluirFuncionario.DISPOSE_ON_CLOSE);
         excluirFuncionario.setVisible(true);                            
     }//GEN-LAST:event_jMenuExcluirFuncionarioActionPerformed
 
@@ -158,6 +160,7 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
         // TODO add your handling code here:
         JfrmBuscarFuncionario buscarFuncionario = new JfrmBuscarFuncionario();
         buscarFuncionario.setLocationRelativeTo(null);
+        buscarFuncionario.setDefaultCloseOperation(buscarFuncionario.DISPOSE_ON_CLOSE);
         buscarFuncionario.setVisible(true);
     }//GEN-LAST:event_jMenuBuscarFuncionarioActionPerformed
 
@@ -165,6 +168,7 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
         // TODO add your handling code here:
         JfrmAlterarFuncionario alterarFuncionario = new JfrmAlterarFuncionario();
         alterarFuncionario.setLocationRelativeTo(null);
+        alterarFuncionario.setDefaultCloseOperation(alterarFuncionario.DISPOSE_ON_CLOSE);
         alterarFuncionario.setVisible(true);
     }//GEN-LAST:event_jMenuAlterarFuncionarioActionPerformed
 
@@ -172,6 +176,7 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
         // TODO add your handling code here:
         JfrmGerarRelatorio gerarRelatorio = new JfrmGerarRelatorio();
         gerarRelatorio.setLocationRelativeTo(null);
+        gerarRelatorio.setDefaultCloseOperation(gerarRelatorio.DISPOSE_ON_CLOSE);
         gerarRelatorio.setVisible(true);
     }//GEN-LAST:event_jMenuGerarRelatorioActionPerformed
 
@@ -179,6 +184,7 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
         // TODO add your handling code here:
         JfrmBuscarRelatorio consultarRelatorio = new JfrmBuscarRelatorio();
         consultarRelatorio.setLocationRelativeTo(null);
+        consultarRelatorio.setDefaultCloseOperation(consultarRelatorio.DISPOSE_ON_CLOSE);
         consultarRelatorio.setVisible(true);
     }//GEN-LAST:event_jMenuConsultarRelatorioActionPerformed
 
@@ -229,6 +235,6 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
     private javax.swing.JMenu jmnAddFuncionario;
     private javax.swing.JMenu jmnGerarRelatorio;
     private javax.swing.JMenuBar jmnMenu;
-    private javax.swing.JMenu jmnSais;
+    private javax.swing.JMenu jmnSair;
     // End of variables declaration//GEN-END:variables
 }

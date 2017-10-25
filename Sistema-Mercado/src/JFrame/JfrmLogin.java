@@ -7,9 +7,6 @@ package JFrame;
 
 import Controle.FuncionarioControle;
 import Modelo.Funcionario;
-import Utilitarios.ConexaoBD;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -41,6 +38,7 @@ public class JfrmLogin extends javax.swing.JFrame {
         jtxtUsuario = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jtxtSenha = new javax.swing.JPasswordField();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,6 +67,9 @@ public class JfrmLogin extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel5.setText("            ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -92,8 +93,10 @@ public class JfrmLogin extends javax.swing.JFrame {
                         .addGap(135, 135, 135)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jtxtUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
-                            .addComponent(jtxtSenha))))
-                .addContainerGap(156, Short.MAX_VALUE))
+                            .addComponent(jtxtSenha))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel5)))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,7 +105,7 @@ public class JfrmLogin extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                         .addComponent(jLabel3)
                         .addGap(11, 11, 11))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -112,11 +115,13 @@ public class JfrmLogin extends javax.swing.JFrame {
                 .addComponent(jtxtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jtxtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtxtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
                 .addGap(26, 26, 26)
                 .addComponent(jButton1)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         setSize(new java.awt.Dimension(416, 339));
@@ -130,11 +135,16 @@ public class JfrmLogin extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
       Funcionario funcionario = new Funcionario();
-      funcionario.setLogin(jtxtUsuario.getText());
-      funcionario.setSenha(jtxtSenha.getText()); 
+      funcionario.setLogin(jtxtUsuario.getText().toLowerCase());// lembrar de na hora de cadastrar colocar lowercase tambem
+      funcionario.setSenha(jtxtSenha.getText().toLowerCase()); 
       FuncionarioControle funcionarioControle = new FuncionarioControle();
-      funcionarioControle.login(funcionario);
-      dispose();
+      if(funcionarioControle.login(funcionario)){
+          hide();
+      }else{
+          jtxtSenha.setText("");
+          jtxtUsuario.setText("");
+      }
+      
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -178,7 +188,22 @@ public class JfrmLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPasswordField jtxtSenha;
     private javax.swing.JTextField jtxtUsuario;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the jLabel5
+     */
+    public javax.swing.JLabel getjLabel5() {
+        return jLabel5;
+    }
+
+    /**
+     * @param jLabel5 the jLabel5 to set
+     */
+    public void setjLabel5(javax.swing.JLabel jLabel5) {
+        this.jLabel5 = jLabel5;
+    }
 }

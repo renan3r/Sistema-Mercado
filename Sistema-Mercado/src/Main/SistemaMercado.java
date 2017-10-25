@@ -6,6 +6,8 @@
 package Main;
 
 import JFrame.JfrmLogin;
+import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 
 /**
  *
@@ -22,6 +24,14 @@ public class SistemaMercado {
             login.setLocationRelativeTo(null);
             login.setDefaultCloseOperation(login.EXIT_ON_CLOSE);
             login.setVisible(true);
+            while(login.isEnabled()){
+                boolean capsLigado = Toolkit.getDefaultToolkit().getLockingKeyState(KeyEvent.VK_CAPS_LOCK );
+                if ( capsLigado ) {
+                    login.getjLabel5().setText("CAPSLOCK LIGADO!");
+                } else {
+                    login.getjLabel5().setText("");
+                }
+            }
     }
     
 }
