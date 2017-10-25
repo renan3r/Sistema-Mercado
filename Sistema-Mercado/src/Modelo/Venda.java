@@ -12,7 +12,6 @@ package Modelo;
 public class Venda {
     private float somaVenda;
     private String formaPagamento;
-    private int codigoVenda;
     private String dataVenda;
     /**
      * @return the somaVenda
@@ -40,20 +39,6 @@ public class Venda {
      */
     public void setFormaPagamento(String formaPagamento) {
         this.formaPagamento = formaPagamento;
-    }
-
-    /**
-     * @return the codigoVenda
-     */
-    public int getCodigoVenda() {
-        return codigoVenda;
-    }
-
-    /**
-     * @param codigoVenda the codigoVenda to set
-     */
-    public void setCodigoVenda(int codigoVenda) {
-        this.codigoVenda = codigoVenda;
     }
 
     /**

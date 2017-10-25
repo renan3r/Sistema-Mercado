@@ -14,7 +14,6 @@ public class Produto{
     private String modelo;
     private float precoCompra;
     private float precoVenda;
-    private int codigoProduto;
     private String dataValidade;
     /**
      * @return the nomeProduto
@@ -70,25 +69,7 @@ public class Produto{
     public void setPrecoVenda(float precoVenda) {
         this.precoVenda = precoVenda;
     }
-
-    /**
-     * @return the estoque
-     */
     
-    /**
-     * @return the codigoProduto
-     */
-    public int getCodigoProduto() {
-        return codigoProduto;
-    }
-
-    /**
-     * @param codigoProduto the codigoProduto to set
-     */
-    public void setCodigoProduto(int codigoProduto) {
-        this.codigoProduto = codigoProduto;
-    }
-
     /**
      * @return the dataValidade
      */

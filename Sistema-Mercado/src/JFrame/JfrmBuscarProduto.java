@@ -5,7 +5,7 @@
  */
 package JFrame;
 
-import Modelo.ApenasNumeros;
+import Utilitarios.ApenasNumeros;
 
 /**
  *
@@ -18,7 +18,7 @@ public class JfrmBuscarProduto extends javax.swing.JFrame {
      */
     public JfrmBuscarProduto() {
         initComponents();
-        jtxtBuscado.setDocument(new ApenasNumeros());
+        
     }
 
     /**
@@ -62,7 +62,7 @@ public class JfrmBuscarProduto extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jtblProduto);
 
-        jLabel2.setText("Codigo do Produto");
+        jLabel2.setText(" Produto");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
