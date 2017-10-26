@@ -37,6 +37,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Alterar Venda"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuAlterarVendaActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -143,23 +146,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Remover Nota Fiscal"/>
               </Properties>
-            </MenuItem>
-          </SubComponents>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Estoque"/>
-          </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuAdicionarEstoque">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Adicionar Estoque"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuRemoverEstoque">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Remover Estoque"/>
-              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuRemoverNotaFiscalActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

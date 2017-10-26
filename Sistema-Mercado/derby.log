@@ -1,16 +1,19 @@
-Wed Oct 25 15:51:01 BRST 2017 : Apache Derby Servidor de Rede - 10.13.1.1 - (Unversioned directory) iniciado e pronto para aceitar conexões na porta 1527 em {3}
+Thu Oct 26 09:46:28 BRST 2017 : Apache Derby Servidor de Rede - 10.13.1.1 - (Unversioned directory) iniciado e pronto para aceitar conexões na porta 1527 em {3}
 ----------------------------------------------------------------
-Wed Oct 25 15:51:01 BRST 2017:
- Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.13.1.1 - (Unversioned directory): instância a816c00e-015f-54a8-ac44-000022cc50ee
-no diretório de banco de dados D:\Documentos\2º periodo - 2017\LPS\WorkSpace\Sistema-Mercado\Sistema-Mercado\MercadoBD 
+Thu Oct 26 09:46:29 BRST 2017:
+ Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.13.1.1 - (Unversioned directory): instância a816c00e-015f-5881-48a1-00006fdc660d
+no diretório de banco de dados C:\Users\Leticia Ribeiro\Documents\workspace\Sistema-Mercado\Sistema-Mercado\MercadoBD 
 
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_131-b11
-user.dir=D:\Documentos\2º periodo - 2017\LPS\WorkSpace\glassfish5\javadb
-os.name=Windows 10
+java.runtime.version=1.8.0_111-b14
+user.dir=C:\Users\Leticia Ribeiro\Documents\workspace\glassfish-5.0\glassfish5\javadb
+os.name=Windows 8.1
 os.arch=amd64
-os.version=10.0
-derby.system.home=D:\Documentos\2º periodo - 2017\LPS\WorkSpace\Sistema-Mercado\Sistema-Mercado
+os.version=6.3
+derby.system.home=C:\Users\Leticia Ribeiro\Documents\workspace\Sistema-Mercado\Sistema-Mercado
 Carregador de classe do banco de dados iniciado - derby.database.classpath=''
 ----------------------------------------------------------------
-Wed Oct 25 16:47:46 BRST 2017: Shutting down Derby engine
+Thu Oct 26 11:00:21 BRST 2017: Shutting down Derby engine
+----------------------------------------------------------------
+Thu Oct 26 11:00:21 BRST 2017:
+Encerrando a instância a816c00e-015f-5881-48a1-00006fdc660d

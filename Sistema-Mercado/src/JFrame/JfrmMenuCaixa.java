@@ -48,9 +48,6 @@ public class JfrmMenuCaixa extends javax.swing.JFrame {
         jMenuAdicionarNotaFiscal = new javax.swing.JMenuItem();
         jMenuBuscarNotaFiscal = new javax.swing.JMenuItem();
         jMenuRemoverNotaFiscal = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuAdicionarEstoque = new javax.swing.JMenuItem();
-        jMenuRemoverEstoque = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuSair = new javax.swing.JMenuItem();
 
@@ -85,6 +82,11 @@ public class JfrmMenuCaixa extends javax.swing.JFrame {
         jMenu6.add(jMenuBuscarVenda);
 
         jMenuAlterarVenda.setText("Alterar Venda");
+        jMenuAlterarVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuAlterarVendaActionPerformed(evt);
+            }
+        });
         jMenu6.add(jMenuAlterarVenda);
 
         jmnMenu.add(jMenu6);
@@ -180,19 +182,14 @@ public class JfrmMenuCaixa extends javax.swing.JFrame {
         jMenu2.add(jMenuBuscarNotaFiscal);
 
         jMenuRemoverNotaFiscal.setText("Remover Nota Fiscal");
+        jMenuRemoverNotaFiscal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuRemoverNotaFiscalActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuRemoverNotaFiscal);
 
         jmnMenu.add(jMenu2);
-
-        jMenu3.setText("Estoque");
-
-        jMenuAdicionarEstoque.setText("Adicionar Estoque");
-        jMenu3.add(jMenuAdicionarEstoque);
-
-        jMenuRemoverEstoque.setText("Remover Estoque");
-        jMenu3.add(jMenuRemoverEstoque);
-
-        jmnMenu.add(jMenu3);
 
         jMenu4.setText("Mais");
 
@@ -338,6 +335,22 @@ public class JfrmMenuCaixa extends javax.swing.JFrame {
         buscarNotaFiscal.setVisible(true);
     }//GEN-LAST:event_jMenuBuscarNotaFiscalActionPerformed
 
+    private void jMenuAlterarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuAlterarVendaActionPerformed
+        // TODO add your handling code here:
+        JfrmAlterarVenda alterarVenda = new JfrmAlterarVenda();
+        alterarVenda.setLocationRelativeTo(null);
+        alterarVenda.setDefaultCloseOperation(alterarVenda.DISPOSE_ON_CLOSE); 
+        alterarVenda.setVisible(true);
+    }//GEN-LAST:event_jMenuAlterarVendaActionPerformed
+
+    private void jMenuRemoverNotaFiscalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuRemoverNotaFiscalActionPerformed
+        // TODO add your handling code here:
+        JfrmRemoverNotaFiscal removerNotaFiscal = new JfrmRemoverNotaFiscal();
+        removerNotaFiscal.setLocationRelativeTo(null);
+        removerNotaFiscal.setDefaultCloseOperation(removerNotaFiscal.DISPOSE_ON_CLOSE); 
+        removerNotaFiscal.setVisible(true);
+    }//GEN-LAST:event_jMenuRemoverNotaFiscalActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -377,11 +390,9 @@ public class JfrmMenuCaixa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenuItem jMenuAdicionarEstoque;
     private javax.swing.JMenuItem jMenuAdicionarNotaFiscal;
     private javax.swing.JMenuItem jMenuAlterarFornecedor;
     private javax.swing.JMenuItem jMenuAlterarProduto;
@@ -393,7 +404,6 @@ public class JfrmMenuCaixa extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuCadastrarFornecedor;
     private javax.swing.JMenuItem jMenuCadastrarProduto;
     private javax.swing.JMenuItem jMenuRealizarVenda;
-    private javax.swing.JMenuItem jMenuRemoverEstoque;
     private javax.swing.JMenuItem jMenuRemoverFornecedor;
     private javax.swing.JMenuItem jMenuRemoverNotaFiscal;
     private javax.swing.JMenuItem jMenuRemoverProduto;
