@@ -6,8 +6,8 @@
 package Controle;
 
 import DAO.FuncionarioDAO;
-import JFrame.JfrmMenuCaixa;
-import JFrame.JfrmMenuGerente;
+import View.JfrmMenuCaixa;
+import View.JfrmMenuGerente;
 import Modelo.Funcionario;
 import javax.swing.JOptionPane;
 /**
@@ -40,5 +40,13 @@ public class FuncionarioControle {
             return false;
         }     
         return false;
+    }
+    
+    public void cadastrarFuncionario (Funcionario funcionario){
+        
+        FuncionarioDAO funcionarioDAO = new FuncionarioDAO (); 
+        funcionarioDAO.CadastrarFuncionario(funcionario);
+        
+        
     }
 }
