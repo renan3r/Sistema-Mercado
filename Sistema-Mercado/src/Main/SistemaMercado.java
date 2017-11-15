@@ -5,7 +5,7 @@
  */
 package Main;
 
-import JFrame.JfrmLogin;
+import View.JfrmLogin;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 

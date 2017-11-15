@@ -13,8 +13,13 @@ import Modelo.Endereco;
  * @author Junim Roberti
  */
 public class EnderecoControle {
-    public int salvar (Endereco endereco){
+
+    public int cadastrarEnderecoFuncionario(Endereco endereco){
+        
         EnderecoDAO enderecoDAO = new EnderecoDAO();
-        return enderecoDAO.adiciona1(endereco);
+        int cod;
+        cod = enderecoDAO.CadastrarEnderecoFuncionario(endereco);
+        return cod;
     }
+
 }
