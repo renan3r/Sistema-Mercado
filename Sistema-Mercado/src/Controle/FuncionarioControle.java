@@ -42,7 +42,7 @@ public class FuncionarioControle {
         return false;
     }
     
-    public void cadastrarFuncionario (Funcionario funcionario){
+    public void cadastrarFuncionario(Funcionario funcionario){
         
         FuncionarioDAO funcionarioDAO = new FuncionarioDAO (); 
         funcionarioDAO.CadastrarFuncionario(funcionario);

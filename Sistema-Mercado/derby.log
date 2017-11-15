@@ -1,7 +1,7 @@
-Tue Nov 14 09:33:45 BRST 2017 : Apache Derby Servidor de Rede - 10.13.1.1 - (Unversioned directory) iniciado e pronto para aceitar conexões na porta 1527 em {3}
+Wed Nov 15 13:33:46 BRST 2017 : Apache Derby Servidor de Rede - 10.13.1.1 - (Unversioned directory) iniciado e pronto para aceitar conexões na porta 1527 em {3}
 ----------------------------------------------------------------
-Tue Nov 14 09:33:54 BRST 2017:
- Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.13.1.1 - (Unversioned directory): instância a816c00e-015f-ba4e-78db-00006fdc660d
+Wed Nov 15 13:33:47 BRST 2017:
+ Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.13.1.1 - (Unversioned directory): instância a816c00e-015f-c050-8ead-00006fdc660d
 no diretório de banco de dados C:\Users\Leticia Ribeiro\Documents\workspace\Sistema-Mercado\Sistema-Mercado\MercadoBD 
 
 java.vendor=Oracle Corporation
@@ -13,4 +13,4 @@ os.version=6.3
 derby.system.home=C:\Users\Leticia Ribeiro\Documents\workspace\Sistema-Mercado\Sistema-Mercado
 Carregador de classe do banco de dados iniciado - derby.database.classpath=''
 ----------------------------------------------------------------
-Tue Nov 14 14:08:56 BRST 2017: Shutting down Derby engine
+Wed Nov 15 14:04:39 BRST 2017: Shutting down Derby engine

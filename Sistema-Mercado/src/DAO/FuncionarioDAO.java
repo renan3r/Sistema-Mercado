@@ -72,7 +72,7 @@ public class FuncionarioDAO implements InterfaceDAO{
     public void CadastrarFuncionario(Funcionario funcionario){
        try {
             sql = "Insert into Funcionario (endereço_codigoendereco, login, senha, tipo, nomefuncionario, telefone) values (?,?,?,?,?,?)";
-            //conn = ConexaoBD.conectar();
+            conn = ConexaoBD.conectar();
             PreparedStatement stmt;        
             stmt = conn.prepareStatement(sql);
             stmt.setInt(1, funcionario.getCodigoEndereco());

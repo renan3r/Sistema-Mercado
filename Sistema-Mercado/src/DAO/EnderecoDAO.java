@@ -22,7 +22,7 @@ public class EnderecoDAO implements InterfaceDAO{
     
     private String sql;
     private Connection conn;
-    ResultSet rs;
+    
 
     @Override
     public void adiciona(Object obj) {
@@ -46,9 +46,11 @@ public class EnderecoDAO implements InterfaceDAO{
     
     public int CadastrarEnderecoFuncionario(Endereco endereco){
         
-        int temp = 0;
+        int temp = 1;
         
         try {
+            ResultSet rs;
+            
             sql = "Insert into Endereco (rua, numero, bairro, cidade) values (?,?,?,?)";
             conn = ConexaoBD.conectar();
             PreparedStatement stmt;        
@@ -58,16 +60,16 @@ public class EnderecoDAO implements InterfaceDAO{
             stmt.setString(3, endereco.getBairro());
             stmt.setString(4, endereco.getCidade());                        
             stmt.execute();
-            /*
-            PreparedStatement ps;
-            ps = ConexaoBD.conectar().prepareStatement("SELECT * FROM MERCADOBD.Endereco");       
-            rs = ps.executeQuery();
+        
             
-            while (rs.last()) {
-                String dados = rs.getString("codigoendereco");
-                temp = Integer.parseInt(dados);
-                
-        } */          
+            stmt = conn.prepareStatement("SELECT * FROM ENDERECO");       
+            rs = stmt.executeQuery();
+            
+            while (rs.next()) {
+                temp = rs.getInt("CODIGOENDERECO");
+                System.out.println(temp);
+            }          
+     
 
 
         } catch (SQLException ex) {
