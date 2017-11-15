@@ -5,6 +5,10 @@
  */
 package JFrame;
 
+import Controle.EnderecoControle;
+import Controle.FornecedorControle;
+import Modelo.Endereco;
+import Modelo.Fornecedor;
 import Utilitarios.ApenasNumeros;
 
 /**
@@ -22,7 +26,7 @@ public class JfrmCadastrarFornecedor extends javax.swing.JFrame {
         jtxtCpf.setDocument(new ApenasNumeros());
         jtxtNumero.setDocument(new ApenasNumeros());
         jtxtTelefone.setDocument(new ApenasNumeros());
-        jxtCodigo.setDocument(new ApenasNumeros());
+        
       
     }
 
@@ -43,10 +47,8 @@ public class JfrmCadastrarFornecedor extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jtxtNome = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jxtCodigo = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jtxtBairro = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
         jtxtCidade = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jtxtNumero = new javax.swing.JTextField();
@@ -88,17 +90,8 @@ public class JfrmCadastrarFornecedor extends javax.swing.JFrame {
 
         jLabel12.setText("Numero");
 
-        jxtCodigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jxtCodigoActionPerformed(evt);
-            }
-        });
-
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setText("Nome");
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel3.setText("Codigo");
 
         jtxtCidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,41 +134,28 @@ public class JfrmCadastrarFornecedor extends javax.swing.JFrame {
                     .addComponent(jtxtRua, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
                     .addComponent(jtxtCpf, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
                     .addComponent(jtxtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
-                    .addComponent(jtxtCnpj, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
-                    .addComponent(jxtCodigo, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(jtxtCnpj, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE))
                 .addGap(91, 91, 91))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(70, 70, 70)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel5)
-                                        .addComponent(jLabel9))
-                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addContainerGap(258, Short.MAX_VALUE)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel7)
-                                .addComponent(jLabel12))
-                            .addContainerGap()))))
+                        .addComponent(jLabel8)
+                        .addComponent(jLabel4)
+                        .addComponent(jLabel2)
+                        .addComponent(jLabel5)
+                        .addComponent(jLabel9)
+                        .addComponent(jLabel6)
+                        .addComponent(jLabel7)
+                        .addComponent(jLabel12))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel1)
-                .addGap(41, 41, 41)
-                .addComponent(jxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(72, 72, 72)
                 .addComponent(jtxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jtxtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -198,9 +178,7 @@ public class JfrmCadastrarFornecedor extends javax.swing.JFrame {
                 .addGap(42, 42, 42))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(92, 92, 92)
-                    .addComponent(jLabel3)
-                    .addGap(18, 18, 18)
+                    .addGap(125, 125, 125)
                     .addComponent(jLabel2)
                     .addGap(18, 18, 18)
                     .addComponent(jLabel8)
@@ -224,6 +202,25 @@ public class JfrmCadastrarFornecedor extends javax.swing.JFrame {
 
     private void jbtnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSalvarActionPerformed
         // TODO add your handling code here:
+        int x=0;
+      Fornecedor fornecedor = new Fornecedor();
+      Endereco endereco = new Endereco();
+      fornecedor.setNomeFornecedor(jtxtNome.getText());// lembrar de na hora de cadastrar colocar lowercase tambem
+      fornecedor.setCpfFornecedor(jtxtCpf.getText());
+      fornecedor.setCnpjFornecedor(jtxtCnpj.getText());
+      fornecedor.setTelefone(jtxtTelefone.getText());
+      endereco.setRua(jtxtRua.getText());
+      endereco.setNumero(jtxtNumero.getText());
+      endereco.setBairro(jtxtBairro.getText());
+      endereco.setCidade(jtxtCidade.getText());
+      EnderecoControle enderecoControle = new EnderecoControle();      
+      x=enderecoControle.salvar(endereco);
+      fornecedor.setCodigo(x);
+      System.out.println(x);
+      FornecedorControle fornecedorControle = new FornecedorControle();
+      fornecedorControle.salvar(fornecedor);
+      
+    
     }//GEN-LAST:event_jbtnSalvarActionPerformed
 
     private void jbtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCancelarActionPerformed
@@ -234,10 +231,6 @@ public class JfrmCadastrarFornecedor extends javax.swing.JFrame {
     private void jtxtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxtNomeActionPerformed
-
-    private void jxtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jxtCodigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jxtCodigoActionPerformed
 
     private void jtxtCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtCidadeActionPerformed
         // TODO add your handling code here:
@@ -282,7 +275,6 @@ public class JfrmCadastrarFornecedor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -299,6 +291,5 @@ public class JfrmCadastrarFornecedor extends javax.swing.JFrame {
     private javax.swing.JTextField jtxtNumero;
     private javax.swing.JTextField jtxtRua;
     private javax.swing.JTextField jtxtTelefone;
-    private javax.swing.JTextField jxtCodigo;
     // End of variables declaration//GEN-END:variables
 }

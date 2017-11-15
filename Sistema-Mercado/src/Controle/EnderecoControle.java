@@ -5,10 +5,16 @@
  */
 package Controle;
 
+import DAO.EnderecoDAO;
+import Modelo.Endereco;
+
 /**
  *
  * @author Junim Roberti
  */
 public class EnderecoControle {
-    
+    public int salvar (Endereco endereco){
+        EnderecoDAO enderecoDAO = new EnderecoDAO();
+        return enderecoDAO.adiciona1(endereco);
+    }
 }

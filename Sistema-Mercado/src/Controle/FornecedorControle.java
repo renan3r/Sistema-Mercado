@@ -5,10 +5,16 @@
  */
 package Controle;
 
+import DAO.FornecedorDAO;
+import Modelo.Fornecedor;
+
 /**
  *
  * @author Junim Roberti
  */
 public class FornecedorControle {
-    
+    public void salvar (Fornecedor fornecedor){
+        FornecedorDAO fornecedorDAO = new FornecedorDAO();
+        fornecedorDAO.adiciona(fornecedor);
+    }
 }
