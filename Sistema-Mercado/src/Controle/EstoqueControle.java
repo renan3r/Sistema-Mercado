@@ -5,10 +5,16 @@
  */
 package Controle;
 
+import DAO.EstoqueDAO;
+import Modelo.Estoque;
+
 /**
  *
  * @author Junim Roberti
  */
 public class EstoqueControle {
-    
+    public int salvar(Estoque estoque){
+        EstoqueDAO estoqueDAO = new EstoqueDAO();
+        return estoqueDAO.adicionar(estoque);
+    }
 }

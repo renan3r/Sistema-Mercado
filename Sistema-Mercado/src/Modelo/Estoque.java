@@ -10,34 +10,34 @@ package Modelo;
  * @author Junim Roberti
  */
 public class Estoque {
-    private String quantidadeTotal;
-    private String quantidadeAtual;
+    private float quantidadeTotal;
+    private float quantidadeAtual;
 
     /**
      * @return the quantidadeTotal
      */
-    public String getQuantidadeTotal() {
+    public float getQuantidadeTotal() {
         return quantidadeTotal;
     }
 
     /**
      * @param quantidadeTotal the quantidadeTotal to set
      */
-    public void setQuantidadeTotal(String quantidadeTotal) {
+    public void setQuantidadeTotal(float quantidadeTotal) {
         this.quantidadeTotal = quantidadeTotal;
     }
 
     /**
      * @return the quantidadeAtual
      */
-    public String getQuantidadeAtual() {
+    public float getQuantidadeAtual() {
         return quantidadeAtual;
     }
 
     /**
      * @param quantidadeAtual the quantidadeAtual to set
      */
-    public void setQuantidadeAtual(String quantidadeAtual) {
+    public void setQuantidadeAtual(float quantidadeAtual) {
         this.quantidadeAtual = quantidadeAtual;
     }
 }

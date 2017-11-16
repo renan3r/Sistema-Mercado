@@ -5,6 +5,14 @@
  */
 package JFrame;
 
+import Controle.EstoqueControle;
+import Controle.FornecedorControle;
+import Controle.NotaFiscalControle;
+import Controle.ProdutoControle;
+import Modelo.Estoque;
+import Modelo.Fornecedor;
+import Modelo.NotaFiscal;
+import Modelo.Produto;
 import Utilitarios.ApenasNumeros;
 
 /**
@@ -20,9 +28,6 @@ public class JfrmCadastrarProduto extends javax.swing.JFrame {
         initComponents();        
         jtxtPrecoCompra.setDocument(new ApenasNumeros());
         jtxtPrecoVenda.setDocument(new ApenasNumeros());
-        jtxtCodigo.setDocument(new ApenasNumeros());
-        jtxtCodigoEstoque.setDocument(new ApenasNumeros());
-        jtxtQtdaAtual.setDocument(new ApenasNumeros());
         jtxtQtdaTotal.setDocument(new ApenasNumeros());
     }
 
@@ -43,13 +48,11 @@ public class JfrmCadastrarProduto extends javax.swing.JFrame {
         jtxtNome = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jtxtCodigo = new javax.swing.JTextField();
         jtxtDataValidade = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -57,6 +60,12 @@ public class JfrmCadastrarProduto extends javax.swing.JFrame {
         jtxtCodigoEstoque = new javax.swing.JTextField();
         jtxtQtdaAtual = new javax.swing.JTextField();
         jtxtQtdaTotal = new javax.swing.JTextField();
+        jtxtFornecedor = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jtxtNotaFiscal = new javax.swing.JTextField();
+        jtxtDataCompra = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
 
         jLabel10.setText("jLabel10");
 
@@ -81,9 +90,6 @@ public class JfrmCadastrarProduto extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setText("Nome");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel3.setText("Codigo");
-
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setText("Preço de Compra");
 
@@ -101,76 +107,74 @@ public class JfrmCadastrarProduto extends javax.swing.JFrame {
 
         jLabel9.setText("Data de Validade");
 
-        jtxtCodigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxtCodigoActionPerformed(evt);
-            }
-        });
-
         jLabel6.setText("Codigo no Estoque");
 
         jLabel7.setText("Quantidade Total");
 
         jLabel11.setText("Quantidade Atual");
 
+        jLabel12.setText("Fornecedor");
+
+        jLabel13.setText("CNPJ da Nota Fiscal");
+
+        jLabel3.setText("Data da Compra");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(105, 105, 105)
-                        .addComponent(jButton1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(66, 66, 66)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jtxtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(jtxtPrecoCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton2))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jtxtNome)
-                                    .addComponent(jtxtCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel11))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jtxtPrecoVenda, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
-                                    .addComponent(jtxtDataValidade)
-                                    .addComponent(jtxtCodigoEstoque)
-                                    .addComponent(jtxtQtdaTotal)
-                                    .addComponent(jtxtQtdaAtual))))))
-                .addContainerGap(79, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(jLabel8)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                                        .addComponent(jtxtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jtxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel5)
+                                            .addComponent(jLabel9)
+                                            .addComponent(jLabel6)
+                                            .addComponent(jLabel7)
+                                            .addComponent(jLabel11)
+                                            .addComponent(jLabel12)
+                                            .addComponent(jLabel13)
+                                            .addComponent(jLabel4)
+                                            .addComponent(jLabel3))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jtxtPrecoCompra, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+                                            .addComponent(jtxtPrecoVenda, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+                                            .addComponent(jtxtDataValidade, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+                                            .addComponent(jtxtCodigoEstoque, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+                                            .addComponent(jtxtQtdaTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+                                            .addComponent(jtxtQtdaAtual, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+                                            .addComponent(jtxtFornecedor)
+                                            .addComponent(jtxtNotaFiscal)
+                                            .addComponent(jtxtDataCompra))))
+                                .addGap(0, 109, Short.MAX_VALUE)))))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jtxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -203,11 +207,23 @@ public class JfrmCadastrarProduto extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(jtxtQtdaAtual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtxtFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(jtxtNotaFiscal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jtxtDataCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addGap(52, 52, 52))
+                .addGap(22, 22, 22))
         );
 
         pack();
@@ -219,11 +235,29 @@ public class JfrmCadastrarProduto extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        Produto produto = new Produto();
+        produto.setDataValidade(jtxtDataValidade.getText());
+        produto.setModelo(jtxtModelo.getText());
+        produto.setNomeProduto(jtxtNome.getText());
+        produto.setPrecoCompra(Float.parseFloat(jtxtPrecoCompra.getText()));
+        produto.setPrecoVenda(Float.parseFloat(jtxtPrecoVenda.getText()));
+        Estoque estoque = new Estoque();
+        estoque.setQuantidadeTotal(Float.parseFloat(jtxtQtdaTotal.getText()));
+        estoque.setQuantidadeAtual(Float.parseFloat(jtxtQtdaTotal.getText()));
+        Fornecedor fornecedor = new Fornecedor();
+        fornecedor.setNomeFornecedor(jtxtFornecedor.getText());
+        NotaFiscal notaFiscal = new NotaFiscal();
+        notaFiscal.setCnpj(jtxtNotaFiscal.getText());
+        notaFiscal.setDataCompra(jtxtDataCompra.getText());
+        EstoqueControle estoqueControle = new EstoqueControle();
+        int codigoEstoque = estoqueControle.salvar(estoque);
+        NotaFiscalControle notaFiscalControle = new NotaFiscalControle();
+        int codigoNotafiscal = notaFiscalControle.buscar(notaFiscal);
+        FornecedorControle fornecedorControle = new FornecedorControle();
+        int codigoFornecedor = fornecedorControle.buscar(fornecedor);
+        ProdutoControle produtoControle = new ProdutoControle();
+        produtoControle.salvar(produto, codigoEstoque, codigoNotafiscal, codigoFornecedor);
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jtxtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtCodigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtxtCodigoActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -271,6 +305,8 @@ public class JfrmCadastrarProduto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -279,11 +315,13 @@ public class JfrmCadastrarProduto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jtxtCodigo;
     private javax.swing.JTextField jtxtCodigoEstoque;
+    private javax.swing.JTextField jtxtDataCompra;
     private javax.swing.JTextField jtxtDataValidade;
+    private javax.swing.JTextField jtxtFornecedor;
     private javax.swing.JTextField jtxtModelo;
     private javax.swing.JTextField jtxtNome;
+    private javax.swing.JTextField jtxtNotaFiscal;
     private javax.swing.JTextField jtxtPrecoCompra;
     private javax.swing.JTextField jtxtPrecoVenda;
     private javax.swing.JTextField jtxtQtdaAtual;
