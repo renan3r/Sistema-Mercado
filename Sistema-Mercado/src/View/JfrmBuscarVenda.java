@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package JFrame;
+package View;
 
 import Utilitarios.ApenasNumeros;
 
@@ -11,14 +11,14 @@ import Utilitarios.ApenasNumeros;
  *
  * @author Leticia Ribeiro
  */
-public class JfrmBuscarNotaFiscal extends javax.swing.JFrame {
+public class JfrmBuscarVenda extends javax.swing.JFrame {
 
     /**
-     * Creates new form JfrmBuscarNotaFiscal
+     * Creates new form JfrmBuscarVenda
      */
-    public JfrmBuscarNotaFiscal() {
+    public JfrmBuscarVenda() {
         initComponents();
-        jtxtBuscado.setDocument(new ApenasNumeros());
+        
     }
 
     /**
@@ -31,7 +31,7 @@ public class JfrmBuscarNotaFiscal extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jtblNotaFiscal = new javax.swing.JTable();
+        jtblVendas = new javax.swing.JTable();
         jtxtBuscado = new javax.swing.JTextField();
         jbtnPesquisar = new javax.swing.JButton();
         jbtnSair3 = new javax.swing.JButton();
@@ -40,7 +40,7 @@ public class JfrmBuscarNotaFiscal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jtblNotaFiscal.setModel(new javax.swing.table.DefaultTableModel(
+        jtblVendas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -48,7 +48,7 @@ public class JfrmBuscarNotaFiscal extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jtblNotaFiscal);
+        jScrollPane1.setViewportView(jtblVendas);
 
         jbtnPesquisar.setText("Pesquisar");
 
@@ -60,9 +60,9 @@ public class JfrmBuscarNotaFiscal extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("Buscar Nota Fiscal");
+        jLabel1.setText("Buscar Venda");
 
-        jLabel2.setText("Codigo da Nota Fiscal ");
+        jLabel2.setText("Codigo da Venda");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,7 +75,7 @@ public class JfrmBuscarNotaFiscal extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jtxtBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jtxtBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jbtnPesquisar)
                                 .addGap(18, 18, 18)
@@ -83,7 +83,7 @@ public class JfrmBuscarNotaFiscal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(88, 88, 88)
+                                .addGap(122, 122, 122)
                                 .addComponent(jLabel1))
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
@@ -132,20 +132,20 @@ public class JfrmBuscarNotaFiscal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JfrmBuscarNotaFiscal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfrmBuscarVenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JfrmBuscarNotaFiscal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfrmBuscarVenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JfrmBuscarNotaFiscal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfrmBuscarVenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JfrmBuscarNotaFiscal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfrmBuscarVenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JfrmBuscarNotaFiscal().setVisible(true);
+                new JfrmBuscarVenda().setVisible(true);
             }
         });
     }
@@ -156,7 +156,7 @@ public class JfrmBuscarNotaFiscal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbtnPesquisar;
     private javax.swing.JButton jbtnSair3;
-    private javax.swing.JTable jtblNotaFiscal;
+    private javax.swing.JTable jtblVendas;
     private javax.swing.JTextField jtxtBuscado;
     // End of variables declaration//GEN-END:variables
 }

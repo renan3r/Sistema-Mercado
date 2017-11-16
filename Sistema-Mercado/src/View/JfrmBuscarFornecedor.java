@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package JFrame;
+package View;
 
 import Utilitarios.ApenasNumeros;
 
@@ -11,14 +11,14 @@ import Utilitarios.ApenasNumeros;
  *
  * @author Leticia Ribeiro
  */
-public class JfrmBuscarRelatorio extends javax.swing.JFrame {
+public class JfrmBuscarFornecedor extends javax.swing.JFrame {
 
     /**
-     * Creates new form JfrmConsultarRelatorio
+     * Creates new form JfrmBuscarFornecedor
      */
-    public JfrmBuscarRelatorio() {
+    public JfrmBuscarFornecedor() {
         initComponents();
-        
+        jtxtBuscado.setDocument(new ApenasNumeros());
     }
 
     /**
@@ -30,17 +30,27 @@ public class JfrmBuscarRelatorio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jbtnSair5 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jtblRelatorios = new javax.swing.JTable();
+        jtblFornecedor = new javax.swing.JTable();
         jtxtBuscado = new javax.swing.JTextField();
         jbtnPesquisar = new javax.swing.JButton();
-        jbtnSair3 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jtblRelatorios.setModel(new javax.swing.table.DefaultTableModel(
+        jbtnSair5.setText("Sair");
+        jbtnSair5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnSair5ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setText("Buscar Fornecedor");
+
+        jtblFornecedor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -48,48 +58,37 @@ public class JfrmBuscarRelatorio extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jtblRelatorios);
+        jScrollPane1.setViewportView(jtblFornecedor);
 
         jbtnPesquisar.setText("Pesquisar");
 
-        jbtnSair3.setText("Sair");
-        jbtnSair3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnSair3ActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("Consultar Relátorio");
-
-        jLabel2.setText("Codigo Relatorio");
+        jLabel2.setText("Codigo do Fornecedor");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jtxtBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jtxtBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jbtnPesquisar)
-                                .addGap(18, 18, 18)
-                                .addComponent(jbtnSair3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(88, 88, 88)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel2)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(27, 27, 27)))
+                        .addComponent(jbtnSair5, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(99, 99, 99)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,7 +101,7 @@ public class JfrmBuscarRelatorio extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbtnSair3)
+                    .addComponent(jbtnSair5)
                     .addComponent(jtxtBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbtnPesquisar))
                 .addGap(11, 11, 11))
@@ -111,9 +110,9 @@ public class JfrmBuscarRelatorio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbtnSair3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSair3ActionPerformed
+    private void jbtnSair5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSair5ActionPerformed
         dispose();
-    }//GEN-LAST:event_jbtnSair3ActionPerformed
+    }//GEN-LAST:event_jbtnSair5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -132,21 +131,20 @@ public class JfrmBuscarRelatorio extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JfrmBuscarRelatorio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfrmBuscarFornecedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JfrmBuscarRelatorio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfrmBuscarFornecedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JfrmBuscarRelatorio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfrmBuscarFornecedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JfrmBuscarRelatorio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfrmBuscarFornecedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JfrmBuscarRelatorio().setVisible(true);
+                new JfrmBuscarFornecedor().setVisible(true);
             }
         });
     }
@@ -156,8 +154,8 @@ public class JfrmBuscarRelatorio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbtnPesquisar;
-    private javax.swing.JButton jbtnSair3;
-    private javax.swing.JTable jtblRelatorios;
+    private javax.swing.JButton jbtnSair5;
+    private javax.swing.JTable jtblFornecedor;
     private javax.swing.JTextField jtxtBuscado;
     // End of variables declaration//GEN-END:variables
 }

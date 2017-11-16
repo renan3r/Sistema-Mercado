@@ -3,23 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package JFrame;
+package View;
 
-import Controle.ProdutoControle;
-import javax.swing.table.DefaultTableModel;
+import Utilitarios.ApenasNumeros;
 
 /**
  *
  * @author Leticia Ribeiro
  */
-public class JfrmRemoverProduto extends javax.swing.JFrame {
+public class JfrmRemoverVenda extends javax.swing.JFrame {
 
     /**
-     * Creates new form JfrmRemoverProduto
+     * Creates new form JfrmExcluirVenda
      */
-    public JfrmRemoverProduto() {
+    public JfrmRemoverVenda() {
         initComponents();
-        tabela();
+        
     }
 
     /**
@@ -31,29 +30,28 @@ public class JfrmRemoverProduto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jbtnSair = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jbtnRemover = new javax.swing.JButton();
+        jbtnSair = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        jbtnSair.setText("Sair");
-        jbtnSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnSairActionPerformed(evt);
-            }
-        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("Remover Produto");
+        jLabel1.setText("Remover Venda");
 
         jbtnRemover.setText("Remover");
         jbtnRemover.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbtnRemoverActionPerformed(evt);
+            }
+        });
+
+        jbtnSair.setText("Sair");
+        jbtnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnSairActionPerformed(evt);
             }
         });
 
@@ -75,61 +73,39 @@ public class JfrmRemoverProduto extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(541, 541, 541)
+                .addGap(41, 41, 41)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(41, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jbtnRemover)
                 .addGap(18, 18, 18)
                 .addComponent(jbtnSair)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addGap(53, 53, 53))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(257, 257, 257))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
+                .addGap(133, 133, 133))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(21, 21, 21)
                 .addComponent(jLabel1)
-                .addGap(56, 56, 56)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(41, 41, 41)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtnSair)
                     .addComponent(jbtnRemover))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(28, 28, 28))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public void tabela(){
-        ProdutoControle produtoControle = new ProdutoControle();
-        DefaultTableModel modeloTabela = (DefaultTableModel)jTable1.getModel();
-        modeloTabela = new DefaultTableModel(new String[] {"Código", "Nome do Produto", "Modelo", "Preço de Compra", "Preço de Venda", "Data de Validade", "Fornecedor", "Quantidade"}, 0);
-        for(int i = 0; i < produtoControle.popular().size();i++){
-            Object[] data = {produtoControle.popular().get(i).getCodigo(), produtoControle.popular().get(i).getNomeProduto(), produtoControle.popular().get(i).getModelo(), produtoControle.popular().get(i).getPrecoCompra(), produtoControle.popular().get(i).getPrecoVenda(), produtoControle.popular().get(i).getDataValidade(), produtoControle.popular().get(i).getCodigo(), produtoControle.popular().get(i).getCodigo()};
-            modeloTabela.addRow(data);
-        }
-        jTable1.setModel(modeloTabela);
-        jTable1.getColumnModel().getColumn(0).setPreferredWidth(20);
-        jTable1.getColumnModel().getColumn(1).setPreferredWidth(75);
-        jTable1.getColumnModel().getColumn(2).setPreferredWidth(20);
-        jTable1.getColumnModel().getColumn(3).setPreferredWidth(75);
-        jTable1.getColumnModel().getColumn(4).setPreferredWidth(70);
-        jTable1.getColumnModel().getColumn(5).setPreferredWidth(75);
-        jTable1.getColumnModel().getColumn(6).setPreferredWidth(40);
-        jTable1.getColumnModel().getColumn(7).setPreferredWidth(40);
-    }
+
     private void jbtnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRemoverActionPerformed
         // TODO add your handling code here:
-        //System.out.print(jTable1.getValueAt(jTable1.getSelectedRow(), 0));
-        ProdutoControle produtoControle = new ProdutoControle();
-        produtoControle.remover(jTable1.getValueAt(jTable1.getSelectedRow(), 0));
-        DefaultTableModel modeloTabela = (DefaultTableModel)jTable1.getModel();
-        modeloTabela.removeRow(jTable1.getSelectedRow());
     }//GEN-LAST:event_jbtnRemoverActionPerformed
 
     private void jbtnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSairActionPerformed
@@ -154,20 +130,21 @@ public class JfrmRemoverProduto extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JfrmRemoverProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfrmRemoverVenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JfrmRemoverProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfrmRemoverVenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JfrmRemoverProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfrmRemoverVenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JfrmRemoverProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfrmRemoverVenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JfrmRemoverProduto().setVisible(true);
+                new JfrmRemoverVenda().setVisible(true);
             }
         });
     }

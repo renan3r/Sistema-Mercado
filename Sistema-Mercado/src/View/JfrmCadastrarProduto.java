@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package JFrame;
+package View;
 
 import Controle.EstoqueControle;
 import Controle.FornecedorControle;
@@ -25,9 +25,13 @@ public class JfrmCadastrarProduto extends javax.swing.JFrame {
      * Creates new form JfrmCadastrarProduto
      */
     public JfrmCadastrarProduto() {
+<<<<<<< HEAD:Sistema-Mercado/src/JFrame/JfrmCadastrarProduto.java
         initComponents();        
         jtxtPrecoCompra.setDocument(new ApenasNumeros());
         jtxtPrecoVenda.setDocument(new ApenasNumeros());
+=======
+        initComponents();       
+>>>>>>> 7757097a3dc151da0d2376d8fa7b20389863318d:Sistema-Mercado/src/View/JfrmCadastrarProduto.java
         jtxtQtdaTotal.setDocument(new ApenasNumeros());
     }
 
@@ -56,9 +60,7 @@ public class JfrmCadastrarProduto extends javax.swing.JFrame {
         jtxtDataValidade = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         jtxtCodigoEstoque = new javax.swing.JTextField();
-        jtxtQtdaAtual = new javax.swing.JTextField();
         jtxtQtdaTotal = new javax.swing.JTextField();
         jtxtFornecedor = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
@@ -111,6 +113,7 @@ public class JfrmCadastrarProduto extends javax.swing.JFrame {
 
         jLabel7.setText("Quantidade Total");
 
+<<<<<<< HEAD:Sistema-Mercado/src/JFrame/JfrmCadastrarProduto.java
         jLabel11.setText("Quantidade Atual");
 
         jLabel12.setText("Fornecedor");
@@ -119,6 +122,8 @@ public class JfrmCadastrarProduto extends javax.swing.JFrame {
 
         jLabel3.setText("Data da Compra");
 
+=======
+>>>>>>> 7757097a3dc151da0d2376d8fa7b20389863318d:Sistema-Mercado/src/View/JfrmCadastrarProduto.java
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -129,6 +134,7 @@ public class JfrmCadastrarProduto extends javax.swing.JFrame {
                         .addGap(66, 66, 66)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD:Sistema-Mercado/src/JFrame/JfrmCadastrarProduto.java
                         .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -169,13 +175,46 @@ public class JfrmCadastrarProduto extends javax.swing.JFrame {
                                             .addComponent(jtxtDataCompra))))
                                 .addGap(0, 109, Short.MAX_VALUE)))))
                 .addContainerGap(21, Short.MAX_VALUE))
+=======
+                        .addGap(21, 21, 21)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jtxtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(18, 18, 18)
+                                .addComponent(jtxtPrecoCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jtxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jtxtPrecoVenda, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+                                    .addComponent(jtxtDataValidade)
+                                    .addComponent(jtxtCodigoEstoque)
+                                    .addComponent(jtxtQtdaTotal))))))
+                .addContainerGap(79, Short.MAX_VALUE))
+>>>>>>> 7757097a3dc151da0d2376d8fa7b20389863318d:Sistema-Mercado/src/View/JfrmCadastrarProduto.java
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
+<<<<<<< HEAD:Sistema-Mercado/src/JFrame/JfrmCadastrarProduto.java
                 .addGap(18, 18, 18)
+=======
+                .addGap(56, 56, 56)
+>>>>>>> 7757097a3dc151da0d2376d8fa7b20389863318d:Sistema-Mercado/src/View/JfrmCadastrarProduto.java
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jtxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -203,6 +242,7 @@ public class JfrmCadastrarProduto extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(jtxtQtdaTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+<<<<<<< HEAD:Sistema-Mercado/src/JFrame/JfrmCadastrarProduto.java
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
@@ -220,6 +260,9 @@ public class JfrmCadastrarProduto extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(jtxtDataCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+=======
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+>>>>>>> 7757097a3dc151da0d2376d8fa7b20389863318d:Sistema-Mercado/src/View/JfrmCadastrarProduto.java
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
@@ -304,11 +347,13 @@ public class JfrmCadastrarProduto extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+<<<<<<< HEAD:Sistema-Mercado/src/JFrame/JfrmCadastrarProduto.java
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+=======
+>>>>>>> 7757097a3dc151da0d2376d8fa7b20389863318d:Sistema-Mercado/src/View/JfrmCadastrarProduto.java
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -324,7 +369,6 @@ public class JfrmCadastrarProduto extends javax.swing.JFrame {
     private javax.swing.JTextField jtxtNotaFiscal;
     private javax.swing.JTextField jtxtPrecoCompra;
     private javax.swing.JTextField jtxtPrecoVenda;
-    private javax.swing.JTextField jtxtQtdaAtual;
     private javax.swing.JTextField jtxtQtdaTotal;
     // End of variables declaration//GEN-END:variables
 }

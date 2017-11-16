@@ -5,10 +5,21 @@
  */
 package Controle;
 
+import DAO.EnderecoDAO;
+import Modelo.Endereco;
+
 /**
  *
  * @author Junim Roberti
  */
 public class EnderecoControle {
+    
+    public int cadastrarEnderecoFuncionario(Endereco endereco){
+        
+        EnderecoDAO enderecoDAO = new EnderecoDAO();
+        int cod;
+        cod = enderecoDAO.CadastrarEnderecoFuncionario(endereco);
+        return cod;
+    }
     
 }

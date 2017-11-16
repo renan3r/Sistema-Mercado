@@ -15,6 +15,7 @@ public class Funcionario {
     private String senha;
     private int tipo;
     private String telefone;
+    private int codigoEndereco;
     /**
      * @return the nomeFuncionario
      */
@@ -83,6 +84,20 @@ public class Funcionario {
      */
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    /**
+     * @return the codigoEndereco
+     */
+    public int getCodigoEndereco() {
+        return codigoEndereco;
+    }
+
+    /**
+     * @param codigoEndereco the codigoEndereco to set
+     */
+    public void setCodigoEndereco(int codigoEndereco) {
+        this.codigoEndereco = codigoEndereco;
     }
     
 }

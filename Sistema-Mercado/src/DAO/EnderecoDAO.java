@@ -5,11 +5,24 @@
  */
 package DAO;
 
+import Modelo.Endereco;
+import Utilitarios.ConexaoBD;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Junim Roberti
  */
 public class EnderecoDAO implements InterfaceDAO{
+    
+    private String sql;
+    private Connection conn;
+    
 
     @Override
     public void adiciona(Object obj) {
@@ -31,4 +44,38 @@ public class EnderecoDAO implements InterfaceDAO{
         throw new UnsupportedOperationException("Not supported yet."); //o change body of generated methods, choose Tools | Templates.
     }
     
+    public int CadastrarEnderecoFuncionario(Endereco endereco){
+        
+        int temp = 1;
+        
+        try {
+            ResultSet rs;
+            
+            sql = "Insert into Endereco (rua, numero, bairro, cidade) values (?,?,?,?)";
+            conn = ConexaoBD.conectar();
+            PreparedStatement stmt;        
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, endereco.getRua());
+            stmt.setString(2, endereco.getNumero());
+            stmt.setString(3, endereco.getBairro());
+            stmt.setString(4, endereco.getCidade());                        
+            stmt.execute();
+        
+            
+            stmt = conn.prepareStatement("SELECT * FROM ENDERECO");       
+            rs = stmt.executeQuery();
+            
+            while (rs.next()) {
+                temp = rs.getInt("CODIGOENDERECO");
+                System.out.println(temp);
+            }          
+     
+
+
+        } catch (SQLException ex) {
+            Logger.getLogger(EnderecoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }    
+        
+        return temp;        
+    }
 }
