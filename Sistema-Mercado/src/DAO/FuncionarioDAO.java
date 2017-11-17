@@ -19,13 +19,10 @@ import java.util.logging.Logger;
  * @author Junim Roberti
  */
 public class FuncionarioDAO implements InterfaceDAO{
-    
-<<<<<<< HEAD
-=======
+
     private String sql;
     private Connection conn;
 
->>>>>>> 7757097a3dc151da0d2376d8fa7b20389863318d
     @Override
     public void adiciona(Object obj) {
         throw new UnsupportedOperationException("Not supported yet."); //o change body of generated methods, choose Tools | Templates.
@@ -46,32 +43,18 @@ public class FuncionarioDAO implements InterfaceDAO{
         
         throw new UnsupportedOperationException("Not supported yet."); //o change body of generated methods, choose Tools | Templates.
     }
-<<<<<<< HEAD
-    
-    public int login(Funcionario funcionario){
-        PreparedStatement ps2;
-        ResultSet rs;
-=======
-        
-    
+
+      
     public int login(Funcionario funcionario){
         
         PreparedStatement ps2;
         ResultSet rs;       
-        
-        
->>>>>>> 7757097a3dc151da0d2376d8fa7b20389863318d
         int temp=0;
         try {
-<<<<<<< HEAD
             ps2 = ConexaoBD.conectar().prepareStatement("SELECT * FROM MERCADOBD.Funcionario where Login='" +funcionario.getLogin()+ "' AND senha='" +funcionario.getSenha() + "'" );
             rs = ps2.executeQuery();
-=======
-            
             ps2 = ConexaoBD.conectar().prepareStatement("SELECT * FROM MERCADOBD.Funcionario where Login='" +funcionario.getLogin()+ "' AND senha='" +funcionario.getSenha() + "'" );       
             rs = ps2.executeQuery();
-       
->>>>>>> 7757097a3dc151da0d2376d8fa7b20389863318d
             while (rs.next()) {
                 String dados = rs.getString("tipo");
                 temp = Integer.parseInt(dados);
