@@ -244,7 +244,7 @@ public class JfrmMenuCaixa extends javax.swing.JFrame {
 
     private void jMenuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSairActionPerformed
         // TODO add your handling code here:
-        dispose();
+        System.exit(0);
     }//GEN-LAST:event_jMenuSairActionPerformed
 
     private void jMenuRealizarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuRealizarVendaActionPerformed
