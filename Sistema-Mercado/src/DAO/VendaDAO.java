@@ -5,6 +5,8 @@
  */
 package DAO;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Junim Roberti
@@ -27,9 +29,9 @@ public class VendaDAO implements InterfaceDAO{
     }
 
     @Override
-    public Object buscar() {
-        throw new UnsupportedOperationException("Not supported yet."); //o change body of generated methods, choose Tools | Templates.
+
+    public ArrayList<Object> buscar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
-    
-    
 }

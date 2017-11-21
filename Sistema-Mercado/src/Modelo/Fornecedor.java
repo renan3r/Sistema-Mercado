@@ -10,10 +10,27 @@ package Modelo;
  * @author Junim Roberti
  */
 public class Fornecedor {
+    private int codigo;
+    private int codigoEndereco;
     private String nomeFornecedor;
     private String cpfFornecedor;
     private String cnpjFornecedor;
     private String telefone;
+    
+    public int getCodigo(){
+        return codigo;
+    }
+    public void setCodigo(int codigo){
+        this.codigo = codigo;
+    }
+    
+    public int getCodigoEndereco(){
+        return codigoEndereco;
+    }
+    public void setCodigoEndereco(int codigoEndereco){
+        this.codigoEndereco = codigoEndereco;
+    }
+    
     /**
      * @return the nomeFornecedor
      */

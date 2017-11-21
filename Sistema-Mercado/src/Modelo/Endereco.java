@@ -10,11 +10,19 @@ package Modelo;
  * @author Junim Roberti
  */
 public class Endereco {
+    private int codigo;
     private String rua;
     private String numero;
     private String bairro;
     private String cidade;
 
+    
+    public int getCodigo(){
+        return codigo;
+    }
+    public void setCodigo(int codigo){
+        this.codigo = codigo;
+    }
     /**
      * @return the rua
      */

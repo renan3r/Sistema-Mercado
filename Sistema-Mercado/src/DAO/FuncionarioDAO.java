@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -38,14 +39,11 @@ public class FuncionarioDAO implements InterfaceDAO{
         throw new UnsupportedOperationException("Not supported yet."); //o change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public Object buscar() {
-        
-        throw new UnsupportedOperationException("Not supported yet."); //o change body of generated methods, choose Tools | Templates.
-    }
+    
 
-      
+  
     public int login(Funcionario funcionario){
+
         
         PreparedStatement ps2;
         ResultSet rs;       
@@ -82,5 +80,12 @@ public class FuncionarioDAO implements InterfaceDAO{
             Logger.getLogger(EnderecoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }             
     }
+
+    @Override
+    public ArrayList<Object> buscar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
    
-}
+ }
+
+

@@ -42,6 +42,8 @@ public class FuncionarioControle {
         return false;
     }
     
+
+
     public void cadastrarFuncionario(Funcionario funcionario){
         
         FuncionarioDAO funcionarioDAO = new FuncionarioDAO (); 
@@ -49,4 +51,5 @@ public class FuncionarioControle {
         
         
     }
+
 }

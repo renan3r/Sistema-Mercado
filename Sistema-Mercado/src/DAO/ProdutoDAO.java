@@ -5,6 +5,8 @@
  */
 package DAO;
 
+
+import java.util.ArrayList;
 import Modelo.Produto;
 import Utilitarios.ConexaoBD;
 import java.sql.Connection;
@@ -14,6 +16,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 
 /**
  *
@@ -194,7 +197,9 @@ public class ProdutoDAO implements InterfaceDAO{
         return arrayProduto;
     }
     @Override
-    public ArrayList<Produto> buscar() {
+
+ 
+   public ArrayList<Produto> buscar() {
         ArrayList<Produto> arrayProduto = new ArrayList<>();
         
         try {
@@ -236,6 +241,7 @@ public class ProdutoDAO implements InterfaceDAO{
                     } catch (SQLException ex) {
             Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }
             
 }

@@ -5,6 +5,8 @@
  */
 package DAO;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Junim Roberti

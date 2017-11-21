@@ -5,6 +5,8 @@
  */
 package DAO;
 
+
+import java.util.ArrayList;
 import Modelo.Estoque;
 import Utilitarios.ConexaoBD;
 import java.sql.Connection;
@@ -12,6 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 
 /**
  *
@@ -51,13 +54,12 @@ public class EstoqueDAO implements InterfaceDAO{
     }
 
     @Override
-    public Object buscar() {
-        throw new UnsupportedOperationException("Not supported yet."); //o change body of generated methods, choose Tools | Templates.
+    public void adiciona(Object obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void adiciona(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //o change body of generated methods, choose Tools | Templates.
+    public Object buscar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
 }

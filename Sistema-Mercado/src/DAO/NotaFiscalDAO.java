@@ -5,12 +5,15 @@
  */
 package DAO;
 
+
+import java.util.ArrayList;
 import Modelo.NotaFiscal;
 import Utilitarios.ConexaoBD;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 
 /**
  *
@@ -32,7 +35,6 @@ public class NotaFiscalDAO implements InterfaceDAO{
         throw new UnsupportedOperationException("Not supported yet."); //o change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public Object buscar() {
         throw new UnsupportedOperationException("Not supported yet."); //o change body of generated methods, choose Tools | Templates.
     }
