@@ -1,7 +1,7 @@
-Tue Nov 21 20:39:45 BRST 2017 : Apache Derby Servidor de Rede - 10.13.1.1 - (Unversioned directory) iniciado e pronto para aceitar conexões na porta 1527 em {3}
+Tue Nov 21 21:24:04 BRST 2017 : Apache Derby Servidor de Rede - 10.13.1.1 - (Unversioned directory) iniciado e pronto para aceitar conexões na porta 1527 em {3}
 ----------------------------------------------------------------
-Tue Nov 21 20:39:45 BRST 2017:
- Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.13.1.1 - (Unversioned directory): instância a816c00e-015f-e0bc-b916-000022cc50ee
+Tue Nov 21 21:24:04 BRST 2017:
+ Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.13.1.1 - (Unversioned directory): instância a816c00e-015f-e0e5-4a37-000022cc50ee
 no diretório de banco de dados D:\Documentos\2º periodo - 2017\LPS\WorkSpace\Sistema-Mercado\Sistema-Mercado\MercadoBD 
 
 java.vendor=Oracle Corporation
@@ -12,22 +12,3 @@ os.arch=amd64
 os.version=10.0
 derby.system.home=D:\Documentos\2º periodo - 2017\LPS\WorkSpace\Sistema-Mercado\Sistema-Mercado
 Carregador de classe do banco de dados iniciado - derby.database.classpath=''
-----------------------------------------------------------------
-Tue Nov 21 20:39:56 BRST 2017:
-Encerrando a instância a816c00e-015f-e0bc-b916-000022cc50ee
-Tue Nov 21 20:39:57 BRST 2017 Thread[DRDAConnThread_3,5,main] (DATABASE = MercadoBD), (DRDAID = {2}), Banco de dados 'MercadoBD' fechado.
-----------------------------------------------------------------
-Tue Nov 21 20:40:33 BRST 2017:
- Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.13.1.1 - (Unversioned directory): instância 6ede40af-015f-e0bc-b916-000022cc50ee
-no diretório de banco de dados D:\Documentos\2º periodo - 2017\LPS\WorkSpace\Sistema-Mercado\Sistema-Mercado\MercadoBD 
-
-java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_131-b11
-user.dir=D:\Documentos\2º periodo - 2017\LPS\WorkSpace\glassfish5\javadb
-os.name=Windows 10
-os.arch=amd64
-os.version=10.0
-derby.system.home=D:\Documentos\2º periodo - 2017\LPS\WorkSpace\Sistema-Mercado\Sistema-Mercado
-Carregador de classe do banco de dados iniciado - derby.database.classpath=''
-----------------------------------------------------------------
-Tue Nov 21 21:21:25 BRST 2017: Shutting down Derby engine

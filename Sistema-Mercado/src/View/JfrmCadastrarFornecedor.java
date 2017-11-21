@@ -9,7 +9,6 @@ import Controle.EnderecoControle;
 import Controle.FornecedorControle;
 import Modelo.Endereco;
 import Modelo.Fornecedor;
-import Utilitarios.ApenasNumeros;
 
 /**
  *
@@ -21,13 +20,7 @@ public class JfrmCadastrarFornecedor extends javax.swing.JFrame {
      * Creates new form JfrmCadastrarFornecedor
      */
     public JfrmCadastrarFornecedor() {
-
         initComponents();
-        jtxtCnpj.setDocument(new ApenasNumeros());
-        jtxtCpf.setDocument(new ApenasNumeros());
-        jtxtNumero.setDocument(new ApenasNumeros());
-        jtxtTelefone.setDocument(new ApenasNumeros());
-
     }
 
     /**
