@@ -21,7 +21,7 @@ public class JfrmBuscarProduto extends javax.swing.JFrame {
      */
     public JfrmBuscarProduto() {
         initComponents();
-        
+        getRootPane().setDefaultButton(jbtnPesquisar);
     }
 
     /**
@@ -137,8 +137,10 @@ public class JfrmBuscarProduto extends javax.swing.JFrame {
         DefaultTableModel modeloTabela = (DefaultTableModel)jtblProduto.getModel();
         modeloTabela = new DefaultTableModel(new String[] {"Código", "Nome do Produto", "Modelo", "Preço de Compra", "Preço de Venda", "Data de Validade", "Fornecedor", "Quantidade"}, 0);
         ArrayList<Produto> array = produtoControle.buscar(produto.getNomeProduto());
+        ArrayList<Float> arraycodigo = produtoControle.pegaQuantidade(produto.getNomeProduto());
+        ArrayList<String> arraycodigo2 = produtoControle.pegaNomeFornecedor(produto.getNomeProduto());
         for(int i = 0; i < array.size();i++){
-            Object[] data = {array.get(i).getCodigo(), array.get(i).getNomeProduto(), array.get(i).getModelo(), array.get(i).getPrecoCompra(), array.get(i).getPrecoVenda(), array.get(i).getDataValidade(), array.get(i).getCodigo(), array.get(i).getCodigo()};
+            Object[] data = {array.get(i).getCodigo(), array.get(i).getNomeProduto(), array.get(i).getModelo(), array.get(i).getPrecoCompra(), array.get(i).getPrecoVenda(), array.get(i).getDataValidade(), arraycodigo2.get(i), arraycodigo.get(i)};
             modeloTabela.addRow(data);
         }
         jtblProduto.setModel(modeloTabela);

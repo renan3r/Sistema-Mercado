@@ -6,6 +6,8 @@
 package View;
 
 import Controle.ProdutoControle;
+import Modelo.Produto;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -109,8 +111,11 @@ public class JfrmRemoverProduto extends javax.swing.JFrame {
         ProdutoControle produtoControle = new ProdutoControle();
         DefaultTableModel modeloTabela = (DefaultTableModel)jTable1.getModel();
         modeloTabela = new DefaultTableModel(new String[] {"Código", "Nome do Produto", "Modelo", "Preço de Compra", "Preço de Venda", "Data de Validade", "Fornecedor", "Quantidade"}, 0);
-        for(int i = 0; i < produtoControle.popular().size();i++){
-            Object[] data = {produtoControle.popular().get(i).getCodigo(), produtoControle.popular().get(i).getNomeProduto(), produtoControle.popular().get(i).getModelo(), produtoControle.popular().get(i).getPrecoCompra(), produtoControle.popular().get(i).getPrecoVenda(), produtoControle.popular().get(i).getDataValidade(), produtoControle.popular().get(i).getCodigo(), produtoControle.popular().get(i).getCodigo()};
+        ArrayList<Produto> array = produtoControle.popular();
+        ArrayList<Float> arraycodigo = produtoControle.popularEstoque();
+        ArrayList<String> arraycodigo2 = produtoControle.popularFornecedor();
+        for(int i = 0; i < array.size();i++){
+            Object[] data = {array.get(i).getCodigo(), array.get(i).getNomeProduto(), array.get(i).getModelo(), array.get(i).getPrecoCompra(), array.get(i).getPrecoVenda(), array.get(i).getDataValidade(), arraycodigo2.get(i), arraycodigo.get(i)};
             modeloTabela.addRow(data);
         }
         jTable1.setModel(modeloTabela);

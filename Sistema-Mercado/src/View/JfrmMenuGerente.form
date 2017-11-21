@@ -50,18 +50,23 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuGerarRelatorio">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Gerar Relat&#xf3;rio"/>
+                <Property name="text" type="java.lang.String" value="Gerar Relat&#xf3;rio de Produto"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuGerarRelatorioActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuConsultarRelatorio">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Consultar Relat&#xf3;rio"/>
+                <Property name="text" type="java.lang.String" value="Gerar Relat&#xf3;rio de Fornecedores"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Gerar Relat&#xf3;rio de Funcionarios"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuConsultarRelatorioActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>

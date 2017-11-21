@@ -37,7 +37,8 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
         jMenuAlterarFuncionario = new javax.swing.JMenuItem();
         jmnGerarRelatorio = new javax.swing.JMenu();
         jMenuGerarRelatorio = new javax.swing.JMenuItem();
-        jMenuConsultarRelatorio = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jmnSair = new javax.swing.JMenu();
         jMenuSair = new javax.swing.JMenuItem();
 
@@ -83,7 +84,7 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
 
         jmnGerarRelatorio.setText("Relatórios");
 
-        jMenuGerarRelatorio.setText("Gerar Relatório");
+        jMenuGerarRelatorio.setText("Gerar Relatório de Produto");
         jMenuGerarRelatorio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuGerarRelatorioActionPerformed(evt);
@@ -91,13 +92,16 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
         });
         jmnGerarRelatorio.add(jMenuGerarRelatorio);
 
-        jMenuConsultarRelatorio.setText("Consultar Relatório");
-        jMenuConsultarRelatorio.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem1.setText("Gerar Relatório de Fornecedores");
+        jmnGerarRelatorio.add(jMenuItem1);
+
+        jMenuItem2.setText("Gerar Relatório de Funcionarios");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuConsultarRelatorioActionPerformed(evt);
+                jMenuItem2ActionPerformed(evt);
             }
         });
-        jmnGerarRelatorio.add(jMenuConsultarRelatorio);
+        jmnGerarRelatorio.add(jMenuItem2);
 
         jmnMenu.add(jmnGerarRelatorio);
 
@@ -175,19 +179,11 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
 
     private void jMenuGerarRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuGerarRelatorioActionPerformed
         // TODO add your handling code here:
-        JfrmGerarRelatorio gerarRelatorio = new JfrmGerarRelatorio();
-        gerarRelatorio.setLocationRelativeTo(null);
-        gerarRelatorio.setDefaultCloseOperation(gerarRelatorio.DISPOSE_ON_CLOSE);
-        gerarRelatorio.setVisible(true);
     }//GEN-LAST:event_jMenuGerarRelatorioActionPerformed
 
-    private void jMenuConsultarRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuConsultarRelatorioActionPerformed
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-        JfrmBuscarRelatorio consultarRelatorio = new JfrmBuscarRelatorio();
-        consultarRelatorio.setLocationRelativeTo(null);
-        consultarRelatorio.setDefaultCloseOperation(consultarRelatorio.DISPOSE_ON_CLOSE);
-        consultarRelatorio.setVisible(true);
-    }//GEN-LAST:event_jMenuConsultarRelatorioActionPerformed
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -229,9 +225,10 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuAlterarFuncionario;
     private javax.swing.JMenuItem jMenuBuscarFuncionario;
     private javax.swing.JMenuItem jMenuCadastrarFuncionario;
-    private javax.swing.JMenuItem jMenuConsultarRelatorio;
     private javax.swing.JMenuItem jMenuExcluirFuncionario;
     private javax.swing.JMenuItem jMenuGerarRelatorio;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuSair;
     private javax.swing.JMenu jmnAddFuncionario;
     private javax.swing.JMenu jmnGerarRelatorio;
