@@ -5,7 +5,12 @@
  */
 package View;
 
+import Controle.EnderecoControle;
+import Controle.FornecedorControle;
+import Modelo.Endereco;
 import Utilitarios.ApenasNumeros;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,6 +24,7 @@ public class JfrmAlterarFornecedor extends javax.swing.JFrame {
     public JfrmAlterarFornecedor() {
         initComponents();
         jtxtBuscado.setDocument(new ApenasNumeros());
+        carregaTabela();
     }
 
     /**
@@ -58,6 +64,11 @@ public class JfrmAlterarFornecedor extends javax.swing.JFrame {
         });
 
         jbtnPesquisar.setText("Pesquisar");
+        jbtnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnPesquisarActionPerformed(evt);
+            }
+        });
 
         jbtnSair3.setText("Sair");
         jbtnSair3.addActionListener(new java.awt.event.ActionListener() {
@@ -70,6 +81,11 @@ public class JfrmAlterarFornecedor extends javax.swing.JFrame {
         jLabel1.setText("Alterar Fornecedor");
 
         jbtnAlterar.setText("Alterar");
+        jbtnAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnAlterarActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Codigo do Fornecedor");
 
@@ -78,51 +94,45 @@ public class JfrmAlterarFornecedor extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jbtnAlterar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jbtnSair3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(39, 39, 39))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(88, 88, 88)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jtxtBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(28, 28, 28)
-                                        .addComponent(jbtnPesquisar))
-                                    .addComponent(jLabel2))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jtxtBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(29, 29, 29)
+                                    .addComponent(jbtnPesquisar))))
+                        .addGap(0, 171, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jbtnAlterar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jbtnSair3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtxtBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbtnPesquisar))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbtnSair3)
-                    .addComponent(jbtnAlterar))
-                .addGap(64, 64, 64))
+                    .addComponent(jbtnAlterar)
+                    .addComponent(jbtnSair3))
+                .addContainerGap())
         );
 
         pack();
@@ -136,6 +146,90 @@ public class JfrmAlterarFornecedor extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jbtnSair3ActionPerformed
 
+    private void jbtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnPesquisarActionPerformed
+        // TODO add your handling code here:
+        carregaBusca(Integer.parseInt(jtxtBuscado.getText()));
+    }//GEN-LAST:event_jbtnPesquisarActionPerformed
+
+    private void jbtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAlterarActionPerformed
+        // TODO add your handling code here:
+         FornecedorControle forncedorControle = new FornecedorControle ();
+         
+    }//GEN-LAST:event_jbtnAlterarActionPerformed
+private void carregaTabela(){
+            
+            ArrayList<Endereco> arrayEndereco = new ArrayList<>();
+            EnderecoControle enderecoControle = new EnderecoControle();
+            FornecedorControle fornecedorControle = new FornecedorControle();
+            DefaultTableModel tableModel = (DefaultTableModel)jtblFornecedor.getModel();            
+            tableModel = new DefaultTableModel(new String[]{"Codigo","Nome", "CPF", "Telefone", "Rua", "Numero", "Bairro", "Cidade"},0);
+            
+         for(int i=0; i < fornecedorControle.buscar().size(); i++){
+            for (int j=0;j<enderecoControle.busca().size();j++){
+                    if(fornecedorControle.buscar().get(i).getCodigoEndereco()== enderecoControle.busca().get(j).getCodigo()){
+                            
+                    arrayEndereco.add(enderecoControle.busca().get(j));
+              
+                    }
+                }
+        }
+            for(int i=0; i < fornecedorControle.buscar().size(); i++){
+                
+                Object [] dados = {
+                    
+                    fornecedorControle.buscar().get(i).getCodigo(),
+                    fornecedorControle.buscar().get(i).getNomeFornecedor(),
+                    fornecedorControle.buscar().get(i).getCpfFornecedor(),
+                    fornecedorControle.buscar().get(i).getTelefone(),
+                    arrayEndereco.get(i).getRua(),
+                    arrayEndereco.get(i).getNumero(),
+                    arrayEndereco.get(i).getBairro(),
+                    arrayEndereco.get(i).getCidade()};
+                    
+                    
+                tableModel.addRow(dados);
+                
+            }
+            jtblFornecedor.setModel(tableModel);
+      
+    }
+    private void carregaBusca(int k){
+            ArrayList<Endereco> arrayEndereco = new ArrayList<>();
+            EnderecoControle enderecoControle = new EnderecoControle();
+            FornecedorControle fornecedorControle = new FornecedorControle();
+            DefaultTableModel tableModel = (DefaultTableModel)jtblFornecedor.getModel();     
+            tableModel = new DefaultTableModel(new String[]{"Codigo","Nome", "CPF", "Telefone", "Rua", "Numero", "Bairro", "Cidade"},0);
+            
+         for(int i=0; i < fornecedorControle.buscar().size(); i++){
+            for (int j=0;j<enderecoControle.busca().size();j++){
+                    if(fornecedorControle.buscar().get(i).getCodigoEndereco()== enderecoControle.busca().get(j).getCodigo()){
+                            
+                    arrayEndereco.add(enderecoControle.busca().get(j));
+              
+                    }
+                }
+        }
+            for(int i=0; i < fornecedorControle.buscar().size(); i++){
+                if (fornecedorControle.buscar().get(i).getCodigo() == k){
+                Object [] dados = {
+                    
+                    fornecedorControle.buscar().get(i).getCodigo(),
+                    fornecedorControle.buscar().get(i).getNomeFornecedor(),
+                    fornecedorControle.buscar().get(i).getCpfFornecedor(),
+                    fornecedorControle.buscar().get(i).getTelefone(),
+                    arrayEndereco.get(i).getRua(),
+                    arrayEndereco.get(i).getNumero(),
+                    arrayEndereco.get(i).getBairro(),
+                    arrayEndereco.get(i).getCidade()};
+                    
+                tableModel.addRow(dados); 
+                }     
+              
+                
+            }
+            jtblFornecedor.setModel(tableModel);
+      
+    }
     /**
      * @param args the command line arguments
      */

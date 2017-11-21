@@ -5,7 +5,12 @@
  */
 package View;
 
+import Controle.EnderecoControle;
+import Controle.FornecedorControle;
+import Modelo.Endereco;
 import Utilitarios.ApenasNumeros;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,6 +24,7 @@ public class JfrmBuscarFornecedor extends javax.swing.JFrame {
     public JfrmBuscarFornecedor() {
         initComponents();
         jtxtBuscado.setDocument(new ApenasNumeros());
+        carregaTabela();
     }
 
     /**
@@ -61,6 +67,11 @@ public class JfrmBuscarFornecedor extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jtblFornecedor);
 
         jbtnPesquisar.setText("Pesquisar");
+        jbtnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnPesquisarActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Codigo do Fornecedor");
 
@@ -71,7 +82,7 @@ public class JfrmBuscarFornecedor extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 609, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -83,19 +94,19 @@ public class JfrmBuscarFornecedor extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jbtnPesquisar)
                                 .addGap(27, 27, 27)))
-                        .addComponent(jbtnSair5, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jbtnSair5, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(194, 194, 194)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(99, 99, 99)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(11, 11, 11)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addComponent(jLabel2)
@@ -114,6 +125,85 @@ public class JfrmBuscarFornecedor extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jbtnSair5ActionPerformed
 
+    private void jbtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnPesquisarActionPerformed
+        // TODO add your handling code here:
+        
+        carregaBusca(Integer.parseInt(jtxtBuscado.getText()));
+    }//GEN-LAST:event_jbtnPesquisarActionPerformed
+    private void carregaTabela(){
+            
+            ArrayList<Endereco> arrayEndereco = new ArrayList<>();
+            EnderecoControle enderecoControle = new EnderecoControle();
+            FornecedorControle fornecedorControle = new FornecedorControle();
+            DefaultTableModel tableModel = (DefaultTableModel)jtblFornecedor.getModel();          
+            tableModel = new DefaultTableModel(new String[]{"Codigo","Nome", "CPF", "Telefone", "Rua", "Numero", "Bairro", "Cidade"},0);
+            
+         for(int i=0; i < fornecedorControle.buscar().size(); i++){
+            for (int j=0;j<enderecoControle.busca().size();j++){
+                    if(fornecedorControle.buscar().get(i).getCodigoEndereco()== enderecoControle.busca().get(j).getCodigo()){
+                            
+                    arrayEndereco.add(enderecoControle.busca().get(j));
+              
+                    }
+                }
+        }
+            for(int i=0; i < fornecedorControle.buscar().size(); i++){
+                
+                Object [] dados = {
+                    
+                    fornecedorControle.buscar().get(i).getCodigo(),
+                    fornecedorControle.buscar().get(i).getNomeFornecedor(),
+                    fornecedorControle.buscar().get(i).getCpfFornecedor(),
+                    fornecedorControle.buscar().get(i).getTelefone(),
+                    arrayEndereco.get(i).getRua(),
+                    arrayEndereco.get(i).getNumero(),
+                    arrayEndereco.get(i).getBairro(),
+                    arrayEndereco.get(i).getCidade()};
+                    
+                    
+                tableModel.addRow(dados);
+                
+            }
+            jtblFornecedor.setModel(tableModel);
+      
+    }
+    private void carregaBusca(int k){
+            ArrayList<Endereco> arrayEndereco = new ArrayList<>();
+            EnderecoControle enderecoControle = new EnderecoControle();
+            FornecedorControle fornecedorControle = new FornecedorControle();
+            DefaultTableModel tableModel = (DefaultTableModel)jtblFornecedor.getModel();      
+            tableModel = new DefaultTableModel(new String[]{"Codigo","Nome", "CPF", "Telefone", "Rua", "Numero", "Bairro", "Cidade"},0);
+            
+         for(int i=0; i < fornecedorControle.buscar().size(); i++){
+            for (int j=0;j<enderecoControle.busca().size();j++){
+                    if(fornecedorControle.buscar().get(i).getCodigoEndereco()== enderecoControle.busca().get(j).getCodigo()){
+                            
+                    arrayEndereco.add(enderecoControle.busca().get(j));
+              
+                    }
+                }
+        }
+            for(int i=0; i < fornecedorControle.buscar().size(); i++){
+                if (fornecedorControle.buscar().get(i).getCodigo() == k){
+                Object [] dados = {
+                    
+                    fornecedorControle.buscar().get(i).getCodigo(),
+                    fornecedorControle.buscar().get(i).getNomeFornecedor(),
+                    fornecedorControle.buscar().get(i).getCpfFornecedor(),
+                    fornecedorControle.buscar().get(i).getTelefone(),
+                    arrayEndereco.get(i).getRua(),
+                    arrayEndereco.get(i).getNumero(),
+                    arrayEndereco.get(i).getBairro(),
+                    arrayEndereco.get(i).getCidade()};
+                    
+                tableModel.addRow(dados); 
+                }     
+              
+                
+            }
+            jtblFornecedor.setModel(tableModel);
+      
+    }
     /**
      * @param args the command line arguments
      */

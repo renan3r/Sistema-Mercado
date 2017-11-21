@@ -11,6 +11,7 @@ package Modelo;
  */
 public class Fornecedor {
     private int codigo;
+    private int codigoEndereco;
     private String nomeFornecedor;
     private String cpfFornecedor;
     private String cnpjFornecedor;
@@ -21,6 +22,13 @@ public class Fornecedor {
     }
     public void setCodigo(int codigo){
         this.codigo = codigo;
+    }
+    
+    public int getCodigoEndereco(){
+        return codigoEndereco;
+    }
+    public void setCodigoEndereco(int codigoEndereco){
+        this.codigoEndereco = codigoEndereco;
     }
     
     /**

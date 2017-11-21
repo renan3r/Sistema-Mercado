@@ -5,7 +5,12 @@
  */
 package View;
 
+import Controle.EnderecoControle;
+import Controle.FornecedorControle;
+import Modelo.Endereco;
 import Utilitarios.ApenasNumeros;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,7 +23,7 @@ public class JfrmRemoverFornecedor extends javax.swing.JFrame {
      */
     public JfrmRemoverFornecedor() {
         initComponents();
-        
+        carregaTabela();
     }
 
     /**
@@ -34,7 +39,7 @@ public class JfrmRemoverFornecedor extends javax.swing.JFrame {
         jbtnRemover = new javax.swing.JButton();
         jbtnSair = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtblFornecedor = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,7 +60,7 @@ public class JfrmRemoverFornecedor extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtblFornecedor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -66,7 +71,7 @@ public class JfrmRemoverFornecedor extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jtblFornecedor);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -82,18 +87,18 @@ public class JfrmRemoverFornecedor extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
+                        .addGap(182, 182, 182)
                         .addComponent(jLabel1)))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addGap(49, 49, 49)
                 .addComponent(jLabel1)
-                .addGap(36, 36, 36)
+                .addGap(30, 30, 30)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -112,8 +117,51 @@ public class JfrmRemoverFornecedor extends javax.swing.JFrame {
 
     private void jbtnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRemoverActionPerformed
         // TODO add your handling code here:
+        //jTblBens.getValueAt(jTblBens.getSelectedRow(),2)
+        FornecedorControle forncedorControle = new FornecedorControle ();
+        forncedorControle.remover(jtblFornecedor.getValueAt(jtblFornecedor.getSelectedRow(),0));
+        DefaultTableModel tableModel = (DefaultTableModel)jtblFornecedor.getModel();
+        tableModel.removeRow(jtblFornecedor.getSelectedRow());
+        
     }//GEN-LAST:event_jbtnRemoverActionPerformed
-
+ private void carregaTabela(){
+            
+            ArrayList<Endereco> arrayEndereco = new ArrayList<>();
+            EnderecoControle enderecoControle = new EnderecoControle();
+            FornecedorControle fornecedorControle = new FornecedorControle();
+            DefaultTableModel tableModel = (DefaultTableModel)jtblFornecedor.getModel();           
+            tableModel = new DefaultTableModel(new String[]{"Codigo","Nome", "CPF", "Telefone", "Rua", "Numero", "Bairro", "Cidade"},0);
+            
+         for(int i=0; i < fornecedorControle.buscar().size(); i++){
+            for (int j=0;j<enderecoControle.busca().size();j++){
+                    if(fornecedorControle.buscar().get(i).getCodigoEndereco()== enderecoControle.busca().get(j).getCodigo()){
+                            
+                    arrayEndereco.add(enderecoControle.busca().get(j));
+              
+                    }
+                }
+        }
+            for(int i=0; i < fornecedorControle.buscar().size(); i++){
+                
+                Object [] dados = {
+                    
+                    fornecedorControle.buscar().get(i).getCodigo(),
+                    fornecedorControle.buscar().get(i).getNomeFornecedor(),
+                    fornecedorControle.buscar().get(i).getCpfFornecedor(),
+                    fornecedorControle.buscar().get(i).getTelefone(),
+                    arrayEndereco.get(i).getRua(),
+                    arrayEndereco.get(i).getNumero(),
+                    arrayEndereco.get(i).getBairro(),
+                    arrayEndereco.get(i).getCidade()};
+                    
+                    
+                tableModel.addRow(dados);
+                
+            }
+            jtblFornecedor.setModel(tableModel);
+      
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -152,8 +200,8 @@ public class JfrmRemoverFornecedor extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton jbtnRemover;
     private javax.swing.JButton jbtnSair;
+    private javax.swing.JTable jtblFornecedor;
     // End of variables declaration//GEN-END:variables
 }

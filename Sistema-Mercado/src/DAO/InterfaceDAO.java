@@ -5,6 +5,8 @@
  */
 package DAO;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Junim Roberti
@@ -13,5 +15,5 @@ public interface InterfaceDAO {
     public void adiciona(Object obj);
     public void excluir(Object obj);
     public void alterar(Object obj);
-    public void buscar(Object obj);
+    public Object buscar();
 }

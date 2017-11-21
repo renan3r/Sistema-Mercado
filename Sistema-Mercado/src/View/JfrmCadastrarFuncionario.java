@@ -230,7 +230,7 @@ public class JfrmCadastrarFuncionario extends javax.swing.JFrame {
       
       EnderecoControle enderecoControle = new EnderecoControle();
       int codEndereco;
-      codEndereco = enderecoControle.cadastrarEnderecoFuncionario(endereco);
+      codEndereco = enderecoControle.cadastrarEndereco(endereco);
       
       
       Funcionario funcionario = new Funcionario();
