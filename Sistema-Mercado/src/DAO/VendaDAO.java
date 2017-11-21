@@ -15,23 +15,23 @@ public class VendaDAO implements InterfaceDAO{
 
     @Override
     public void adiciona(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); //o change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void excluir(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); //o change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void alterar(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); //o change body of generated methods, choose Tools | Templates.
     }
 
     @Override
+
     public ArrayList<Object> buscar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
-    
-    
 }

@@ -30,21 +30,25 @@ public class EnderecoDAO implements InterfaceDAO{
     private String sql;
     private Connection conn;
 
+    
+
+    @Override
+    public void adiciona(Object obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //o change body of generated methods, choose Tools | Templates.
+    }
+
+
     @Override
     public void excluir(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); //o change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void alterar(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); //o change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public void adiciona(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+  
     public int CadastrarEndereco(Endereco endereco){
         
         int temp = 1;

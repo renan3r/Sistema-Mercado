@@ -23,7 +23,7 @@ public class FornecedorControle {
     public ArrayList<Fornecedor> buscar() {
         
         FornecedorDAO fonecedorDAO = new FornecedorDAO();
-        return fonecedorDAO.buscar();
+        return (ArrayList<Fornecedor>) fonecedorDAO.buscar();
     }
     
     public void remover (Object obj){

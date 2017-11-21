@@ -10,6 +10,10 @@ package Modelo;
  * @author Junim Roberti
  */
 public class Produto{
+    private int codigo;
+    private int codigoFornecedor;
+    private int codigoEstoque;
+    private int codigoNotaFiscal;
     private String nomeProduto;
     private String modelo;
     private float precoCompra;
@@ -83,6 +87,60 @@ public class Produto{
     public void setDataValidade(String dataValidade) {
         this.dataValidade = dataValidade;
     }
-    
-            
+
+    /**
+     * @return the codigo
+     */
+    public int getCodigo() {
+        return codigo;
+    }
+
+    /**
+     * @param codigo the codigo to set
+     */
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }            
+
+    /**
+     * @return the codigoFornecedor
+     */
+    public int getCodigoFornecedor() {
+        return codigoFornecedor;
+    }
+
+    /**
+     * @param codigoFornecedor the codigoFornecedor to set
+     */
+    public void setCodigoFornecedor(int codigoFornecedor) {
+        this.codigoFornecedor = codigoFornecedor;
+    }
+
+    /**
+     * @return the codigoEstoque
+     */
+    public int getCodigoEstoque() {
+        return codigoEstoque;
+    }
+
+    /**
+     * @param codigoEstoque the codigoEstoque to set
+     */
+    public void setCodigoEstoque(int codigoEstoque) {
+        this.codigoEstoque = codigoEstoque;
+    }
+
+    /**
+     * @return the codigoNotaFiscal
+     */
+    public int getCodigoNotaFiscal() {
+        return codigoNotaFiscal;
+    }
+
+    /**
+     * @param codigoNotaFiscal the codigoNotaFiscal to set
+     */
+    public void setCodigoNotaFiscal(int codigoNotaFiscal) {
+        this.codigoNotaFiscal = codigoNotaFiscal;
+    }
 }

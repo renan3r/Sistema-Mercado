@@ -5,7 +5,10 @@
  */
 package View;
 
-import Utilitarios.ApenasNumeros;
+import Controle.ProdutoControle;
+import Modelo.Produto;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -40,7 +43,18 @@ public class JfrmBuscarProduto extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jtxtBuscado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxtBuscadoActionPerformed(evt);
+            }
+        });
+
         jbtnPesquisar.setText("Pesquisar");
+        jbtnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnPesquisarActionPerformed(evt);
+            }
+        });
 
         jbtnSair3.setText("Sair");
         jbtnSair3.addActionListener(new java.awt.event.ActionListener() {
@@ -71,7 +85,7 @@ public class JfrmBuscarProduto extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 761, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -83,7 +97,7 @@ public class JfrmBuscarProduto extends javax.swing.JFrame {
                         .addComponent(jbtnSair3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(122, 122, 122)
+                .addGap(301, 301, 301)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -110,6 +124,33 @@ public class JfrmBuscarProduto extends javax.swing.JFrame {
     private void jbtnSair3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSair3ActionPerformed
         dispose();
     }//GEN-LAST:event_jbtnSair3ActionPerformed
+
+    private void jtxtBuscadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtBuscadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxtBuscadoActionPerformed
+
+    private void jbtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnPesquisarActionPerformed
+        // TODO add your handling code here:
+        Produto produto = new Produto();
+        produto.setNomeProduto(jtxtBuscado.getText());
+        ProdutoControle produtoControle = new ProdutoControle();
+        DefaultTableModel modeloTabela = (DefaultTableModel)jtblProduto.getModel();
+        modeloTabela = new DefaultTableModel(new String[] {"Código", "Nome do Produto", "Modelo", "Preço de Compra", "Preço de Venda", "Data de Validade", "Fornecedor", "Quantidade"}, 0);
+        ArrayList<Produto> array = produtoControle.buscar(produto.getNomeProduto());
+        for(int i = 0; i < array.size();i++){
+            Object[] data = {array.get(i).getCodigo(), array.get(i).getNomeProduto(), array.get(i).getModelo(), array.get(i).getPrecoCompra(), array.get(i).getPrecoVenda(), array.get(i).getDataValidade(), array.get(i).getCodigo(), array.get(i).getCodigo()};
+            modeloTabela.addRow(data);
+        }
+        jtblProduto.setModel(modeloTabela);
+        jtblProduto.getColumnModel().getColumn(0).setPreferredWidth(20);
+        jtblProduto.getColumnModel().getColumn(1).setPreferredWidth(75);
+        jtblProduto.getColumnModel().getColumn(2).setPreferredWidth(20);
+        jtblProduto.getColumnModel().getColumn(3).setPreferredWidth(75);
+        jtblProduto.getColumnModel().getColumn(4).setPreferredWidth(70);
+        jtblProduto.getColumnModel().getColumn(5).setPreferredWidth(75);
+        jtblProduto.getColumnModel().getColumn(6).setPreferredWidth(40);
+        jtblProduto.getColumnModel().getColumn(7).setPreferredWidth(40);        
+    }//GEN-LAST:event_jbtnPesquisarActionPerformed
 
     /**
      * @param args the command line arguments

@@ -20,46 +20,46 @@ import java.util.logging.Logger;
  * @author Junim Roberti
  */
 public class FuncionarioDAO implements InterfaceDAO{
-    
+
     private String sql;
     private Connection conn;
 
     @Override
     public void adiciona(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); //o change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void excluir(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); //o change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void alterar(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); //o change body of generated methods, choose Tools | Templates.
     }
+
     
- public int login(Funcionario funcionario){
+
+  
+    public int login(Funcionario funcionario){
+
         
         PreparedStatement ps2;
         ResultSet rs;       
-        
-        
         int temp=0;
-       
         try {
-            
+            ps2 = ConexaoBD.conectar().prepareStatement("SELECT * FROM MERCADOBD.Funcionario where Login='" +funcionario.getLogin()+ "' AND senha='" +funcionario.getSenha() + "'" );
+            rs = ps2.executeQuery();
             ps2 = ConexaoBD.conectar().prepareStatement("SELECT * FROM MERCADOBD.Funcionario where Login='" +funcionario.getLogin()+ "' AND senha='" +funcionario.getSenha() + "'" );       
             rs = ps2.executeQuery();
-       
             while (rs.next()) {
                 String dados = rs.getString("tipo");
                 temp = Integer.parseInt(dados);
-            }        
+            }
         } catch (SQLException ex) {
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }       
-      
+        }             
         return temp;
     }
     
@@ -88,4 +88,6 @@ public class FuncionarioDAO implements InterfaceDAO{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
    
-}
+ }
+
+

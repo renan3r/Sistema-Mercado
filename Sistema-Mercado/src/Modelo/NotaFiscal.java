@@ -11,7 +11,6 @@ package Modelo;
  */
 public class NotaFiscal {;
     private String dataCompra;
-    private String dataVenda;
     private String cnpj;
 
     /**
@@ -41,19 +40,4 @@ public class NotaFiscal {;
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
-
-    /**
-     * @return the dataVenda
-     */
-    public String getDataVenda() {
-        return dataVenda;
-    }
-
-    /**
-     * @param dataVenda the dataVenda to set
-     */
-    public void setDataVenda(String dataVenda) {
-        this.dataVenda = dataVenda;
-    }
-    
 }

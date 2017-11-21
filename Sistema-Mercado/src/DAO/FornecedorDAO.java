@@ -40,13 +40,17 @@ public class FornecedorDAO implements InterfaceDAO{
             stmt.execute();
          
 
+
         } catch (SQLException ex) {
             Logger.getLogger(EnderecoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }  
-    }
+    }   
+ 
 
+ 
     @Override
     public void excluir(Object obj) {
+
         PreparedStatement ps2;
        
         try {
@@ -77,10 +81,14 @@ public class FornecedorDAO implements InterfaceDAO{
             JOptionPane.showMessageDialog(null, "Nao foi possivel deletar", "Erro" , 0);
             //System.out.println("Não foi possivel executar o comando SQL");
         }
+
+        //throw new UnsupportedOperationException("Not supported yet."); //o change body of generated methods, choose Tools | Templates.
+
     }
 
     @Override
     public void alterar(Object obj) {
+
         PreparedStatement ps2;
         try {
             
@@ -109,13 +117,12 @@ public class FornecedorDAO implements InterfaceDAO{
         }
     }
 
-    @Override
-    public void adiciona(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
+
+  
 
     @Override
-    public ArrayList<Fornecedor> buscar() {
+     public ArrayList<Fornecedor> buscar() {
         
         PreparedStatement ps;
         ResultSet rs;         
@@ -142,5 +149,14 @@ public class FornecedorDAO implements InterfaceDAO{
         }
         return arrayFornecedor;  
     }
+
+    @Override
+    public void adiciona(Object obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
+
+  
+ 
+

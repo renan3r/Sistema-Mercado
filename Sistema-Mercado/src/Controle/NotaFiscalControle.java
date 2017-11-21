@@ -5,10 +5,16 @@
  */
 package Controle;
 
+import DAO.NotaFiscalDAO;
+import Modelo.NotaFiscal;
+
 /**
  *
  * @author Junim Roberti
  */
 public class NotaFiscalControle {
-    
+    public int buscar(NotaFiscal notaFiscal){
+        NotaFiscalDAO notaFiscalDAO = new NotaFiscalDAO();
+        return notaFiscalDAO.buscar(notaFiscal);
+    }
 }

@@ -281,10 +281,10 @@ public class JfrmMenuCaixa extends javax.swing.JFrame {
 
     private void jMenuRemoverProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuRemoverProdutoActionPerformed
         // TODO add your handling code here:
-        JfrmRemoverProduto removerProdutor = new JfrmRemoverProduto();
-        removerProdutor.setLocationRelativeTo(null);
-        removerProdutor.setDefaultCloseOperation(removerProdutor.DISPOSE_ON_CLOSE); 
-        removerProdutor.setVisible(true);
+        JfrmRemoverProduto removerProduto = new JfrmRemoverProduto();
+        removerProduto.setLocationRelativeTo(null);
+        removerProduto.setDefaultCloseOperation(removerProduto.DISPOSE_ON_CLOSE); 
+        removerProduto.setVisible(true);
     }//GEN-LAST:event_jMenuRemoverProdutoActionPerformed
 
     private void jMenuBuscarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuBuscarProdutoActionPerformed
