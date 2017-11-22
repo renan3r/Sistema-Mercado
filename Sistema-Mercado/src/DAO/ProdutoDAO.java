@@ -6,7 +6,6 @@
 package DAO;
 
 
-import java.util.ArrayList;
 import Modelo.Produto;
 import Utilitarios.ConexaoBD;
 import java.sql.Connection;
@@ -16,6 +15,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -240,6 +240,7 @@ public class ProdutoDAO implements InterfaceDAO{
             stmt.execute();
                     } catch (SQLException ex) {
             Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Erro no cadastro!");
         }
 
     }

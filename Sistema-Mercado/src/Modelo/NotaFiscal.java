@@ -9,7 +9,8 @@ package Modelo;
  *
  * @author Junim Roberti
  */
-public class NotaFiscal {;
+public class NotaFiscal {
+    private int codigoFiscal;    
     private String dataCompra;
     private String cnpj;
 
@@ -39,5 +40,19 @@ public class NotaFiscal {;
      */
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
+    }
+
+    /**
+     * @return the codigoFiscal
+     */
+    public int getCodigoFiscal() {
+        return codigoFiscal;
+    }
+
+    /**
+     * @param codigoFiscal the codigoFiscal to set
+     */
+    public void setCodigoFiscal(int codigoFiscal) {
+        this.codigoFiscal = codigoFiscal;
     }
 }

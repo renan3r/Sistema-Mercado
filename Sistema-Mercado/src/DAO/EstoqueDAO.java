@@ -6,7 +6,6 @@
 package DAO;
 
 
-import java.util.ArrayList;
 import Modelo.Estoque;
 import Utilitarios.ConexaoBD;
 import java.sql.Connection;

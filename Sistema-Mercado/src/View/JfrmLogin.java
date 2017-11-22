@@ -41,6 +41,7 @@ public class JfrmLogin extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Padlock_36857.png"))); // NOI18N
 

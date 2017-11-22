@@ -5,6 +5,7 @@
  */
 package Controle;
 
+
 import DAO.FornecedorDAO;
 import Modelo.Fornecedor;
 import java.util.ArrayList;
@@ -25,7 +26,10 @@ public class FornecedorControle {
         FornecedorDAO fonecedorDAO = new FornecedorDAO();
         return (ArrayList<Fornecedor>) fonecedorDAO.buscar();
     }
-    
+    public int buscar(Fornecedor fornecedor){
+        FornecedorDAO fornecedorDAO = new FornecedorDAO();
+        return fornecedorDAO.buscar(fornecedor);
+    }
     public void remover (Object obj){
         FornecedorDAO fornecedorDAO = new FornecedorDAO();
         fornecedorDAO.excluir(obj);        

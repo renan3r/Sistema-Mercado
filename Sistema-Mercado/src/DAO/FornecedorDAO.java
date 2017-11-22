@@ -118,7 +118,20 @@ public class FornecedorDAO implements InterfaceDAO{
     }
 
 
-
+    public int buscar(Fornecedor fornecedor){
+            int temp=0;
+        try {
+            PreparedStatement stmt = ConexaoBD.conectar().prepareStatement("Select * From fornecedor WHERE nomeFornecedor='" + fornecedor.getNomeFornecedor() + "'");
+            stmt.executeQuery();
+            while(stmt.getResultSet().next()){
+                temp = stmt.getResultSet().getInt("CODIGOfornecedor");
+            }
+            return temp;
+        } catch (SQLException ex) {
+            Logger.getLogger(NotaFiscalDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
   
 
     @Override

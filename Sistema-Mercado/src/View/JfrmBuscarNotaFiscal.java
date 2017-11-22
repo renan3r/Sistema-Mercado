@@ -5,7 +5,11 @@
  */
 package View;
 
-import Utilitarios.ApenasNumeros;
+import Controle.NotaFiscalControle;
+import Modelo.NotaFiscal;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -18,7 +22,6 @@ public class JfrmBuscarNotaFiscal extends javax.swing.JFrame {
      */
     public JfrmBuscarNotaFiscal() {
         initComponents();
-        jtxtBuscado.setDocument(new ApenasNumeros());
     }
 
     /**
@@ -51,6 +54,11 @@ public class JfrmBuscarNotaFiscal extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jtblNotaFiscal);
 
         jbtnPesquisar.setText("Pesquisar");
+        jbtnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnPesquisarActionPerformed(evt);
+            }
+        });
 
         jbtnSair3.setText("Sair");
         jbtnSair3.addActionListener(new java.awt.event.ActionListener() {
@@ -62,34 +70,30 @@ public class JfrmBuscarNotaFiscal extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Buscar Nota Fiscal");
 
-        jLabel2.setText("Codigo da Nota Fiscal ");
+        jLabel2.setText("Data da Nota Fiscal ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jtxtBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jbtnPesquisar)
-                                .addGap(18, 18, 18)
-                                .addComponent(jbtnSair3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jtxtBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                        .addComponent(jbtnPesquisar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jbtnSair3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(88, 88, 88)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel2)))
+                        .addComponent(jLabel2)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(128, 128, 128)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -114,6 +118,21 @@ public class JfrmBuscarNotaFiscal extends javax.swing.JFrame {
     private void jbtnSair3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSair3ActionPerformed
         dispose();
     }//GEN-LAST:event_jbtnSair3ActionPerformed
+
+    private void jbtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnPesquisarActionPerformed
+        // TODO add your handling code here:
+        NotaFiscal notaFiscal = new NotaFiscal();
+        notaFiscal.setDataCompra(jtxtBuscado.getText());
+        NotaFiscalControle notaFiscalControle = new NotaFiscalControle();
+        DefaultTableModel modeloTabela = (DefaultTableModel)jtblNotaFiscal.getModel();
+        modeloTabela = new DefaultTableModel(new String[] {"Data de Compras", "CNPJ"}, 0);
+        ArrayList<NotaFiscal> array = notaFiscalControle.buscarData(notaFiscal.getDataCompra());
+        for(int i = 0; i < array.size();i++){
+            Object[] data = {array.get(i).getDataCompra(), array.get(i).getCnpj()};
+            modeloTabela.addRow(data);
+        }
+        jtblNotaFiscal.setModel(modeloTabela);
+    }//GEN-LAST:event_jbtnPesquisarActionPerformed
 
     /**
      * @param args the command line arguments

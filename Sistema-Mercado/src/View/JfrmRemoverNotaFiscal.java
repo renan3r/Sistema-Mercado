@@ -5,7 +5,11 @@
  */
 package View;
 
-import Utilitarios.ApenasNumeros;
+import Controle.NotaFiscalControle;
+import Modelo.NotaFiscal;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -18,7 +22,7 @@ public class JfrmRemoverNotaFiscal extends javax.swing.JFrame {
      */
     public JfrmRemoverNotaFiscal() {
         initComponents();
-        
+        tabela();
     }
 
     /**
@@ -72,41 +76,53 @@ public class JfrmRemoverNotaFiscal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(249, 249, 249)
-                        .addComponent(jbtnRemover)
-                        .addGap(18, 18, 18)
-                        .addComponent(Sair)))
-                .addContainerGap(36, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(93, 93, 93))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jbtnRemover)
+                        .addGap(18, 18, 18)
+                        .addComponent(Sair))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(21, 21, 21)
                 .addComponent(jLabel1)
-                .addGap(33, 33, 33)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtnRemover)
                     .addComponent(Sair))
-                .addGap(33, 33, 33))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+     public void tabela(){
+        NotaFiscalControle notaFiscalControle = new NotaFiscalControle();
+        DefaultTableModel modeloTabela = (DefaultTableModel)jTable1.getModel();
+        modeloTabela = new DefaultTableModel(new String[] {"Código","Data de Compras", "CNPJ"}, 0);
+        ArrayList<NotaFiscal> array = notaFiscalControle.popular();
+        for(int i = 0; i < array.size();i++){
+            Object[] data = {array.get(i).getCodigoFiscal(), array.get(i).getDataCompra(), array.get(i).getCnpj()};
+            modeloTabela.addRow(data);
+        }
+        jTable1.setModel(modeloTabela);
+    }
     private void jbtnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRemoverActionPerformed
         // TODO add your handling code here:
+        NotaFiscalControle produtoControle = new NotaFiscalControle();
+        produtoControle.remover(jTable1.getValueAt(jTable1.getSelectedRow(), 0));
+        DefaultTableModel modeloTabela = (DefaultTableModel)jTable1.getModel();
+        modeloTabela.removeRow(jTable1.getSelectedRow());
     }//GEN-LAST:event_jbtnRemoverActionPerformed
 
     private void SairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SairActionPerformed

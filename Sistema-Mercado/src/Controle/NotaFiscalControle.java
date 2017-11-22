@@ -7,6 +7,7 @@ package Controle;
 
 import DAO.NotaFiscalDAO;
 import Modelo.NotaFiscal;
+import java.util.ArrayList;
 
 /**
  *
@@ -16,5 +17,21 @@ public class NotaFiscalControle {
     public int buscar(NotaFiscal notaFiscal){
         NotaFiscalDAO notaFiscalDAO = new NotaFiscalDAO();
         return notaFiscalDAO.buscar(notaFiscal);
+    }
+    public void cadastrar(NotaFiscal notaFiscal){
+        NotaFiscalDAO notaFiscalDAO = new NotaFiscalDAO();
+        notaFiscalDAO.adiciona(notaFiscal);
+    }
+    public ArrayList<NotaFiscal> buscarData(String dataCompra){
+        NotaFiscalDAO notaFiscalDAO = new NotaFiscalDAO();
+        return notaFiscalDAO.buscarData(dataCompra);
+    }
+    public ArrayList<NotaFiscal> popular(){
+        NotaFiscalDAO notaFiscalDAO = new NotaFiscalDAO();
+        return notaFiscalDAO.buscar(); 
+    }
+    public void remover(Object codigo){
+        NotaFiscalDAO notaFiscalDAO = new NotaFiscalDAO();
+        notaFiscalDAO.excluir(codigo);
     }
 }
