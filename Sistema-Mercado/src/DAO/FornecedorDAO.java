@@ -5,6 +5,7 @@
  */
 package DAO;
 
+import Modelo.Endereco;
 import Modelo.Fornecedor;
 import Utilitarios.ConexaoBD;
 import java.sql.Connection;
@@ -39,18 +40,14 @@ public class FornecedorDAO implements InterfaceDAO{
             stmt.setString(5, fornecedor.getTelefone());             
             stmt.execute();
          
-
-
+            JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
         } catch (SQLException ex) {
             Logger.getLogger(EnderecoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }  
-    }   
- 
+    }
 
- 
     @Override
     public void excluir(Object obj) {
-
         PreparedStatement ps2;
        
         try {
@@ -79,63 +76,63 @@ public class FornecedorDAO implements InterfaceDAO{
 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Nao foi possivel deletar", "Erro" , 0);
-            //System.out.println("Não foi possivel executar o comando SQL");
+            //System.out.println("NÃ£o foi possivel executar o comando SQL");
         }
-
-        //throw new UnsupportedOperationException("Not supported yet."); //o change body of generated methods, choose Tools | Templates.
-
     }
 
     @Override
     public void alterar(Object obj) {
-
-        PreparedStatement ps2;
+   
+    }
+    public void alterar (ArrayList<Fornecedor> arrayFornecedor, ArrayList<Endereco> arrayEndereco) throws SQLException{
+        ArrayList<Fornecedor> arrayCodigoEndereco = new ArrayList<>();
         try {
-            
-            conn = ConexaoBD.conectar();
-            
-                      
-            
-            int i = (int) obj, temp=0;
-            
-            PreparedStatement stmt= conn.prepareStatement("Select from Fornecedor where codigofornecedor=" +i);         
-            ResultSet rs = stmt.executeQuery();
-            while (rs.next()) {
-               temp = rs.getInt("");
+            for(int i = 0; i < arrayFornecedor.size();i++){
+                PreparedStatement stmt = ConexaoBD.conectar().prepareStatement("UPDATE Fornecedor SET NOMEFORNECEDOR = ?, CPFFORNECEDOR = ?, CNPJFORNECEDOR = ?, TELEFONEFORNECEDOR = ? WHERE CODIGOFORNECEDOR = ?");
+                stmt.setString(1, arrayFornecedor.get(i).getNomeFornecedor());
+                stmt.setString(2, arrayFornecedor.get(i).getCpfFornecedor());
+                stmt.setString(3, arrayFornecedor.get(i).getCnpjFornecedor());
+                stmt.setString(4, arrayFornecedor.get(i).getTelefone());
+                stmt.setInt(5, arrayFornecedor.get(i).getCodigo());
+                stmt.executeUpdate();
                
-            } 
-            
-           
-
-            //System.out.println("Curso deletado com sucesso!");
-           // JOptionPane.showMessageDialog(null, "Fornecedor deletado com sucesso", "Deletar", 1);
-            
-
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Nao foi possivel deletar", "Erro" , 0);
-            //System.out.println("Não foi possivel executar o comando SQL");
-        }
-    }
-
-
-    public int buscar(Fornecedor fornecedor){
-            int temp=0;
-        try {
-            PreparedStatement stmt = ConexaoBD.conectar().prepareStatement("Select * From fornecedor WHERE nomeFornecedor='" + fornecedor.getNomeFornecedor() + "'");
-            stmt.executeQuery();
-            while(stmt.getResultSet().next()){
-                temp = stmt.getResultSet().getInt("CODIGOfornecedor");
             }
-            return temp;
+            //select codigofornecedor pegar o codigo_endereco
+            for(int i = 0; i < arrayFornecedor.size();i++){
+                PreparedStatement stmt = ConexaoBD.conectar().prepareStatement("SELECT * FROM fornecedor WHERE codigofornecedor="+ arrayFornecedor.get(i).getCodigo());
+                stmt.execute();
+                while (stmt.getResultSet().next()) {
+                    Fornecedor fornecedor = new Fornecedor();
+                    fornecedor.setCodigo(Integer.parseInt(stmt.getResultSet().getString("endereço_CODIGOENDERECO")));                    
+                    arrayCodigoEndereco.add(fornecedor);
+                }
+            }
+            
+          
+            for (int i= 0; i < arrayEndereco.size();i++){
+                PreparedStatement stmt = ConexaoBD.conectar().prepareStatement("UPDATE Endereco SET RUA = ?, NUMERO = ? , BAIRRO = ?, CIDADE = ? WHERE CODIGOENDERECO = ?");
+                stmt.setString(1, arrayEndereco.get(i).getRua());
+                stmt.setString(2, arrayEndereco.get(i).getNumero());
+                stmt.setString(3, arrayEndereco.get(i).getBairro());
+                stmt.setString(4, arrayEndereco.get(i).getCidade());
+                stmt.setInt(5, arrayCodigoEndereco.get(i).getCodigo());
+                stmt.executeUpdate();
+            }
+              
+            
+       
         } catch (SQLException ex) {
-            Logger.getLogger(NotaFiscalDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return 0;
     }
-  
 
     @Override
-     public ArrayList<Fornecedor> buscar() {
+    public void adiciona(Object obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ArrayList<Fornecedor> buscar() {
         
         PreparedStatement ps;
         ResultSet rs;         
@@ -152,6 +149,7 @@ public class FornecedorDAO implements InterfaceDAO{
                 fornecedor.setCodigoEndereco(rs.getInt("ENDEREÇO_CODIGOENDERECO"));
                 fornecedor.setNomeFornecedor(rs.getString("NOMEFORNECEDOR"));
                 fornecedor.setCpfFornecedor(rs.getString("CPFFORNECEDOR"));
+                fornecedor.setCnpjFornecedor(rs.getString("CNPJFORNECEDOR"));
                 fornecedor.setTelefone(rs.getString("TELEFONEFORNECEDOR"));
                 arrayFornecedor.add(fornecedor);
             }
@@ -162,13 +160,24 @@ public class FornecedorDAO implements InterfaceDAO{
         }
         return arrayFornecedor;  
     }
-
-    @Override
-    public void adiciona(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        public int buscar(Fornecedor fornecedor){
+            int temp=0;
+        try {
+            PreparedStatement stmt = ConexaoBD.conectar().prepareStatement("Select * From fornecedor WHERE nomeFornecedor='" + fornecedor.getNomeFornecedor() + "'");
+            stmt.executeQuery();
+            while(stmt.getResultSet().next()){
+                temp = stmt.getResultSet().getInt("CODIGOfornecedor");
+            }
+            return temp;
+        } catch (SQLException ex) {
+            Logger.getLogger(NotaFiscalDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
     }
     
 }
+
+  
 
   
  

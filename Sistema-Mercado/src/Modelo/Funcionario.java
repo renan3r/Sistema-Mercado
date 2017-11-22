@@ -10,12 +10,15 @@ package Modelo;
  * @author Junim Roberti
  */
 public class Funcionario {
+    private int codigo;
     private String nomeFuncionario;
     private String login;
     private String senha;
     private int tipo;
-    private String telefone;
     private int codigoEndereco;
+
+    
+    
     /**
      * @return the nomeFuncionario
      */
@@ -72,19 +75,6 @@ public class Funcionario {
         this.tipo = tipo;
     } 
 
-    /**
-     * @return the telefone
-     */
-    public String getTelefone() {
-        return telefone;
-    }
-
-    /**
-     * @param telefone the telefone to set
-     */
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
 
     /**
      * @return the codigoEndereco
@@ -99,5 +89,20 @@ public class Funcionario {
     public void setCodigoEndereco(int codigoEndereco) {
         this.codigoEndereco = codigoEndereco;
     }
+
+    /**
+     * @return the codigo
+     */
+    public int getCodigo() {
+        return codigo;
+    }
+
+    /**
+     * @param codigo the codigo to set
+     */
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+    
     
 }

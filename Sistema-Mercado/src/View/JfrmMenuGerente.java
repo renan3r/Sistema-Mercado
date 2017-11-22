@@ -5,6 +5,26 @@
  */
 package View;
 
+import Controle.EnderecoControle;
+import Controle.FornecedorControle;
+import Modelo.Endereco;
+import com.itextpdf.io.font.FontConstants;
+import com.itextpdf.kernel.font.PdfFont;
+import com.itextpdf.kernel.font.PdfFontFactory;
+import com.itextpdf.kernel.pdf.PdfDocument;
+import static com.itextpdf.kernel.pdf.PdfName.Document;
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Cell;
+import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.element.Table;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  *
@@ -93,6 +113,11 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
         jmnGerarRelatorio.add(jMenuGerarRelatorio);
 
         jMenuItem1.setText("Gerar Relatório de Fornecedores");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jmnGerarRelatorio.add(jMenuItem1);
 
         jMenuItem2.setText("Gerar Relatório de Funcionarios");
@@ -184,6 +209,59 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        try {
+            FornecedorControle fornecedor = new FornecedorControle();
+            EnderecoControle endereco = new EnderecoControle();
+            ArrayList<Endereco> arrayEndereco = new ArrayList<>();
+           for(int i=0; i < fornecedor.buscar().size(); i++){
+            for (int j=0;j<endereco.busca().size();j++){
+                    if(fornecedor.buscar().get(i).getCodigoEndereco()== endereco.busca().get(j).getCodigo()){
+                            
+                    arrayEndereco.add(endereco.busca().get(j));
+              
+                    }
+                }
+            }
+            PdfWriter writer = new PdfWriter("RelatorioFornecedor.pdf");
+            PdfDocument pdf = new PdfDocument(writer);           
+            Document document = new Document(pdf);            
+            document.setMargins(20, 20, 20, 20);
+            PdfFont font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
+            document.setFont(font);
+            Paragraph cabecalho1 = new Paragraph("Lista de Fornecedores");
+            document.add(cabecalho1);
+            Table table = new Table(9);
+            table.addCell(new Cell().add(new Paragraph("Codigo")));
+            table.addCell(new Cell().add(new Paragraph("Nome")));
+            table.addCell(new Cell().add(new Paragraph("CPF")));
+            table.addCell(new Cell().add(new Paragraph("CNPJ")));
+            table.addCell(new Cell().add(new Paragraph("Telefone")));
+            table.addCell(new Cell().add(new Paragraph("Rua")));
+            table.addCell(new Cell().add(new Paragraph("Numero")));
+            table.addCell(new Cell().add(new Paragraph("Bairro")));
+            table.addCell(new Cell().add(new Paragraph("Cidade")));
+            for(int i=0;i<fornecedor.buscar().size();i++){                
+                table.addCell(new Cell().add(new Paragraph(String.valueOf(fornecedor.buscar().get(i).getCodigo()))));
+                table.addCell(new Cell().add(new Paragraph(fornecedor.buscar().get(i).getNomeFornecedor())));
+                table.addCell(new Cell().add(new Paragraph(fornecedor.buscar().get(i).getCpfFornecedor())));
+                table.addCell(new Cell().add(new Paragraph(fornecedor.buscar().get(i).getCnpjFornecedor())));
+                table.addCell(new Cell().add(new Paragraph(fornecedor.buscar().get(i).getTelefone())));
+                table.addCell(new Cell().add(new Paragraph(endereco.busca().get(i).getRua())));
+                table.addCell(new Cell().add(new Paragraph(endereco.busca().get(i).getNumero())));
+                table.addCell(new Cell().add(new Paragraph(endereco.busca().get(i).getBairro())));
+                table.addCell(new Cell().add(new Paragraph(endereco.busca().get(i).getCidade())));
+            }
+            document.add(table);
+            document.close();
+            Desktop.getDesktop().open(new File("RelatorioFornecedor.pdf"));
+        } catch (IOException ex) {
+            Logger.getLogger(JfrmMenuGerente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments

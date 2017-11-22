@@ -10,6 +10,7 @@ import Controle.FuncionarioControle;
 import Modelo.Endereco;
 import Modelo.Funcionario;
 import Utilitarios.ApenasNumeros;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,7 +23,6 @@ public class JfrmCadastrarFuncionario extends javax.swing.JFrame {
      */
     public JfrmCadastrarFuncionario() {
         initComponents();
-        
         jtxtGrupo.setDocument(new ApenasNumeros());
     }
 
@@ -44,7 +44,6 @@ public class JfrmCadastrarFuncionario extends javax.swing.JFrame {
         jbtnCancelar = new javax.swing.JButton();
         jtxtNome = new javax.swing.JTextField();
         jtxtLogin = new javax.swing.JTextField();
-        jtxtSenha = new javax.swing.JTextField();
         jtxtGrupo = new javax.swing.JTextField();
         jtxtTelefone = new javax.swing.JTextField();
         jtxtRua = new javax.swing.JTextField();
@@ -56,6 +55,7 @@ public class JfrmCadastrarFuncionario extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jtxtCidade = new javax.swing.JTextField();
+        jtxtSenha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -156,8 +156,8 @@ public class JfrmCadastrarFuncionario extends javax.swing.JFrame {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jtxtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
                                         .addComponent(jtxtLogin)
-                                        .addComponent(jtxtSenha)
-                                        .addComponent(jtxtGrupo)))
+                                        .addComponent(jtxtGrupo)
+                                        .addComponent(jtxtSenha)))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel10)
                                     .addGap(46, 46, 46)
@@ -221,31 +221,32 @@ public class JfrmCadastrarFuncionario extends javax.swing.JFrame {
 
     private void jbtnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSalvarActionPerformed
         // TODO add your handling code here:
-            
+ if(jtxtBairro.getText().isEmpty() || jtxtCidade.getText().isEmpty() || jtxtNumero.getText().isEmpty() || jtxtRua.getText().isEmpty() || jtxtLogin.getText().isEmpty() || jtxtNome.getText().isEmpty() || jtxtSenha.getText().isEmpty() || jtxtGrupo.getText().isEmpty()){
+          
+          JOptionPane.showMessageDialog(null, "Todos os campos precisam ser preenchidos!");
+      }  
+      else{   
       Endereco endereco = new Endereco();
       endereco.setBairro(jtxtBairro.getText());
       endereco.setCidade(jtxtCidade.getText());
       endereco.setNumero(jtxtNumero.getText());
       endereco.setRua(jtxtRua.getText());      
-      
       EnderecoControle enderecoControle = new EnderecoControle();
       int codEndereco;
-      codEndereco = enderecoControle.cadastrarEndereco(endereco);
+      codEndereco = enderecoControle.cadastrarEnderecoFuncionario(endereco);
       
       
       Funcionario funcionario = new Funcionario();
       funcionario.setLogin(jtxtLogin.getText().toLowerCase());
       funcionario.setNomeFuncionario(jtxtNome.getText());
-      funcionario.setSenha(jtxtSenha.getText());
-      funcionario.setTelefone(jtxtTelefone.getText());
+      funcionario.setSenha(jtxtSenha.getText());      
       funcionario.setTipo(Integer.parseInt(jtxtGrupo.getText()));
       funcionario.setCodigoEndereco(codEndereco);
       
       FuncionarioControle funcionarioControle = new FuncionarioControle();    
       funcionarioControle.cadastrarFuncionario(funcionario);
       dispose();
-      
-      
+      }
     }//GEN-LAST:event_jbtnSalvarActionPerformed
 
     private void jbtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCancelarActionPerformed
@@ -313,7 +314,7 @@ public class JfrmCadastrarFuncionario extends javax.swing.JFrame {
     private javax.swing.JTextField jtxtNome;
     private javax.swing.JTextField jtxtNumero;
     private javax.swing.JTextField jtxtRua;
-    private javax.swing.JTextField jtxtSenha;
+    private javax.swing.JPasswordField jtxtSenha;
     private javax.swing.JTextField jtxtTelefone;
     // End of variables declaration//GEN-END:variables
 }

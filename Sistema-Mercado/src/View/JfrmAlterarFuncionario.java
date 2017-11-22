@@ -5,7 +5,13 @@
  */
 package View;
 
+import Controle.EnderecoControle;
+import Controle.FuncionarioControle;
+import Modelo.Endereco;
+import Modelo.Funcionario;
 import Utilitarios.ApenasNumeros;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,7 +24,7 @@ public class JfrmAlterarFuncionario extends javax.swing.JFrame {
      */
     public JfrmAlterarFuncionario() {
         initComponents();
-        jtxtBuscado.setDocument(new ApenasNumeros());
+        getRootPane().setDefaultButton(jbtnPesquisar);
     }
 
     /**
@@ -58,6 +64,11 @@ public class JfrmAlterarFuncionario extends javax.swing.JFrame {
         });
 
         jbtnPesquisar.setText("Pesquisar");
+        jbtnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnPesquisarActionPerformed(evt);
+            }
+        });
 
         jbtnSair3.setText("Sair");
         jbtnSair3.addActionListener(new java.awt.event.ActionListener() {
@@ -70,6 +81,11 @@ public class JfrmAlterarFuncionario extends javax.swing.JFrame {
         jLabel1.setText("Alterar Funcionário");
 
         jbtnAlterar.setText("Alterar");
+        jbtnAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnAlterarActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Codigo do Funcionário");
 
@@ -81,30 +97,27 @@ public class JfrmAlterarFuncionario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jbtnAlterar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jbtnSair3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(39, 39, 39))))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(88, 88, 88)
                         .addComponent(jLabel1)
-                        .addGap(0, 102, Short.MAX_VALUE)))
+                        .addGap(0, 229, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jtxtBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jbtnPesquisar)
-                        .addGap(26, 26, 26))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(18, 18, 18)
+                        .addComponent(jbtnPesquisar))
+                    .addComponent(jLabel2))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jbtnAlterar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbtnSair3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,12 +131,12 @@ public class JfrmAlterarFuncionario extends javax.swing.JFrame {
                     .addComponent(jtxtBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbtnPesquisar))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtnSair3)
                     .addComponent(jbtnAlterar))
-                .addGap(64, 64, 64))
+                .addGap(20, 20, 20))
         );
 
         pack();
@@ -136,6 +149,54 @@ public class JfrmAlterarFuncionario extends javax.swing.JFrame {
     private void jtxtBuscadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtBuscadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxtBuscadoActionPerformed
+
+    private void jbtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnPesquisarActionPerformed
+        // TODO add your handling code here:
+        Funcionario funcionario = new Funcionario();
+        funcionario.setNomeFuncionario(jtxtBuscado.getText());
+        FuncionarioControle funcionarioControle = new FuncionarioControle();
+        EnderecoControle enderecoControle = new EnderecoControle();
+        DefaultTableModel modeloTabela = (DefaultTableModel)jtblFuncionario.getModel();
+        modeloTabela = new DefaultTableModel(new String[] {"Código", "Tipo", "Nome", "Rua", "Número", "Bairro", "Cidade"}, 0);
+        ArrayList<Funcionario> funcionarioBuscado = funcionarioControle.buscaApenasUm(funcionario.getNomeFuncionario());
+        ArrayList<Endereco> enderecoBuscado = enderecoControle.buscarEndFuncionario(funcionarioBuscado);
+        
+        for(int i = 0; i < funcionarioBuscado.size();i++){
+            Object[] data = {
+                funcionarioBuscado.get(i).getCodigo(),
+                funcionarioBuscado.get(i).getTipo(),
+                funcionarioBuscado.get(i).getNomeFuncionario(),
+                enderecoBuscado.get(i).getRua(),
+                enderecoBuscado.get(i).getNumero(),
+                enderecoBuscado.get(i).getBairro(),
+                enderecoBuscado.get(i).getCidade(),
+                };                
+            modeloTabela.addRow(data);
+        }
+        jtblFuncionario.setModel(modeloTabela);
+    }//GEN-LAST:event_jbtnPesquisarActionPerformed
+
+    private void jbtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAlterarActionPerformed
+        // TODO add your handling code here:
+        ArrayList<Funcionario> arrayFuncionario = new ArrayList<>();
+        ArrayList<Endereco> arrayEndereco = new ArrayList<>();
+        
+        for(int i = 0; i < jtblFuncionario.getRowCount(); i++){
+            Funcionario funcionario = new Funcionario();
+            Endereco endereco = new Endereco();
+            funcionario.setCodigo(Integer.parseInt(jtblFuncionario.getValueAt(i, 0).toString()));
+            funcionario.setTipo(Integer.parseInt(jtblFuncionario.getValueAt(i, 1).toString()));
+            funcionario.setNomeFuncionario(jtblFuncionario.getValueAt(i, 2).toString());
+            endereco.setRua(jtblFuncionario.getValueAt(i, 3).toString());
+            endereco.setNumero(jtblFuncionario.getValueAt(i, 4).toString());
+            endereco.setBairro(jtblFuncionario.getValueAt(i, 5).toString());
+            endereco.setCidade(jtblFuncionario.getValueAt(i, 6).toString());          
+            arrayFuncionario.add(funcionario);
+            arrayEndereco.add(endereco);           
+        }
+        FuncionarioControle funcionarioControle = new FuncionarioControle();
+        funcionarioControle.alterarFuncionario(arrayFuncionario, arrayEndereco);
+    }//GEN-LAST:event_jbtnAlterarActionPerformed
 
     /**
      * @param args the command line arguments

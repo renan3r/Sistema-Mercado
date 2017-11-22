@@ -5,6 +5,8 @@
  */
 package View;
 
+import Modelo.Funcionario;
+
 /**
  *
  * @author Leticia Ribeiro
@@ -14,9 +16,15 @@ public class JfrmMenuCaixa extends javax.swing.JFrame {
     /**
      * Creates new form JfrmMenuCaixa
      */
+    Funcionario funcionario = new Funcionario();
     public JfrmMenuCaixa() {
         initComponents();
     }
+    public JfrmMenuCaixa(Funcionario funcionario) {
+        initComponents();
+        this.funcionario=funcionario;
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -249,7 +257,7 @@ public class JfrmMenuCaixa extends javax.swing.JFrame {
 
     private void jMenuRealizarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuRealizarVendaActionPerformed
         // TODO add your handling code here:
-        JfrmRealizaVenda realizaVenda = new JfrmRealizaVenda();
+        JfrmRealizaVenda realizaVenda = new JfrmRealizaVenda(funcionario);
         realizaVenda.setLocationRelativeTo(null);
         realizaVenda.setDefaultCloseOperation(realizaVenda.DISPOSE_ON_CLOSE); 
         realizaVenda.setVisible(true);

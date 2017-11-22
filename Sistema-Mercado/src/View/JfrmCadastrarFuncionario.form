@@ -66,8 +66,8 @@
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jtxtNome" pref="162" max="32767" attributes="0"/>
                                       <Component id="jtxtLogin" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jtxtSenha" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jtxtGrupo" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jtxtSenha" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
@@ -204,8 +204,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jtxtLogin">
     </Component>
-    <Component class="javax.swing.JTextField" name="jtxtSenha">
-    </Component>
     <Component class="javax.swing.JTextField" name="jtxtGrupo">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtxtGrupoActionPerformed"/>
@@ -263,6 +261,8 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtxtCidade">
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="jtxtSenha">
     </Component>
   </SubComponents>
 </Form>

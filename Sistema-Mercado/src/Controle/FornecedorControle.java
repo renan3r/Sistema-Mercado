@@ -5,9 +5,10 @@
  */
 package Controle;
 
-
 import DAO.FornecedorDAO;
+import Modelo.Endereco;
 import Modelo.Fornecedor;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -24,12 +25,9 @@ public class FornecedorControle {
     public ArrayList<Fornecedor> buscar() {
         
         FornecedorDAO fonecedorDAO = new FornecedorDAO();
-        return (ArrayList<Fornecedor>) fonecedorDAO.buscar();
+        return fonecedorDAO.buscar();
     }
-    public int buscar(Fornecedor fornecedor){
-        FornecedorDAO fornecedorDAO = new FornecedorDAO();
-        return fornecedorDAO.buscar(fornecedor);
-    }
+    
     public void remover (Object obj){
         FornecedorDAO fornecedorDAO = new FornecedorDAO();
         fornecedorDAO.excluir(obj);        
@@ -39,4 +37,13 @@ public class FornecedorControle {
        fornecedorDAO.alterar(obj);
    }
    
+   public void updateFornecedor(ArrayList<Fornecedor> array, ArrayList<Endereco> array2) throws SQLException{
+        FornecedorDAO fornecedorDAO = new FornecedorDAO();
+        fornecedorDAO.alterar(array,array2);
+    }
+    public int buscar(Fornecedor fornecedor){
+        FornecedorDAO fornecedorDAO = new FornecedorDAO();
+        return fornecedorDAO.buscar(fornecedor);
+    }
 }
+

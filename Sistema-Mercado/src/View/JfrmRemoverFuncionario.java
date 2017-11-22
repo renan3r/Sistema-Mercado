@@ -5,7 +5,9 @@
  */
 package View;
 
+import Controle.FuncionarioControle;
 import Utilitarios.ApenasNumeros;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,7 +20,8 @@ public class JfrmRemoverFuncionario extends javax.swing.JFrame {
      */
     public JfrmRemoverFuncionario() {
         initComponents();
-        
+        carregarTabela();
+
     }
 
     /**
@@ -32,7 +35,7 @@ public class JfrmRemoverFuncionario extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableFuncionario = new javax.swing.JTable();
         jbtnRemover = new javax.swing.JButton();
         jbtnSair = new javax.swing.JButton();
 
@@ -41,7 +44,7 @@ public class JfrmRemoverFuncionario extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Remover Funcioniário");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableFuncionario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -52,9 +55,14 @@ public class JfrmRemoverFuncionario extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTableFuncionario);
 
         jbtnRemover.setText("Remover");
+        jbtnRemover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnRemoverActionPerformed(evt);
+            }
+        });
 
         jbtnSair.setText("Sair");
         jbtnSair.addActionListener(new java.awt.event.ActionListener() {
@@ -104,6 +112,30 @@ public class JfrmRemoverFuncionario extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jbtnSairActionPerformed
 
+    private void jbtnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRemoverActionPerformed
+        // TODO add your handling code here:
+        FuncionarioControle funcionarioControle = new FuncionarioControle();
+        funcionarioControle.removerFuncionario(jTableFuncionario.getValueAt(jTableFuncionario.getSelectedRow(), 0));
+        DefaultTableModel tableModel = (DefaultTableModel)jTableFuncionario.getModel();
+        tableModel.removeRow(jTableFuncionario.getSelectedRow());
+        
+    }//GEN-LAST:event_jbtnRemoverActionPerformed
+    public void carregarTabela(){
+            
+            FuncionarioControle funcionarioControle = new FuncionarioControle();
+            DefaultTableModel tableModel = (DefaultTableModel)jTableFuncionario.getModel();
+            tableModel = new DefaultTableModel(new String[]{"Codigo", "Nome", "Tipo"},0);
+            for(int i=0; i < funcionarioControle.buscarFuncionario().size(); i++){
+                Object [] dados = {         
+                    funcionarioControle.buscarFuncionario().get(i).getCodigo(),
+                    funcionarioControle.buscarFuncionario().get(i).getNomeFuncionario(),
+                    funcionarioControle.buscarFuncionario().get(i).getTipo()};                    
+                tableModel.addRow(dados);
+            }
+            jTableFuncionario.setModel(tableModel);
+
+    }//GEN-LAST:event_jbtnRemoverActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -143,7 +175,7 @@ public class JfrmRemoverFuncionario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableFuncionario;
     private javax.swing.JButton jbtnRemover;
     private javax.swing.JButton jbtnSair;
     // End of variables declaration//GEN-END:variables

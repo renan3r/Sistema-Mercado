@@ -5,7 +5,13 @@
  */
 package View;
 
+import Controle.EnderecoControle;
+import Controle.FuncionarioControle;
+import Modelo.Endereco;
+import Modelo.Funcionario;
 import Utilitarios.ApenasNumeros;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,7 +24,6 @@ public class JfrmBuscarFuncionario extends javax.swing.JFrame {
      */
     public JfrmBuscarFuncionario() {
         initComponents();
-        jtxtBuscado.setDocument(new ApenasNumeros());
     }
 
     /**
@@ -51,6 +56,11 @@ public class JfrmBuscarFuncionario extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jtblFuncionario);
 
         jbtnPesquisar.setText("Pesquisar");
+        jbtnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnPesquisarActionPerformed(evt);
+            }
+        });
 
         jbtnSair3.setText("Sair");
         jbtnSair3.addActionListener(new java.awt.event.ActionListener() {
@@ -62,7 +72,7 @@ public class JfrmBuscarFuncionario extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Buscar Funcionário");
 
-        jLabel2.setText("Codigo do Funcionário");
+        jLabel2.setText("Nome do Funcionário");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -71,7 +81,7 @@ public class JfrmBuscarFuncionario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 538, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -110,6 +120,32 @@ public class JfrmBuscarFuncionario extends javax.swing.JFrame {
     private void jbtnSair3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSair3ActionPerformed
         dispose();
     }//GEN-LAST:event_jbtnSair3ActionPerformed
+
+    private void jbtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnPesquisarActionPerformed
+        // TODO add your handling code here:
+        Funcionario funcionario = new Funcionario();
+        funcionario.setNomeFuncionario(jtxtBuscado.getText());
+        FuncionarioControle funcionarioControle = new FuncionarioControle();
+        EnderecoControle enderecoControle = new EnderecoControle();
+        DefaultTableModel modeloTabela = (DefaultTableModel)jtblFuncionario.getModel();
+        modeloTabela = new DefaultTableModel(new String[] {"Código", "Tipo", "Nome", "Rua", "Número", "Bairro", "Cidade"}, 0);
+        ArrayList<Funcionario> funcionarioBuscado = funcionarioControle.buscaApenasUm(funcionario.getNomeFuncionario());
+        ArrayList<Endereco> enderecoBuscado = enderecoControle.buscarEndFuncionario(funcionarioBuscado);
+        
+        for(int i = 0; i < funcionarioBuscado.size();i++){
+            Object[] data = {
+                funcionarioBuscado.get(i).getCodigo(),
+                funcionarioBuscado.get(i).getTipo(),
+                funcionarioBuscado.get(i).getNomeFuncionario(),
+                enderecoBuscado.get(i).getRua(),
+                enderecoBuscado.get(i).getNumero(),
+                enderecoBuscado.get(i).getBairro(),
+                enderecoBuscado.get(i).getCidade(),
+                };                
+            modeloTabela.addRow(data);
+        }
+        jtblFuncionario.setModel(modeloTabela);
+    }//GEN-LAST:event_jbtnPesquisarActionPerformed
 
     /**
      * @param args the command line arguments

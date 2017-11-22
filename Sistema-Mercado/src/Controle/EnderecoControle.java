@@ -7,6 +7,7 @@ package Controle;
 
 import DAO.EnderecoDAO;
 import Modelo.Endereco;
+import Modelo.Funcionario;
 import java.util.ArrayList;
 
 /**
@@ -22,10 +23,21 @@ public class EnderecoControle {
         cod = enderecoDAO.CadastrarEndereco(endereco);
         return cod;
     }
-    
+        public int cadastrarEnderecoFuncionario(Endereco endereco){
+        
+        EnderecoDAO enderecoDAO = new EnderecoDAO();
+        int cod;
+        cod = enderecoDAO.CadastrarEndereco(endereco);
+        return cod;
+    }
     public ArrayList  <Endereco> busca(){
         EnderecoDAO enderecoDAO = new EnderecoDAO();
         return enderecoDAO.buscar();
+    }
+    public ArrayList<Endereco> buscarEndFuncionario(ArrayList<Funcionario> funcionarioBuscado) {
+        EnderecoDAO enderecoDAO = new EnderecoDAO();
+        return enderecoDAO.buscarEndFun(funcionarioBuscado);        
+        
     }
 
 }

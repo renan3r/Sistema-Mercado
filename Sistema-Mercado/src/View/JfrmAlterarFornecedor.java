@@ -8,8 +8,13 @@ package View;
 import Controle.EnderecoControle;
 import Controle.FornecedorControle;
 import Modelo.Endereco;
+import Modelo.Fornecedor;
 import Utilitarios.ApenasNumeros;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -150,19 +155,13 @@ public class JfrmAlterarFornecedor extends javax.swing.JFrame {
         // TODO add your handling code here:
         carregaBusca(Integer.parseInt(jtxtBuscado.getText()));
     }//GEN-LAST:event_jbtnPesquisarActionPerformed
-
-    private void jbtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAlterarActionPerformed
-        // TODO add your handling code here:
-         FornecedorControle forncedorControle = new FornecedorControle ();
-         
-    }//GEN-LAST:event_jbtnAlterarActionPerformed
-private void carregaTabela(){
+    private void carregaTabela(){
             
             ArrayList<Endereco> arrayEndereco = new ArrayList<>();
             EnderecoControle enderecoControle = new EnderecoControle();
             FornecedorControle fornecedorControle = new FornecedorControle();
             DefaultTableModel tableModel = (DefaultTableModel)jtblFornecedor.getModel();            
-            tableModel = new DefaultTableModel(new String[]{"Codigo","Nome", "CPF", "Telefone", "Rua", "Numero", "Bairro", "Cidade"},0);
+            tableModel = new DefaultTableModel(new String[]{"Codigo","Nome", "CPF","CNPJ", "Telefone", "Rua", "Numero", "Bairro", "Cidade"},0);
             
          for(int i=0; i < fornecedorControle.buscar().size(); i++){
             for (int j=0;j<enderecoControle.busca().size();j++){
@@ -180,6 +179,7 @@ private void carregaTabela(){
                     fornecedorControle.buscar().get(i).getCodigo(),
                     fornecedorControle.buscar().get(i).getNomeFornecedor(),
                     fornecedorControle.buscar().get(i).getCpfFornecedor(),
+                    fornecedorControle.buscar().get(i).getCnpjFornecedor(),
                     fornecedorControle.buscar().get(i).getTelefone(),
                     arrayEndereco.get(i).getRua(),
                     arrayEndereco.get(i).getNumero(),
@@ -198,7 +198,7 @@ private void carregaTabela(){
             EnderecoControle enderecoControle = new EnderecoControle();
             FornecedorControle fornecedorControle = new FornecedorControle();
             DefaultTableModel tableModel = (DefaultTableModel)jtblFornecedor.getModel();     
-            tableModel = new DefaultTableModel(new String[]{"Codigo","Nome", "CPF", "Telefone", "Rua", "Numero", "Bairro", "Cidade"},0);
+            tableModel = new DefaultTableModel(new String[]{"Codigo","Nome", "CPF","CNPJ" , "Telefone", "Rua", "Numero", "Bairro", "Cidade"},0);
             
          for(int i=0; i < fornecedorControle.buscar().size(); i++){
             for (int j=0;j<enderecoControle.busca().size();j++){
@@ -216,6 +216,7 @@ private void carregaTabela(){
                     fornecedorControle.buscar().get(i).getCodigo(),
                     fornecedorControle.buscar().get(i).getNomeFornecedor(),
                     fornecedorControle.buscar().get(i).getCpfFornecedor(),
+                    fornecedorControle.buscar().get(i).getCnpjFornecedor(),
                     fornecedorControle.buscar().get(i).getTelefone(),
                     arrayEndereco.get(i).getRua(),
                     arrayEndereco.get(i).getNumero(),
@@ -230,6 +231,38 @@ private void carregaTabela(){
             jtblFornecedor.setModel(tableModel);
       
     }
+    private void jbtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAlterarActionPerformed
+        // TODO add your handling code here:
+        ArrayList<Fornecedor> array = new ArrayList<>();
+        ArrayList<Endereco> array2 = new ArrayList<>();
+      
+        for(int i = 0; i < jtblFornecedor.getRowCount(); i++){
+            Fornecedor fornecedor = new Fornecedor();
+            Endereco endereco = new Endereco();
+            fornecedor.setCodigo(Integer.parseInt(jtblFornecedor.getValueAt(i, 0).toString()));
+            fornecedor.setNomeFornecedor(jtblFornecedor.getValueAt(i, 1).toString());
+            fornecedor.setCpfFornecedor(jtblFornecedor.getValueAt(i, 2).toString());
+            fornecedor.setCnpjFornecedor(jtblFornecedor.getValueAt(i, 3).toString());
+            fornecedor.setTelefone(jtblFornecedor.getValueAt(i, 4).toString());
+            endereco.setRua(jtblFornecedor.getValueAt(i, 5).toString());
+            endereco.setNumero(jtblFornecedor.getValueAt(i, 6).toString());
+            endereco.setBairro(jtblFornecedor.getValueAt(i, 7).toString());
+            endereco.setCidade(jtblFornecedor.getValueAt(i, 8).toString());
+            array.add(fornecedor);
+            array2.add(endereco);            
+        }
+        FornecedorControle fornecedorControle = new FornecedorControle();        
+        try {
+            fornecedorControle.updateFornecedor(array,array2);
+        } catch (SQLException ex) {
+            Logger.getLogger(JfrmAlterarFornecedor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        JOptionPane.showMessageDialog(null, "Alterações salvas com sucesso!"); 
+        
+    }//GEN-LAST:event_jbtnAlterarActionPerformed
+
     /**
      * @param args the command line arguments
      */
