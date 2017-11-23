@@ -39,9 +39,7 @@ public class JfrmMenuCaixa extends javax.swing.JFrame {
         jmnMenu = new javax.swing.JMenuBar();
         jMenu6 = new javax.swing.JMenu();
         jMenuRealizarVenda = new javax.swing.JMenuItem();
-        jMenuRemoverVenda = new javax.swing.JMenuItem();
         jMenuBuscarVenda = new javax.swing.JMenuItem();
-        jMenuAlterarVenda = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuCadastrarProduto = new javax.swing.JMenuItem();
         jMenuRemoverProduto = new javax.swing.JMenuItem();
@@ -73,14 +71,6 @@ public class JfrmMenuCaixa extends javax.swing.JFrame {
         });
         jMenu6.add(jMenuRealizarVenda);
 
-        jMenuRemoverVenda.setText("Remover Venda");
-        jMenuRemoverVenda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuRemoverVendaActionPerformed(evt);
-            }
-        });
-        jMenu6.add(jMenuRemoverVenda);
-
         jMenuBuscarVenda.setText("Buscar Venda");
         jMenuBuscarVenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,14 +78,6 @@ public class JfrmMenuCaixa extends javax.swing.JFrame {
             }
         });
         jMenu6.add(jMenuBuscarVenda);
-
-        jMenuAlterarVenda.setText("Alterar Venda");
-        jMenuAlterarVenda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuAlterarVendaActionPerformed(evt);
-            }
-        });
-        jMenu6.add(jMenuAlterarVenda);
 
         jmnMenu.add(jMenu6);
 
@@ -225,7 +207,7 @@ public class JfrmMenuCaixa extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(78, Short.MAX_VALUE)
+                .addContainerGap(80, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addContainerGap())
         );
@@ -254,30 +236,6 @@ public class JfrmMenuCaixa extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jMenuSairActionPerformed
-
-    private void jMenuRealizarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuRealizarVendaActionPerformed
-        // TODO add your handling code here:
-        JfrmRealizaVenda realizaVenda = new JfrmRealizaVenda(funcionario);
-        realizaVenda.setLocationRelativeTo(null);
-        realizaVenda.setDefaultCloseOperation(realizaVenda.DISPOSE_ON_CLOSE); 
-        realizaVenda.setVisible(true);
-    }//GEN-LAST:event_jMenuRealizarVendaActionPerformed
-
-    private void jMenuRemoverVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuRemoverVendaActionPerformed
-        // TODO add your handling code here:
-        JfrmRemoverVenda excluirVenda = new JfrmRemoverVenda();
-        excluirVenda.setLocationRelativeTo(null);
-        excluirVenda.setDefaultCloseOperation(excluirVenda.DISPOSE_ON_CLOSE); 
-        excluirVenda.setVisible(true);
-    }//GEN-LAST:event_jMenuRemoverVendaActionPerformed
-
-    private void jMenuBuscarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuBuscarVendaActionPerformed
-        // TODO add your handling code here:
-        JfrmBuscarVenda buscarVenda = new JfrmBuscarVenda();
-        buscarVenda.setLocationRelativeTo(null);
-        buscarVenda.setDefaultCloseOperation(buscarVenda.DISPOSE_ON_CLOSE); 
-        buscarVenda.setVisible(true);
-    }//GEN-LAST:event_jMenuBuscarVendaActionPerformed
 
     private void jMenuCadastrarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCadastrarProdutoActionPerformed
         // TODO add your handling code here:
@@ -343,14 +301,6 @@ public class JfrmMenuCaixa extends javax.swing.JFrame {
         buscarNotaFiscal.setVisible(true);
     }//GEN-LAST:event_jMenuBuscarNotaFiscalActionPerformed
 
-    private void jMenuAlterarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuAlterarVendaActionPerformed
-        // TODO add your handling code here:
-        JfrmAlterarVenda alterarVenda = new JfrmAlterarVenda();
-        alterarVenda.setLocationRelativeTo(null);
-        alterarVenda.setDefaultCloseOperation(alterarVenda.DISPOSE_ON_CLOSE); 
-        alterarVenda.setVisible(true);
-    }//GEN-LAST:event_jMenuAlterarVendaActionPerformed
-
     private void jMenuRemoverNotaFiscalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuRemoverNotaFiscalActionPerformed
         // TODO add your handling code here:
         JfrmRemoverNotaFiscal removerNotaFiscal = new JfrmRemoverNotaFiscal();
@@ -358,6 +308,22 @@ public class JfrmMenuCaixa extends javax.swing.JFrame {
         removerNotaFiscal.setDefaultCloseOperation(removerNotaFiscal.DISPOSE_ON_CLOSE); 
         removerNotaFiscal.setVisible(true);
     }//GEN-LAST:event_jMenuRemoverNotaFiscalActionPerformed
+
+    private void jMenuBuscarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuBuscarVendaActionPerformed
+        // TODO add your handling code here:
+        JfrmBuscarVenda buscarVenda = new JfrmBuscarVenda();
+        buscarVenda.setLocationRelativeTo(null);
+        buscarVenda.setDefaultCloseOperation(buscarVenda.DISPOSE_ON_CLOSE);
+        buscarVenda.setVisible(true);
+    }//GEN-LAST:event_jMenuBuscarVendaActionPerformed
+
+    private void jMenuRealizarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuRealizarVendaActionPerformed
+        // TODO add your handling code here:
+        JfrmRealizaVenda realizaVenda = new JfrmRealizaVenda(funcionario);
+        realizaVenda.setLocationRelativeTo(null);
+        realizaVenda.setDefaultCloseOperation(realizaVenda.DISPOSE_ON_CLOSE);
+        realizaVenda.setVisible(true);
+    }//GEN-LAST:event_jMenuRealizarVendaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -404,7 +370,6 @@ public class JfrmMenuCaixa extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuAdicionarNotaFiscal;
     private javax.swing.JMenuItem jMenuAlterarFornecedor;
     private javax.swing.JMenuItem jMenuAlterarProduto;
-    private javax.swing.JMenuItem jMenuAlterarVenda;
     private javax.swing.JMenuItem jMenuBuscarFornecedor;
     private javax.swing.JMenuItem jMenuBuscarNotaFiscal;
     private javax.swing.JMenuItem jMenuBuscarProduto;
@@ -415,7 +380,6 @@ public class JfrmMenuCaixa extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuRemoverFornecedor;
     private javax.swing.JMenuItem jMenuRemoverNotaFiscal;
     private javax.swing.JMenuItem jMenuRemoverProduto;
-    private javax.swing.JMenuItem jMenuRemoverVenda;
     private javax.swing.JMenuItem jMenuSair;
     private javax.swing.JMenuBar jmnMenu;
     // End of variables declaration//GEN-END:variables

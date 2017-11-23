@@ -42,6 +42,10 @@ public class ProdutoControle {
         ProdutoDAO produtoDAO = new ProdutoDAO();
         return produtoDAO.pegaCodigoEstoque(nome);
     }
+    public ArrayList<Float> pegaQuantidade2(String nome){ 
+        ProdutoDAO produtoDAO = new ProdutoDAO();
+        return produtoDAO.pegaCodigoEstoque2(nome);
+    }
     public ArrayList<String> pegaNomeFornecedor(String nome){ 
         ProdutoDAO produtoDAO = new ProdutoDAO();
         return produtoDAO.pegaCodigoFornecedor(nome);

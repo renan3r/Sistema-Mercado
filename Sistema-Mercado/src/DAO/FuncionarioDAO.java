@@ -133,7 +133,8 @@ public class FuncionarioDAO implements InterfaceDAO{
                 Funcionario funcionario = new Funcionario();
                 funcionario.setCodigo(rs.getInt("CODIGOFUNCIONARIO"));
                 funcionario.setNomeFuncionario(rs.getString("NOMEFUNCIONARIO"));
-                funcionario.setTipo(rs.getInt("TIPO"));               
+                funcionario.setTipo(rs.getInt("TIPO"));         
+                funcionario.setCodigoEndereco(rs.getInt("ENDEREÇO_CODIGOENDERECO"));
                 arrayFuncionario.add(funcionario);               
             }
             /*

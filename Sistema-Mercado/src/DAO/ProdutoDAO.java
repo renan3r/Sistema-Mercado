@@ -71,7 +71,7 @@ public class ProdutoDAO implements InterfaceDAO{
                 }
             }
             for(int i = 0; i < arrayProduto.size();i++){
-                PreparedStatement stmt = ConexaoBD.conectar().prepareStatement("UPDATE Estoque SET quantidadeTotal="+ arrayQuantidade.get(i)+"WHERE codigoEstoque="+ arrayProdutoDAO.get(i).getCodigoEstoque());
+                PreparedStatement stmt = ConexaoBD.conectar().prepareStatement("UPDATE Estoque SET quantidadeTotal="+ arrayQuantidade.get(i)+" WHERE codigoEstoque="+ arrayProdutoDAO.get(i).getCodigoEstoque());
                 stmt.execute();
                 stmt = ConexaoBD.conectar().prepareStatement("UPDATE Fornecedor SET nomeFornecedor='"+ arrayNome.get(i)+"' WHERE CODIGOFORNECEDOR="+ arrayProdutoDAO.get(i).getCodigoFornecedor());
                 stmt.execute();
@@ -104,6 +104,30 @@ public class ProdutoDAO implements InterfaceDAO{
         }
         return arrayEstoque;
     }
+        public ArrayList<Float> pegaCodigoEstoque2(String nome){
+        ArrayList<Produto> arrayProduto = new ArrayList<>();
+        ArrayList<Float> arrayEstoque = new ArrayList<>();
+        try {
+            PreparedStatement stmt = ConexaoBD.conectar().prepareStatement("SELECT * FROM produto WHERE nomeproduto='"+ nome + "'");
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Produto produto = new Produto();
+                produto.setCodigoEstoque(Integer.parseInt(rs.getString("ESTOQUE_CODIGOESTOQUE")));
+                arrayProduto.add(produto);
+            }
+            for(int i = 0; i < arrayProduto.size();i++){
+                stmt = ConexaoBD.conectar().prepareStatement("SELECT * FROM ESTOQUE WHERE CODIGOESTOQUE=" + arrayProduto.get(i).getCodigoEstoque());
+                stmt.executeQuery();
+                while(stmt.getResultSet().next()){
+                    arrayEstoque.add(stmt.getResultSet().getFloat("QuantidadeAtual"));
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return arrayEstoque;
+    }
+    
     public ArrayList<Float> pegaTodosEstoque(){
         ArrayList<Produto> arrayProduto = new ArrayList<>();
         ArrayList<Float> arrayEstoque = new ArrayList<>();
@@ -215,7 +239,7 @@ public class ProdutoDAO implements InterfaceDAO{
                 produto.setPrecoCompra(rs.getFloat("precocompra"));
                 produto.setPrecoVenda(rs.getFloat("precovenda"));
                 produto.setCodigoEstoque(Integer.parseInt(rs.getString("ESTOQUE_CODIGOESTOQUE")));
-                produto.setCodigoFornecedor(Integer.parseInt(rs.getString("FORNECEDOR_CODIGOFORNECEDOR")));
+                produto.setCodigoFornecedor(rs.getInt("FORNECEDOR_CODIGOFORNECEDOR"));
                 produto.setCodigoNotaFiscal(Integer.parseInt(rs.getString("NOTAFISCAL_CODIGONOTAFISCAL")));
                 arrayProduto.add(produto);
             }

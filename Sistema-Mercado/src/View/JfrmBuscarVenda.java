@@ -5,7 +5,9 @@
  */
 package View;
 
+import Controle.VendaControle;
 import Utilitarios.ApenasNumeros;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,7 +20,7 @@ public class JfrmBuscarVenda extends javax.swing.JFrame {
      */
     public JfrmBuscarVenda() {
         initComponents();
-        
+        carregaTabela();
     }
 
     /**
@@ -51,6 +53,11 @@ public class JfrmBuscarVenda extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jtblVendas);
 
         jbtnPesquisar.setText("Pesquisar");
+        jbtnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnPesquisarActionPerformed(evt);
+            }
+        });
 
         jbtnSair3.setText("Sair");
         jbtnSair3.addActionListener(new java.awt.event.ActionListener() {
@@ -73,13 +80,14 @@ public class JfrmBuscarVenda extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 754, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jtxtBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
                                 .addComponent(jbtnPesquisar)
                                 .addGap(18, 18, 18)
-                                .addComponent(jbtnSair3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jbtnSair3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -115,6 +123,66 @@ public class JfrmBuscarVenda extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jbtnSair3ActionPerformed
 
+    private void jbtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnPesquisarActionPerformed
+        // TODO add your handling code here:
+        busca(Integer.parseInt(jtxtBuscado.getText()));
+    }//GEN-LAST:event_jbtnPesquisarActionPerformed
+private void carregaTabela(){
+            
+            VendaControle vendaControle = new VendaControle();
+            DefaultTableModel tableModel = (DefaultTableModel)jtblVendas.getModel();          
+            tableModel = new DefaultTableModel(new String[]{"Codigo","Codigo Funcionario", "Produto","Modelo", "Forma Pagamento", "Data", "Soma"},0);
+            
+            
+        
+            for(int i=0; i < vendaControle.buscar().size(); i++){
+                for(int j=0; j<vendaControle.buscarItem().size();j++){
+                    if(vendaControle.buscar().get(i).getCodigo() == vendaControle.buscarItem().get(j).getCodigo()){
+                Object [] dados = {
+                    
+                    vendaControle.buscar().get(i).getCodigo(),
+                    vendaControle.buscar().get(i).getCodigoFuncionario(),                    
+                    vendaControle.buscarItem().get(j).getNomeProduto(),
+                    vendaControle.buscarItem().get(j).getModelo(),
+                    vendaControle.buscar().get(i).getFormaPagamento(),                    
+                    vendaControle.buscar().get(i).getDataVenda(),
+                    vendaControle.buscar().get(i).getSomaVenda()};
+                
+                    tableModel.addRow(dados);
+                
+             }
+            }
+           }
+            jtblVendas.setModel(tableModel);
+      
+    }
+    private void busca(int x){
+            
+            VendaControle vendaControle = new VendaControle();
+            DefaultTableModel tableModel = (DefaultTableModel)jtblVendas.getModel();          
+            tableModel = new DefaultTableModel(new String[]{"Codigo","Codigo Funcionario", "Produto","Modelo", "Forma Pagamento", "Data", "Soma"},0); 
+            for(int i=0; i < vendaControle.buscar().size(); i++){
+                for(int j=0; j<vendaControle.buscarItem().size();j++){
+                    if(vendaControle.buscar().get(i).getCodigo() == vendaControle.buscarItem().get(j).getCodigo()){
+                        if(vendaControle.buscar().get(i).getCodigo()== x){
+                            Object [] dados = {       
+                                vendaControle.buscar().get(i).getCodigo(),
+                                vendaControle.buscar().get(i).getCodigoFuncionario(),                    
+                                vendaControle.buscarItem().get(j).getNomeProduto(),
+                                vendaControle.buscarItem().get(j).getModelo(),
+                                vendaControle.buscar().get(i).getFormaPagamento(),                    
+                                vendaControle.buscar().get(i).getDataVenda(),
+                                vendaControle.buscar().get(i).getSomaVenda()
+                            };   
+                                tableModel.addRow(dados);
+
+                        }
+                    }
+                }
+            }
+            jtblVendas.setModel(tableModel);
+      
+    }
     /**
      * @param args the command line arguments
      */

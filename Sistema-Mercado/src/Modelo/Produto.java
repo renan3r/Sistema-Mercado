@@ -19,6 +19,7 @@ public class Produto{
     private float precoCompra;
     private float precoVenda;
     private String dataValidade;
+    
     /**
      * @return the nomeProduto
      */
@@ -143,4 +144,6 @@ public class Produto{
     public void setCodigoNotaFiscal(int codigoNotaFiscal) {
         this.codigoNotaFiscal = codigoNotaFiscal;
     }
+
+   
 }

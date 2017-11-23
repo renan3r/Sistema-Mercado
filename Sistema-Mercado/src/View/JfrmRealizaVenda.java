@@ -6,12 +6,17 @@
 package View;
 
 import Controle.ProdutoControle;
+import Controle.VendaControle;
+import Modelo.Estoque;
 import Modelo.Funcionario;
 import Modelo.Produto;
+import Modelo.Venda;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
-
+import java.sql.Date;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Leticia Ribeiro
@@ -57,10 +62,11 @@ public class JfrmRealizaVenda extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jtxtQuantidade = new javax.swing.JTextField();
         jbtnSeta = new javax.swing.JButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadDinheiro = new javax.swing.JRadioButton();
+        jRadCartao = new javax.swing.JRadioButton();
         jAtualizar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jRemover = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -93,7 +99,7 @@ public class JfrmRealizaVenda extends javax.swing.JFrame {
         jLabel3.setText("Total:");
 
         jSoma.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
-        jSoma.setText("R$ 0.0");
+        jSoma.setText("0.0");
 
         jbtnFinalizarCompra.setText("Finalizar Compra");
         jbtnFinalizarCompra.addActionListener(new java.awt.event.ActionListener() {
@@ -141,11 +147,11 @@ public class JfrmRealizaVenda extends javax.swing.JFrame {
             }
         });
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("Dinheiro");
+        buttonGroup1.add(jRadDinheiro);
+        jRadDinheiro.setText("Dinheiro");
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("Cartão");
+        buttonGroup1.add(jRadCartao);
+        jRadCartao.setText("Cartão");
 
         jAtualizar.setText("Atualizar");
         jAtualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -154,12 +160,15 @@ public class JfrmRealizaVenda extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Remover");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jRemover.setText("Remover");
+        jRemover.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jRemoverActionPerformed(evt);
             }
         });
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
+        jLabel4.setText("R$");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -171,12 +180,14 @@ public class JfrmRealizaVenda extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addComponent(jLabel3)
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSoma, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jSoma, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
-                        .addComponent(jRadioButton1)
+                        .addComponent(jRadDinheiro)
                         .addGap(18, 18, 18)
-                        .addComponent(jRadioButton2)
+                        .addComponent(jRadCartao)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jbtnFinalizarCompra)
                         .addGap(18, 18, 18)
@@ -185,7 +196,7 @@ public class JfrmRealizaVenda extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jbtnSeta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -193,7 +204,7 @@ public class JfrmRealizaVenda extends javax.swing.JFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addComponent(jLabel8)
                                         .addGap(8, 8, 8)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(11, 11, 11)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,16 +213,14 @@ public class JfrmRealizaVenda extends javax.swing.JFrame {
                                         .addGap(26, 26, 26)
                                         .addComponent(jtxtProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jbtnPesquisar)
-                                        .addGap(0, 0, Short.MAX_VALUE))
+                                        .addComponent(jbtnPesquisar))
                                     .addComponent(jLabel6))
-                                .addGap(200, 200, 200)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 546, Short.MAX_VALUE)
                                 .addGap(16, 16, 16))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel7)
                                 .addGap(455, 455, 455))))))
             .addGroup(layout.createSequentialGroup()
@@ -220,7 +229,7 @@ public class JfrmRealizaVenda extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(jRemover)
                 .addGap(18, 18, 18)
                 .addComponent(jAtualizar)
                 .addGap(22, 22, 22))
@@ -243,31 +252,31 @@ public class JfrmRealizaVenda extends javax.swing.JFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(70, 70, 70)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jtxtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jbtnSeta)))))
+                                .addComponent(jbtnSeta)
+                                .addGap(33, 33, 33)))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(jSoma)
-                            .addComponent(jRadioButton1)
-                            .addComponent(jRadioButton2))
+                            .addComponent(jRadDinheiro)
+                            .addComponent(jRadCartao)
+                            .addComponent(jLabel4))
                         .addContainerGap(39, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jAtualizar)
-                            .addComponent(jButton1))
+                            .addComponent(jRemover))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jbtnFinalizarCompra)
@@ -285,69 +294,115 @@ public class JfrmRealizaVenda extends javax.swing.JFrame {
 
     private void jbtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnPesquisarActionPerformed
         // TODO add your handling code here:
+        if(jtxtProduto.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Todos os campos precisão ser preenchidos");
+        }else{
         Produto produto = new Produto();
         produto.setNomeProduto(jtxtProduto.getText());
         ProdutoControle produtoControle = new ProdutoControle();
         DefaultTableModel modeloTabela = (DefaultTableModel)jtblPesquisa.getModel();
-        modeloTabela = new DefaultTableModel(new String[] {"Nome do Produto", "Modelo", "Data de Validade", "Preço de Venda", "Quantidade"}, 0);
+        modeloTabela = new DefaultTableModel(new String[] {"Código", "Nome do Produto", "Modelo", "Data de Validade", "Preço de Venda", "Quantidade"}, 0);
         ArrayList<Produto> array = produtoControle.buscar(produto.getNomeProduto());
-        ArrayList<Float> arraycodigo = produtoControle.pegaQuantidade(produto.getNomeProduto());
+        ArrayList<Float> arraycodigo = produtoControle.pegaQuantidade2(produto.getNomeProduto());
         for(int i = 0; i < array.size();i++){
-            Object[] data = {array.get(i).getNomeProduto(), array.get(i).getModelo(), array.get(i).getDataValidade(),  array.get(i).getPrecoVenda(), arraycodigo.get(i)};
+            Object[] data = {array.get(i).getCodigo(), array.get(i).getNomeProduto(), array.get(i).getModelo(), array.get(i).getDataValidade(),  array.get(i).getPrecoVenda(), arraycodigo.get(i)};
             modeloTabela.addRow(data);
         }
         jtblPesquisa.setModel(modeloTabela);
-        jtblPesquisa.getColumnModel().getColumn(0).setPreferredWidth(50);
-        jtblPesquisa.getColumnModel().getColumn(1).setPreferredWidth(-10);
-        jtblPesquisa.getColumnModel().getColumn(2).setPreferredWidth(50);
+        jtblPesquisa.getColumnModel().getColumn(0).setPreferredWidth(-20);
+        jtblPesquisa.getColumnModel().getColumn(1).setPreferredWidth(50);
+        jtblPesquisa.getColumnModel().getColumn(2).setPreferredWidth(-10);
         jtblPesquisa.getColumnModel().getColumn(3).setPreferredWidth(50);
-        jtblPesquisa.getColumnModel().getColumn(4).setPreferredWidth(30);        
+        jtblPesquisa.getColumnModel().getColumn(4).setPreferredWidth(50);
+        jtblPesquisa.getColumnModel().getColumn(5).setPreferredWidth(30);  
+        }
     }//GEN-LAST:event_jbtnPesquisarActionPerformed
 
     private void jtxtQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtQuantidadeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxtQuantidadeActionPerformed
         ArrayList<Object> array = new ArrayList<>();
-        float soma=0;
+        float soma=0, quantidadeatualiza;
     private void jbtnSetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSetaActionPerformed
         // TODO add your handling code here:
+        if(jtxtQuantidade.getText().isEmpty() || jtxtProduto.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Todos os campos precisão ser preenchidos");
+        }else{
         Produto produto = new Produto();
-        produto.setNomeProduto(jtxtProduto.getText());
         DefaultTableModel modeloTabela = (DefaultTableModel)jtblLista.getModel();
-        modeloTabela = new DefaultTableModel(new String[] {"Nome do Produto", "Modelo", "Data de Validade", "Preço de Venda", "Quantidade"}, 0);
-        produto.setNomeProduto(jtblPesquisa.getValueAt(jtblPesquisa.getSelectedRow(), 0).toString());
-        produto.setModelo(jtblPesquisa.getValueAt(jtblPesquisa.getSelectedRow(), 1).toString());
-        produto.setDataValidade(jtblPesquisa.getValueAt(jtblPesquisa.getSelectedRow(), 2).toString());
-        produto.setPrecoVenda((Float.parseFloat(jtblPesquisa.getValueAt(jtblPesquisa.getSelectedRow(), 3).toString())));
-        Object[] data = {produto.getNomeProduto(), produto.getModelo(), produto.getDataValidade(),  produto.getPrecoVenda(), jtxtQuantidade.getText()};
+        modeloTabela = new DefaultTableModel(new String[] {"Codigo","Nome do Produto", "Modelo", "Data de Validade", "Preço de Venda", "Quantidade"}, 0);
+        produto.setCodigo(Integer.parseInt(jtblPesquisa.getValueAt(jtblPesquisa.getSelectedRow(), 0).toString()));
+        produto.setNomeProduto(jtblPesquisa.getValueAt(jtblPesquisa.getSelectedRow(), 1).toString());
+        produto.setModelo(jtblPesquisa.getValueAt(jtblPesquisa.getSelectedRow(), 2).toString());
+        produto.setDataValidade(jtblPesquisa.getValueAt(jtblPesquisa.getSelectedRow(), 3).toString());
+        produto.setPrecoVenda((Float.parseFloat(jtblPesquisa.getValueAt(jtblPesquisa.getSelectedRow(), 4).toString())));
+        quantidadeatualiza = Float.parseFloat(jtxtQuantidade.getText());
+        for(int i = 0 ; i < array.size();i++){
+            if(produto.getCodigo() == Integer.parseInt(jtblLista.getValueAt(i, 0).toString())){
+               quantidadeatualiza = Float.parseFloat(jtblLista.getValueAt(i, 5).toString())+Float.parseFloat(jtxtQuantidade.getText());
+               array.remove(i);
+            }
+        }
+        Object[] data = {produto.getCodigo(), produto.getNomeProduto(), produto.getModelo(), produto.getDataValidade(),  produto.getPrecoVenda(), quantidadeatualiza};
         array.add(data);
         for(int i =0; i< array.size();i++){
             modeloTabela.addRow((Object[]) array.get(i));
         }
         jtblLista.setModel(modeloTabela);
-        jtblLista.getColumnModel().getColumn(0).setPreferredWidth(50);
-        jtblLista.getColumnModel().getColumn(1).setPreferredWidth(-10);
-        jtblLista.getColumnModel().getColumn(2).setPreferredWidth(50);
-        jtblLista.getColumnModel().getColumn(3).setPreferredWidth(50);
-        jtblLista.getColumnModel().getColumn(4).setPreferredWidth(30);
+        jtblPesquisa.getColumnModel().getColumn(0).setPreferredWidth(-20);
+        jtblPesquisa.getColumnModel().getColumn(1).setPreferredWidth(50);
+        jtblPesquisa.getColumnModel().getColumn(2).setPreferredWidth(-10);
+        jtblPesquisa.getColumnModel().getColumn(3).setPreferredWidth(50);
+        jtblPesquisa.getColumnModel().getColumn(4).setPreferredWidth(50);
+        jtblPesquisa.getColumnModel().getColumn(5).setPreferredWidth(30);;
         soma = 0;
         for(int i =0; i < jtblLista.getRowCount();i++){
-            soma += Float.parseFloat(jtblLista.getValueAt(i, 3).toString())*Float.parseFloat(jtblLista.getValueAt(i, 4).toString());
+            soma += Float.parseFloat(jtblLista.getValueAt(i, 4).toString())*Float.parseFloat(jtblLista.getValueAt(i, 5).toString());
         }
-        jSoma.setText("R$ "+soma);
+        jSoma.setText(String.valueOf(soma));
+        }
     }//GEN-LAST:event_jbtnSetaActionPerformed
 
     private void jbtnFinalizarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnFinalizarCompraActionPerformed
         // TODO add your handling code here:
+        if(buttonGroup1.getSelection() == null){
+            JOptionPane.showMessageDialog(null, "Selecione dinheiro ou cartão");
+        }else{
+        ArrayList<Produto> arrayProduto = new ArrayList<>();
+        ArrayList<Estoque> arrayEstoque = new ArrayList<>();
+        for(int i = 0; i < jtblLista.getRowCount();i++){
+            Produto produto = new Produto();
+            produto.setCodigo(Integer.parseInt(jtblLista.getValueAt(i, 0).toString()));
+            arrayProduto.add(produto);
+            Estoque estoque = new Estoque();
+            estoque.setQuantidadeAtual(Float.parseFloat(jtblLista.getValueAt(i, 5).toString()));
+            arrayEstoque.add(estoque);
+        }
+        Venda venda = new Venda();
+        if(jRadDinheiro.isSelected()){
+            venda.setFormaPagamento("dinheiro");
+        }else if(jRadCartao.isSelected()){
+            venda.setFormaPagamento("cartao");
+        }
+        venda.setSomaVenda(Float.parseFloat(jSoma.getText()));
+        Date data = new Date(System.currentTimeMillis());  
+        SimpleDateFormat formatarDate = new SimpleDateFormat("dd/MM/yyyy"); 
+        venda.setDataVenda(String.valueOf(formatarDate.format(data)));
+        venda.setCodigoFuncionario(funcionario.getCodigo());
+        VendaControle vendaControle = new VendaControle();
+        int codigoVenda = vendaControle.adicionar(venda);
+        vendaControle.finalizarVenda(arrayProduto, arrayEstoque, codigoVenda);
+        }
+        dispose();
     }//GEN-LAST:event_jbtnFinalizarCompraActionPerformed
 
     private void jAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAtualizarActionPerformed
         // TODO add your handling code here:
         soma = 0;
         for(int i =0; i < jtblLista.getRowCount();i++){
-            soma += Float.parseFloat(jtblLista.getValueAt(i, 3).toString())*Float.parseFloat(jtblLista.getValueAt(i, 4).toString());
+            soma += Float.parseFloat(jtblLista.getValueAt(i, 4).toString())*Float.parseFloat(jtblLista.getValueAt(i, 5).toString());
         }
-        jSoma.setText("R$ "+soma);
+        jSoma.setText(String.valueOf(soma));
         array.clear();
         for(int i =0;i < jtblLista.getRowCount();i++){
             Produto produto = new Produto();
@@ -355,18 +410,23 @@ public class JfrmRealizaVenda extends javax.swing.JFrame {
             produto.setModelo(jtblLista.getValueAt(i, 1).toString());
             produto.setDataValidade(jtblLista.getValueAt(i, 2).toString());
             produto.setPrecoVenda((Float.parseFloat(jtblLista.getValueAt(i, 3).toString())));
-            array.add(produto);
+            Object[] data = {produto.getNomeProduto(), produto.getModelo(), produto.getDataValidade(),  produto.getPrecoVenda(), jtblLista.getValueAt(i, 4)};
+            array.add(data);
         }
     }//GEN-LAST:event_jAtualizarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRemoverActionPerformed
         // TODO add your handling code here:
         DefaultTableModel tableModel = (DefaultTableModel)jtblLista.getModel();
-        soma -= Float.parseFloat(jtblLista.getValueAt(jtblLista.getSelectedRow(), 3).toString());
+        soma -= Float.parseFloat(jtblLista.getValueAt(jtblLista.getSelectedRow(), 4).toString());
         array.remove(jtblLista.getSelectedRow());
         tableModel.removeRow(jtblLista.getSelectedRow());
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+        soma = 0;
+        for(int i =0; i < jtblLista.getRowCount();i++){
+            soma += Float.parseFloat(jtblLista.getValueAt(i, 4).toString())*Float.parseFloat(jtblLista.getValueAt(i, 5).toString());
+        }
+        jSoma.setText(String.valueOf(soma));
+    }//GEN-LAST:event_jRemoverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -409,16 +469,17 @@ public class JfrmRealizaVenda extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jAtualizar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadCartao;
+    private javax.swing.JRadioButton jRadDinheiro;
+    private javax.swing.JButton jRemover;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel jSoma;

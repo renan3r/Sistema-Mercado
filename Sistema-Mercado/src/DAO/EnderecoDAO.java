@@ -49,6 +49,36 @@ public class EnderecoDAO implements InterfaceDAO{
     public void alterar(Object obj) {
         throw new UnsupportedOperationException("Not supported yet."); //o change body of generated methods, choose Tools | Templates.
     }
+public ArrayList<Endereco> buscarEndFun(ArrayList<Funcionario> funcionarioBuscado) {
+        ArrayList<Endereco> arrayEndereco = new ArrayList<>();
+        
+
+        try {
+           
+            int a = 0;
+            for(int i = 0; funcionarioBuscado.size()>i; i++){
+
+                a = funcionarioBuscado.get(i).getCodigoEndereco();               
+
+                PreparedStatement stmt = ConexaoBD.conectar().prepareStatement("SELECT * FROM ENDERECO WHERE CODIGOENDERECO =" +a);
+                ResultSet rs = stmt.executeQuery();            
+
+                while (rs.next()) {  
+                    Endereco endereco = new Endereco();
+                    endereco.setBairro(rs.getString("BAIRRO"));
+                    endereco.setCidade(rs.getString("CIDADE"));
+                    endereco.setNumero(rs.getString("NUMERO"));
+                    endereco.setRua(rs.getString("RUA"));
+                    arrayEndereco.add(endereco);             
+                }            
+
+            }                   
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return arrayEndereco;
+    }
 
     public int CadastrarEnderecoFuncionario(Endereco endereco){
         
@@ -85,38 +115,6 @@ public class EnderecoDAO implements InterfaceDAO{
         return temp;        
     }
     
-    public ArrayList<Endereco> buscarEndFun(ArrayList<Funcionario> funcionarioBuscado) {
-        ArrayList<Endereco> arrayEndereco = new ArrayList<>();
-        
-        
-        try {
-           
-            int a = 0;
-            for(int i = 0; funcionarioBuscado.size()>i; i++){
-
-                a = funcionarioBuscado.get(i).getCodigoEndereco();
-
-                PreparedStatement stmt = ConexaoBD.conectar().prepareStatement("SELECT * FROM ENDERECO WHERE CODIGOENDERECO =" +a);
-                ResultSet rs = stmt.executeQuery();            
-
-                while (rs.next()) {  
-                    Endereco endereco = new Endereco();
-                    endereco.setBairro(rs.getString("BAIRRO"));
-                    endereco.setCidade(rs.getString("CIDADE"));
-                    endereco.setNumero(rs.getString("NUMERO"));
-                    endereco.setRua(rs.getString("RUA"));
-                    arrayEndereco.add(endereco);             
-                }            
-
-            }
-                       
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return arrayEndereco;
-    }
-  
     public int CadastrarEndereco(Endereco endereco){
         
         int temp = 1;

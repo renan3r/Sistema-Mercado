@@ -7,7 +7,9 @@ package View;
 
 import Controle.EnderecoControle;
 import Controle.FornecedorControle;
+import Controle.FuncionarioControle;
 import Modelo.Endereco;
+import Modelo.Funcionario;
 import com.itextpdf.io.font.FontConstants;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
@@ -20,6 +22,7 @@ import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import java.awt.Desktop;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -56,9 +59,9 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
         jMenuBuscarFuncionario = new javax.swing.JMenuItem();
         jMenuAlterarFuncionario = new javax.swing.JMenuItem();
         jmnGerarRelatorio = new javax.swing.JMenu();
-        jMenuGerarRelatorio = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        jRelatorioProduto = new javax.swing.JMenuItem();
+        jRelatorioFornecedor = new javax.swing.JMenuItem();
+        jRelatorioFunciona = new javax.swing.JMenuItem();
         jmnSair = new javax.swing.JMenu();
         jMenuSair = new javax.swing.JMenuItem();
 
@@ -104,29 +107,29 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
 
         jmnGerarRelatorio.setText("Relatórios");
 
-        jMenuGerarRelatorio.setText("Gerar Relatório de Produto");
-        jMenuGerarRelatorio.addActionListener(new java.awt.event.ActionListener() {
+        jRelatorioProduto.setText("Gerar Relatório de Produto");
+        jRelatorioProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuGerarRelatorioActionPerformed(evt);
+                jRelatorioProdutoActionPerformed(evt);
             }
         });
-        jmnGerarRelatorio.add(jMenuGerarRelatorio);
+        jmnGerarRelatorio.add(jRelatorioProduto);
 
-        jMenuItem1.setText("Gerar Relatório de Fornecedores");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jRelatorioFornecedor.setText("Gerar Relatório de Fornecedores");
+        jRelatorioFornecedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jRelatorioFornecedorActionPerformed(evt);
             }
         });
-        jmnGerarRelatorio.add(jMenuItem1);
+        jmnGerarRelatorio.add(jRelatorioFornecedor);
 
-        jMenuItem2.setText("Gerar Relatório de Funcionarios");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        jRelatorioFunciona.setText("Gerar Relatório de Funcionarios");
+        jRelatorioFunciona.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                jRelatorioFuncionaActionPerformed(evt);
             }
         });
-        jmnGerarRelatorio.add(jMenuItem2);
+        jmnGerarRelatorio.add(jRelatorioFunciona);
 
         jmnMenu.add(jmnGerarRelatorio);
 
@@ -202,66 +205,30 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
         alterarFuncionario.setVisible(true);
     }//GEN-LAST:event_jMenuAlterarFuncionarioActionPerformed
 
-    private void jMenuGerarRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuGerarRelatorioActionPerformed
+    private void jRelatorioProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRelatorioProdutoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuGerarRelatorioActionPerformed
+        JfrmRelatorioProduto relatorioProduto = new JfrmRelatorioProduto();
+        relatorioProduto.setLocationRelativeTo(null);
+        relatorioProduto.setDefaultCloseOperation(relatorioProduto.DISPOSE_ON_CLOSE);
+        relatorioProduto.setVisible(true);
+    }//GEN-LAST:event_jRelatorioProdutoActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void jRelatorioFuncionaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRelatorioFuncionaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+        JfrmRelatorioFuncionario relatorioFuncionario = new JfrmRelatorioFuncionario();
+        relatorioFuncionario.setLocationRelativeTo(null);
+        relatorioFuncionario.setDefaultCloseOperation(relatorioFuncionario.DISPOSE_ON_CLOSE);
+        relatorioFuncionario.setVisible(true);
+    }//GEN-LAST:event_jRelatorioFuncionaActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void jRelatorioFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRelatorioFornecedorActionPerformed
         // TODO add your handling code here:
-        try {
-            FornecedorControle fornecedor = new FornecedorControle();
-            EnderecoControle endereco = new EnderecoControle();
-            ArrayList<Endereco> arrayEndereco = new ArrayList<>();
-           for(int i=0; i < fornecedor.buscar().size(); i++){
-            for (int j=0;j<endereco.busca().size();j++){
-                    if(fornecedor.buscar().get(i).getCodigoEndereco()== endereco.busca().get(j).getCodigo()){
-                            
-                    arrayEndereco.add(endereco.busca().get(j));
-              
-                    }
-                }
-            }
-            PdfWriter writer = new PdfWriter("RelatorioFornecedor.pdf");
-            PdfDocument pdf = new PdfDocument(writer);           
-            Document document = new Document(pdf);            
-            document.setMargins(20, 20, 20, 20);
-            PdfFont font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
-            document.setFont(font);
-            Paragraph cabecalho1 = new Paragraph("Lista de Fornecedores");
-            document.add(cabecalho1);
-            Table table = new Table(9);
-            table.addCell(new Cell().add(new Paragraph("Codigo")));
-            table.addCell(new Cell().add(new Paragraph("Nome")));
-            table.addCell(new Cell().add(new Paragraph("CPF")));
-            table.addCell(new Cell().add(new Paragraph("CNPJ")));
-            table.addCell(new Cell().add(new Paragraph("Telefone")));
-            table.addCell(new Cell().add(new Paragraph("Rua")));
-            table.addCell(new Cell().add(new Paragraph("Numero")));
-            table.addCell(new Cell().add(new Paragraph("Bairro")));
-            table.addCell(new Cell().add(new Paragraph("Cidade")));
-            for(int i=0;i<fornecedor.buscar().size();i++){                
-                table.addCell(new Cell().add(new Paragraph(String.valueOf(fornecedor.buscar().get(i).getCodigo()))));
-                table.addCell(new Cell().add(new Paragraph(fornecedor.buscar().get(i).getNomeFornecedor())));
-                table.addCell(new Cell().add(new Paragraph(fornecedor.buscar().get(i).getCpfFornecedor())));
-                table.addCell(new Cell().add(new Paragraph(fornecedor.buscar().get(i).getCnpjFornecedor())));
-                table.addCell(new Cell().add(new Paragraph(fornecedor.buscar().get(i).getTelefone())));
-                table.addCell(new Cell().add(new Paragraph(endereco.busca().get(i).getRua())));
-                table.addCell(new Cell().add(new Paragraph(endereco.busca().get(i).getNumero())));
-                table.addCell(new Cell().add(new Paragraph(endereco.busca().get(i).getBairro())));
-                table.addCell(new Cell().add(new Paragraph(endereco.busca().get(i).getCidade())));
-            }
-            document.add(table);
-            document.close();
-            Desktop.getDesktop().open(new File("RelatorioFornecedor.pdf"));
-        } catch (IOException ex) {
-            Logger.getLogger(JfrmMenuGerente.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        JfrmRelatorioFornecedor relatorioFornecedor = new JfrmRelatorioFornecedor();
+        relatorioFornecedor.setLocationRelativeTo(null);
+        relatorioFornecedor.setDefaultCloseOperation(relatorioFornecedor.DISPOSE_ON_CLOSE);
+        relatorioFornecedor.setVisible(true);
 
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_jRelatorioFornecedorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -304,10 +271,10 @@ public class JfrmMenuGerente extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuBuscarFuncionario;
     private javax.swing.JMenuItem jMenuCadastrarFuncionario;
     private javax.swing.JMenuItem jMenuExcluirFuncionario;
-    private javax.swing.JMenuItem jMenuGerarRelatorio;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuSair;
+    private javax.swing.JMenuItem jRelatorioFornecedor;
+    private javax.swing.JMenuItem jRelatorioFunciona;
+    private javax.swing.JMenuItem jRelatorioProduto;
     private javax.swing.JMenu jmnAddFuncionario;
     private javax.swing.JMenu jmnGerarRelatorio;
     private javax.swing.JMenuBar jmnMenu;
