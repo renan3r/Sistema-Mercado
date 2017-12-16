@@ -115,7 +115,7 @@ public class JfrmRelatorioProduto extends javax.swing.JFrame {
         ArrayList<Produto> produtoBuscado = produtoControle.popular();        
         
         try {
-            PdfWriter writer = new PdfWriter("RelatorioFuncionarios.pdf");
+            PdfWriter writer = new PdfWriter("RelatorioProduto.pdf");
             PdfDocument pdf = new PdfDocument(writer); 
             Document document = new Document(pdf);
             document.setMargins(20, 20, 20, 20);
@@ -145,7 +145,7 @@ public class JfrmRelatorioProduto extends javax.swing.JFrame {
             document.add(table); 
             document.close();
             if(x>0){
-                Desktop.getDesktop().open(new File("RelatorioFuncionarios.pdf"));
+                Desktop.getDesktop().open(new File("RelatorioProduto.pdf"));
             }else{
                 JOptionPane.showMessageDialog(null, "Fornecedor não exite!!");
             }

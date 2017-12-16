@@ -144,16 +144,16 @@ public class JfrmRelatorioFornecedor extends javax.swing.JFrame {
             table.addCell(new Cell().add(new Paragraph("Cidade")));
             int x=0;
             for(int i=0;i<fornecedor.buscar().size();i++){          
-                if(jtxtCampo.getText().toLowerCase().equals(endereco.busca().get(i).getCidade().toLowerCase())){
+                if(jtxtCampo.getText().toLowerCase().equals(arrayEndereco.get(i).getCidade().toLowerCase())){
                     table.addCell(new Cell().add(new Paragraph(String.valueOf(fornecedor.buscar().get(i).getCodigo()))));
                     table.addCell(new Cell().add(new Paragraph(fornecedor.buscar().get(i).getNomeFornecedor())));
                     table.addCell(new Cell().add(new Paragraph(fornecedor.buscar().get(i).getCpfFornecedor())));
                     table.addCell(new Cell().add(new Paragraph(fornecedor.buscar().get(i).getCnpjFornecedor())));
                     table.addCell(new Cell().add(new Paragraph(fornecedor.buscar().get(i).getTelefone())));
-                    table.addCell(new Cell().add(new Paragraph(endereco.busca().get(i).getRua())));
-                    table.addCell(new Cell().add(new Paragraph(endereco.busca().get(i).getNumero())));
-                    table.addCell(new Cell().add(new Paragraph(endereco.busca().get(i).getBairro())));
-                    table.addCell(new Cell().add(new Paragraph(endereco.busca().get(i).getCidade())));
+                    table.addCell(new Cell().add(new Paragraph(arrayEndereco.get(i).getRua())));
+                    table.addCell(new Cell().add(new Paragraph(arrayEndereco.get(i).getNumero())));
+                    table.addCell(new Cell().add(new Paragraph(arrayEndereco.get(i).getBairro())));
+                    table.addCell(new Cell().add(new Paragraph(arrayEndereco.get(i).getCidade())));
                     x++;
                 }
             }

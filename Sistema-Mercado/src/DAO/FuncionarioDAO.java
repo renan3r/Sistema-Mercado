@@ -85,8 +85,6 @@ public class FuncionarioDAO implements InterfaceDAO{
         try {
             ps2 = ConexaoBD.conectar().prepareStatement("SELECT * FROM MERCADOBD.Funcionario where Login='" +funcionario.getLogin()+ "' AND senha='" +funcionario.getSenha() + "'" );
             rs = ps2.executeQuery();
-            ps2 = ConexaoBD.conectar().prepareStatement("SELECT * FROM MERCADOBD.Funcionario where Login='" +funcionario.getLogin()+ "' AND senha='" +funcionario.getSenha() + "'" );       
-            rs = ps2.executeQuery();
             while (rs.next()) {
                 String dados = rs.getString("tipo");
                 funcionario.setCodigo(rs.getInt("CODIGOFUNCIONARIO"));
